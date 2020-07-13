@@ -1,15 +1,15 @@
 module.exports = {
   pathPrefix: "/bradford-digital",
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Bradford Digital`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `James Bradfprd`,
+      summary: `who just forked a Gatsby blog starter...`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://arniebradfo.github.io/bradford-digital/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `arniebradfo`,
     },
   },
   plugins: [
