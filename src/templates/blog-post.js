@@ -30,12 +30,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p
             style={{
               ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
+              marginBottom: rhythm(0),
             }}
           >
             {post.frontmatter.date}
           </p>
+          {(post.frontmatter.tags.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
+            <p
+              style={{
+                ...scale(-1 / 5),
+              }}>
+              {post.frontmatter.tags.map(tag => <><a><small>{tag}</small></a>{' '}</>)}
+            </p>
+          )}
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -95,6 +102,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }
