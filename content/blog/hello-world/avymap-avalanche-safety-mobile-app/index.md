@@ -1,0 +1,76 @@
+---
+title: "AvyMap: Avalanche Safety Mobile App"
+date: "2019-02-01"
+---
+
+## The Problem
+
+Avalanches are a huge risk in the backcountry. There have already been [4 deaths](https://utahavalanchecenter.org/avalanches/fatalities) this winter season in Utah alone. I love ski touring, but the danger of an avalanche is always at the back of my mind. Traveling in the backcountry requires training, caution, and patience.
+
+A key to making good decisions is knowing the current conditions and which slopes are prone to slide. State funded avalanche reports, like those distributed by the [Utah Avalanche Center](https://utahavalanchecenter.org/), do a great job of distributing free info on the current snow conditions, but evaluating slope angles in the backcountry is haphazard at best. I wanted to make it easier for backcountry recreators to choose a safe slope, so I designed and prototyped an avalanche safety mobile app that uses terrain data to visually depict slope danger on a map.
+
+## Mobile App Design
+
+Whether you’re skiing, snowmobiling, or mountaineering, this app is designed to be your backcountry companion. It uses elevation data from [Mapbox Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb) to calculate the slope, aspect, and avalanche danger of any region of the world.
+
+\[video width="360" height="640" mp4="https://bradford.digital/bradford-digital/wp-content/uploads/AvyMaps-App-Movie-3.mp4" poster="https://bradford.digital/bradford-digital/wp-content/uploads/AvyMap\_Mockup-Mobile.png"\]\[/video\]
+
+ 
+
+This demo video shows how a user would open the app, check the local avalanche report, input the current avalanche danger ratings, and scan an area for avalanche danger.
+
+\[gallery ids="1152,1151" class="alignnone" maxwidth=1200 contentclass="bd-shadow bd-outline"\]
+
+## Representation of Slope Danger
+
+The danger is represented by colored dots and lines. The color and line length represent the degree of danger in accordance with the legend below. The colors follow the standard set in the [North American Public Avalanche Danger Scale](https://avalanche.org/avalanche-encyclopedia/danger-scale/). Put simply: green is ok, red is bad, longer lines are more dangerous. The direction of the lines also indicate the slope aspect and “fall line”, or the direction in which an avalanche will slide.
+
+\[gallery ids="1153,1154" class="alignnone" maxwidth=1200\]
+
+This graph depicts the percentage of human triggered avalanches by slope angle. 76% of human triggered avalanches occur on slopes that are 34°–45°, and 96% occur on slopes that are between 30° and 50°. Peak activity (8%) occurs at slopes of 39°.
+
+This graph is based on: Tremper, Bruce. "[Avalanche Charts for the Season](https://utahavalanchecenter.org/blog/15617)." _Utah Avalanche Center_, 2013.
+
+Supporting data can be found in: Fredston, Jill. Fesler, Doug. [_Snow Sense_](https://smile.amazon.com/Snow-Sense-Evaluating-Avalanche-Hazard/dp/061549935X/). Anchorage, AK: Alaska Mountain Safety Center, 1984.
+
+## The Working Prototype
+
+I built a working prototype in React. I’ve saved it to my android phone homepage as a progressive web app and personally use it on a regular basis. I’m currently developing a user test for this working html prototype and an Adobe Xd prototype.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/AvyMap_prototype-low-qual.gif)
+
+You can test drive the prototype here:
+
+[AvyMap Prototype](https://avymap.bradford.digital)
+
+## Future Development
+
+The prototype currently only works online, but service is spotty in the mountains. For this app to truly useful, it must have the ability to save maps for offline use. It is built in React with the intention of migrating over to a React Native app using Mapbox GL for React Native, which has offline maps functionality.
+
+A full list of features might include:
+
+- **Avalanche Danger Map** - Evaluate and display potential avalanche danger on an interactive map.
+- **Link to Official Report** - Geo-mapped avalanche advisory zones with links to the official government reports worldwide.
+- **Offline Maps & Reports** - save maps and official reports for use when cell service in the backcountry is spotty.
+- **Inclinometer** - Using the phone’s accelerometer to more accurately measure slope angle.
+- **Notifications** - Push a warning notification when a user enters dangerous terrain.
+- **Trip Planning** - Draw a route on the map to follow.
+- **Trip Recording** - Display a line of depicting where the user has been.
+- **Trip Report** - Analyze a post-trip report displaying travel distance, duration, elevation change, etc.
+- **Snow Conditions Wizard** - A how-to guide for digging a snow pit, evaluating snow conditions, and creating a geo-temporal record of the results in the app.
+- **Past Avalanche Data** - Show where avalanches have occurred in the past, and view individual avalanche observation reports.
+- **Training** - Avalanche safety information and where to take classes and learn more.
+
+## The Logo
+
+Every good project needs a killer logo. This one is based on the [North American Public Avalanche Danger Scale Icons](https://avalanche.org/avalanche-encyclopedia/danger-scale/).
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/AvyMap_Logo.svg)
+
+\[gallery ids="1144,1145,1146,1147,1148" contentclass="bd-outline"\]
+
+It's pixel aligned down to a 32px width, so it’s always super crisp at any multiple of 32px.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/AvyMap_Logo-Vectors-1024x582.png)
+
+Thanks for reading!

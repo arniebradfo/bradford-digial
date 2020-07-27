@@ -1,0 +1,104 @@
+---
+title: "Mobius UX Audit"
+date: "2018-04-08"
+---
+
+As a UX Designer at Autonomous Solutions Inc, I collaborated with the UX Lead to design a feature set for Mobius Command and Control Software, Version 7. Mobius is a Windows application used to remotely control a fleet of autonomous vehicles. It features an RTS-like function for tasking vehicles on a map and Adobe Illustrator-like functions for editing maps and predefined vehicle paths. Mobius utilizes the same core functionality to operate in multiple industry applications including: Mining, Agriculture, Automotive, Security, Cleaning, and Materials Handling.
+
+After two years, I was promoted to UX Lead and was put in charge of developing new ideas for Mobius. Mobius started out as a very simple piece of software, but as the AGILE process added more features one by one, the app became more cluttered and less coherent. When I was handed the reigns, some aspects the app were in disarray.
+
+## Problems
+
+I decided to perform a UX audit to take stock of the current state of the system and identify areas we could improve upon. I took feedback from 4 main groups: active daily users, new users, QA engineers, and our software developers. Some common problems emerged:
+
+1. **Performance:** The #1 complaint was performance. The app could be quite slow under load, sometimes taking 5 seconds to register a click, and up to 2 minutes to navigate between features. This was mostly due to issues with the map.
+2. **Affordances and Feedback:** Many buttons were only icons without explanatory text. Buttons also had problems with their interaction states, where normal, hover, and pressed states looked too similar.
+3. **Organization:** Toolbars and other features seemed out of place to frequent users. Navigation could also be confusing.
+4. **Consistency:** UI that performed similar classes of functions could look completely different from feature to feature.
+5. **Development Time:** A lack of consistency also meant a lack of reusable, out-of the box UI components. Custom UI was being developed for each new feature. In addition to being time consuming, this is also very error prone.
+6. **High UI Bug Rate:** A large amount of custom UI meant that there was a larger amount of code to test, and fixing a bug in one place wouldn’t fix similar bugs elsewhere.
+7. **One-size Fits All Solution:** A core set of features can be shared between industry applications, which saves a tremendous amount of development time. This, however, means those core features have to adhere to a least-common denominator strategy, leading to a jack of all trades, master of none, application. Users in one industry, who didn’t know or care about other industries, were confused as to why the app wasn’t tailored to their specific use case. It’s a trade-off.
+
+## Solutions
+
+I proposed a two-part solution in the form of a Design System, the first part being to re-architect the app’s Information Architecture and consolidate the existing UI into a small library of UI components. The second part would be to re-architect the code that drives the UI to be more modular, reusable, and performant.
+
+### Part 1: Information Architecture
+
+#### Affordances & Feedback
+
+In version 7, interaction would only change the foreground color of a button. This subtle change was often missed by users, leading them to believe that the button hadn’t been pressed when it had or vice versa. Users also couldn’t identify the boundary or size of most buttons, because they didn’t have an outline or background, leading to missed presses and interaction failures.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-6-Interaction-States-Old.svg)
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-6-Interaction-States-New.svg)
+
+To improve affirmative UI feedback, interaction now includes a change in background color. The boundary of the button is clearly visible, and the visual change is much more noticeable. This reduces interaction mistakes and gives users more confidence in their control.
+
+#### Organization: Toolbar & Button Placement.
+
+The version 7 solution toolbar placed all feature buttons in a vertical bar on the left. This bar was often confused with the navigation menu and became overly crowded as more features were added. The function of each of the buttons was not obvious and often lead to the a duplicate button being placed somewhere else on the screen.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-2-Toolbars.png)
+
+The fix was to remove the toolbar and reorganize the buttons it contained into smaller toolbars that were placed adjacent to the content they operate on.
+
+#### High UI Bug Rate: Simple UI
+
+The map contained a lot of floating UI. This began as simple, one-action buttons and ballooned into full panels of controls. These panels had to track the object they were linked to without obstructing it, and could not fall outside the bounds of the window where they become unusable. They frequently failed to follow these rules, and users hated them. They also slowed down the map performance due to the computational overhead of free-roaming boxes of UI all over the map.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-1-Floating-UI.png)
+
+Docking this UI to the side of the map helps the UI to behave in a more predictable way. This simple solution improves performance, reduces development time, and produces a better UX. Some smaller commands can still be placed on the map, just not entire panels of UI.
+
+#### Consistency: A Standard Hierarchy
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-5-General-Specific.svg)Almost all languages read from left-to-right and top-to-bottom. This means that most users will start at the top left of an interface and scan to the right and down as they would read text. The hierarchy of information in any interface layout should follow suit with more general information located in the top left and more specific information moving to the right and down. Most UIs follow this principle, and Mobius should, too.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-5-Left-to-Right.png)
+
+#### Development Time: Modular Feature Placement
+
+One of the most frustrating aspects of UX design for Mobius was that there was no obvious place to put new features. All of the existing features had filled their own niche, and finding room for something new could be a challenge. New features would also include new, custom UI that led to a huge degree of inconsistency in the UI. This confuses users, who have to learn to navigate a new layout on every screen.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-3-New-Feature.png)
+
+My solution was to create uniform, repeatable, title-content layout panels that can be added or removed in a modular way. The eliminates the need for custom UI and improves the UX by forcing the app to follow a consistent, predictable layout.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/Mobius-v7-vs-v8-4-Rearranged.png)
+
+When all was said and done, I proposed a major reorganization of the UI. Preliminary prototype testing gave me confidence that this was the right direction.
+
+### V 7.0 Current V 8.0 Next
+
+\[gallery ids="837,853" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="838,854" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="839,855" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="840,856" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="842,857" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="843,858" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="844,859" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="845,860" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+\[gallery ids="846,861" maxwidth=1200 class="alignnone" contentclass="bd-square bd-outline bd-shadow"\]
+
+### Part 2: Structural Changes
+
+#### Performance
+
+Performance was the biggest UX issue and also the one I had the least control over. The performance problems were not caused by the server-side business logic but were mostly due to poorly written, overly complex UI code, specifically in the map. The best way I could envision making a more performant app was to rewrite the client in HTML, utilizing out-of-the-box tools like [mapbox.js](https://www.mapbox.com/) for the maps, and [D3.js](https://d3js.org/) for graphing and gauges. This way our engineers could focus on writing business-logic code that controls our vehicles instead of UI code that we could get off-the-shelf for free.
+
+I built a demo of an HTML client using mapbox.js to demonstrate the performance benefits.
+
+#### One-size Fits All
+
+A new code architecture could include modular UI composition on a feature-by-feature basis. The UI could be totally different from industry to industry or even from task to task, but could still share certain features that are common to all industries, like map creation. These structural changes would pave the way for creating new custom Mobius Client applications that could speak to a single Mobius Server.
+
+You can read more about modular structural changes in the next post: Mobius Design System.

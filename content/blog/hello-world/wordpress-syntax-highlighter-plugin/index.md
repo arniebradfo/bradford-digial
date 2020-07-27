@@ -1,0 +1,96 @@
+---
+title: "WordPress Syntax Highlighter Plugin"
+date: "2019-01-20"
+---
+
+> A plug-in has never made me cry but this one has. It is the most amazing, lightweight, and functional plugin I have ever had the honor of using. It is a must use plugin for any one serious about WordPress and frankly should be built in to WordPress.
+> 
+> [– A very satisfied user](https://wordpress.org/support/topic/a-plug-in-has-never-made-me-cry/)
+
+## The Problem
+
+I’ve been working with WordPress for years. The Visual Editor is nice, but I always reach the point where I need to edit code directly. Unfortunately, the WordPress Code Editor is… not good. It’s just a monospace textarea that could contain hundreds of lines of code. It’s impossible to read that much code in just black and white. I need my code syntax highlighted, so I would paste my post content into my own code editor, edit it, and then paste it back into WordPress. I kept thinking how nice it would be if I could just edit code directly in the WordPress Post Editor section. I tried several plugins, but none of them did quite what I needed.
+
+Then I found the [HTML Editor Syntax Highlighter](https://wordpress.org/plugins/html-editor-syntax-highlighter/) by [Petr Mukhortov](https://www.mukhortov.com/). It worked pretty much exactly how I wanted, with the exception of one glaring hole: WordPress shortcodes were not highlighted.
+
+### WordPress Shortcodes
+
+WordPress has a component feature called shortcodes. A developer can write a reusable component in php/html and call it from a “shortcode” in the post. They have a syntax almost exactly like xml or html, but with square brackets instead of angle brackets. They can also be mixed in with html markup. Some example code might look like this:
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_shortcode-no-highlighting.png)
+
+I, like most WordPress devs, heavily relied on shortcodes for a more DRY document. In fact, most of the code in my posts were shortcodes, not html. I needed the syntax highlighting to work on the shortcodes, too.
+
+## The Solution
+
+I decided to fix it myself. How hard could it be, right? Well, it was very hard. I forked the plugin’s [Github repo](https://github.com/mukhortov/HESH-WordPress-Plugin), and started programming a shortcode parser for [CodeMirror.js](https://codemirror.net/doc/manual.html#modeapi). For just the shortcode parsing, I copied the existing xml parser and replaced the `<angle-brackets/>` with `[square-brackets/]`, but getting the parser to switch between html parsing and shortcode parsing proved to be quite difficult. I had to make another _“wordpress post”_ parser that could switch between html, shortcodes, css style blocks, and script blocks. I did eventually make it work, and Petr merged my branch in and released version 1.7. Now my code looked much better:
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_shortcode-highlighting.png)
+
+But having worked with CodeMirror, I realized how much better my code editing experience could be if only I were to implement more of CodeMirror’s features. So I ran with it.
+
+## Version 2.0
+
+For version 2, I added a bunch of new features (listed below) and totally refactored the codebase. Big thanks to Petr for letting me hijack his plugin.
+
+### Options Panel
+
+I added an options panel. I liked how I didn’t have to go to a different page to change the settings. Everything is done right in the editor and I can see the changes immediately. The options panel itself has some snazzy transitions, and even tracks the page in certain scrolling contexts.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_settings-animation.gif)
+
+### Themes
+
+The CodeMirror repo has several themes, and I added all of them as options. Maybe too many, to be honest (Some of them are garbage.). I also wrote one that matches WordPress branding.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_theme-change.gif)
+
+### Text Display
+
+I added quick options to change the Indentation, Line Wrapping, Line Numbering, Line Height, and Font Size.
+
+![](http://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_text-settings-fast.gif)
+
+### Search and Replace
+
+Search and replace is an extremely helpful for larger files. If a user changes a css class name, they don’t have to go manually find and fix each instance. It even works with RegEx.
+
+![](http://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_find-and-replace.gif)
+
+### The Theme and Plugin Editor
+
+The same code editor also runs in the theme and plugin editor, but with highlighting for the file type being edited.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_plugin-editor.gif)
+
+When I first download v1.6 The Plugin had less than 10,000 active installs. Now, v2.3 has more than 40,000 active installs, 270,000 all-time downloads, and a 4.4 star rating. I still make regular updates and bug fixes and handle support requests. I love knowing that something I built helps so many people.
+
+## Gutenberg
+
+And then the new WordPress 5.0 post editor, [Gutenberg](https://wordpress.org/gutenberg/), came along, and my users were requesting that the new editor be supported. After quite a bit of effort, I got syntax highlighting running in the code editor side of Gutenberg, but the implementation was not pretty. Gutenberg is written in React and the API allows for component extension. I know it could be done a better way.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_gutenberg-support.png)
+
+It still doesn’t work in Classic Editor Block, the HTML Block, The Shortcode Block, or the “Edit as HTML” feature of every block or the and [users complain about this](https://wordpress.org/support/topic/not-working-with-gutenberg-5/), but I’m not sure I can fix it in any reasonable amount of time. I am working for free, after all.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_gutenberg-no-support.png)
+
+Gutenberg uses a new _html-comment-with-json_ syntax for its block editor. WordPress Core has depreciated shortcodes in favor of Gutenberg bocks. For a code editor plugin to be truly useful in Gutenberg, it would have to syntax highlight this new Gutenberg syntax.
+
+## Moving Forward: Version 3.0
+
+Like all living things, the plugin’s codebase evolved from something that was once very simple. But now It's basically just one giant javascript file. It needs to be rearchitected if it's going to move forward. And if I were to redo it, I would much prefer using more modern tools, like Webpack, Typescript, and Microsoft's Monaco Code Editor.
+
+The [Monaco Code Editor](https://microsoft.github.io/monaco-editor/) is the power behind [Visual Studio Code](https://code.visualstudio.com/). It’s an open source, HTML based code-editor that has the full support of a Microsoft dev team behind it. It is significantly better than CodeMirror. It also has a declarative, json-based method of writing syntax highlighting parsers known as [Monarch](https://microsoft.github.io/monaco-editor/monarch.html). I used it to write a new parser for Gutenberg syntaxes.
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_monaco-example.png)
+
+Version 3 of the plugin will be a total rewrite using the Monaco code editor in place of CodeMirror. This time, I can architect the codebase more efficiently by utilizing Webpack and Typescript.
+
+_**The goal is to have syntax highlighting everywhere you edit code in WP admin.**_
+
+It’s going to be called WP Code: like VS Code, but WordPress. I produced a logo that fits into the Microsoft Visual Studio suite of logos:
+
+![](https://bradford.digital/bradford-digital/wp-content/uploads/html-syntax-highlighter-wordpress-plugin_wp-code-logo-bg.svg)
+
+\[gallery class="alignnone" ids="684,685,687,686,688" maxwidth=1200\]
