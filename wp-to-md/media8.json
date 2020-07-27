@@ -1,0 +1,649 @@
+[
+    {
+        "id": 66,
+        "date": "2019-02-04T23:06:19",
+        "date_gmt": "2019-02-05T06:06:19",
+        "guid": {
+            "rendered": "http://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg"
+        },
+        "modified": "2019-02-05T14:26:55",
+        "modified_gmt": "2019-02-05T21:26:55",
+        "slug": "james-bradford-travel-photo-greece-acropolis-sunrise",
+        "status": "inherit",
+        "type": "attachment",
+        "link": "https://bradford.digital/travel-photography/james-bradford-travel-photo-greece-acropolis-sunrise/",
+        "title": {
+            "rendered": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise"
+        },
+        "author": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": [],
+        "description": {
+            "rendered": "<p class=\"attachment\"><a href='https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg'><img width=\"300\" height=\"200\" src=\"https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-300x200.jpg 300w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-768x512.jpg 768w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-1024x683.jpg 1024w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-1600x1067.jpg 1600w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+        },
+        "caption": {
+            "rendered": ""
+        },
+        "alt_text": "",
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "media_details": {
+            "width": 5184,
+            "height": 3456,
+            "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg",
+            "sizes": {
+                "thumbnail": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-150x150.jpg",
+                    "width": 150,
+                    "height": 150,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-150x150.jpg"
+                },
+                "medium": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-300x200.jpg",
+                    "width": 300,
+                    "height": 200,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-300x200.jpg"
+                },
+                "medium_large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-768x512.jpg",
+                    "width": 768,
+                    "height": 512,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-768x512.jpg"
+                },
+                "large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-1024x683.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-1024x683.jpg"
+                },
+                "x_large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-1600x1067.jpg",
+                    "width": 1600,
+                    "height": 1067,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-1600x1067.jpg"
+                },
+                "xx_large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-2000x1333.jpg",
+                    "width": 2000,
+                    "height": 1333,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-2000x1333.jpg"
+                },
+                "x_large@2x": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-3200x2133.jpg",
+                    "width": 3200,
+                    "height": 2133,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-3200x2133.jpg"
+                },
+                "xx_large@2x": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-4000x2667.jpg",
+                    "width": 4000,
+                    "height": 2667,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise-4000x2667.jpg"
+                },
+                "full": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg",
+                    "width": 5184,
+                    "height": 3456,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg"
+                }
+            },
+            "image_meta": {
+                "aperture": "9",
+                "credit": "James Bradford",
+                "camera": "Canon EOS 650D",
+                "caption": "",
+                "created_timestamp": "1539677703",
+                "copyright": "\u00a9 James Bradford",
+                "focal_length": "37",
+                "iso": "100",
+                "shutter_speed": "0.00625",
+                "title": "",
+                "orientation": "0",
+                "keywords": []
+            }
+        },
+        "post": 60,
+        "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg",
+        "_links": {
+            "self": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media/66"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/types/attachment"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/users/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/comments?post=66"
+                }
+            ]
+        }
+    },
+    {
+        "id": 65,
+        "date": "2019-02-04T23:05:55",
+        "date_gmt": "2019-02-05T06:05:55",
+        "guid": {
+            "rendered": "http://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg"
+        },
+        "modified": "2019-02-04T23:05:55",
+        "modified_gmt": "2019-02-05T06:05:55",
+        "slug": "james-bradford-travel-photo-greece-acropolis-model",
+        "status": "inherit",
+        "type": "attachment",
+        "link": "https://bradford.digital/james-bradford-travel-photo-greece-acropolis-model/",
+        "title": {
+            "rendered": "James-Bradford-Travel-Photo-Greece-Acropolis-Model"
+        },
+        "author": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": [],
+        "description": {
+            "rendered": "<p class=\"attachment\"><a href='https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg'><img width=\"300\" height=\"200\" src=\"https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-300x200.jpg 300w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-768x512.jpg 768w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-1024x683.jpg 1024w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-1600x1067.jpg 1600w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+        },
+        "caption": {
+            "rendered": ""
+        },
+        "alt_text": "",
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "media_details": {
+            "width": 5184,
+            "height": 3456,
+            "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg",
+            "sizes": {
+                "thumbnail": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-150x150.jpg",
+                    "width": 150,
+                    "height": 150,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-150x150.jpg"
+                },
+                "medium": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-300x200.jpg",
+                    "width": 300,
+                    "height": 200,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-300x200.jpg"
+                },
+                "medium_large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-768x512.jpg",
+                    "width": 768,
+                    "height": 512,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-768x512.jpg"
+                },
+                "large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-1024x683.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-1024x683.jpg"
+                },
+                "x_large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-1600x1067.jpg",
+                    "width": 1600,
+                    "height": 1067,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-1600x1067.jpg"
+                },
+                "xx_large": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-2000x1333.jpg",
+                    "width": 2000,
+                    "height": 1333,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-2000x1333.jpg"
+                },
+                "x_large@2x": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-3200x2133.jpg",
+                    "width": 3200,
+                    "height": 2133,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-3200x2133.jpg"
+                },
+                "xx_large@2x": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model-4000x2667.jpg",
+                    "width": 4000,
+                    "height": 2667,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model-4000x2667.jpg"
+                },
+                "full": {
+                    "file": "James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg",
+                    "width": 5184,
+                    "height": 3456,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg"
+                }
+            },
+            "image_meta": {
+                "aperture": "4",
+                "credit": "James Bradford",
+                "camera": "Canon EOS 650D",
+                "caption": "",
+                "created_timestamp": "1539439000",
+                "copyright": "\u00a9 James Bradford",
+                "focal_length": "70",
+                "iso": "100",
+                "shutter_speed": "0.005",
+                "title": "",
+                "orientation": "0",
+                "keywords": []
+            }
+        },
+        "post": null,
+        "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg",
+        "_links": {
+            "self": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media/65"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/types/attachment"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/users/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/comments?post=65"
+                }
+            ]
+        }
+    },
+    {
+        "id": 43,
+        "date": "2019-02-03T15:34:54",
+        "date_gmt": "2019-02-03T22:34:54",
+        "guid": {
+            "rendered": "http://bradford.digital/bradford-digital/wp-content/uploads/bradford-digital-ogo-32x60.svg"
+        },
+        "modified": "2019-02-03T15:34:54",
+        "modified_gmt": "2019-02-03T22:34:54",
+        "slug": "bradford-digital-ogo-32x60",
+        "status": "inherit",
+        "type": "attachment",
+        "link": "https://bradford.digital/bradford-digital-ogo-32x60/",
+        "title": {
+            "rendered": "bradford-digital-ogo-32&#215;60"
+        },
+        "author": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": [],
+        "description": {
+            "rendered": "<p class=\"attachment\"><a href='https://bradford.digital/bradford-digital/wp-content/uploads/bradford-digital-ogo-32x60.svg'><img width=\"1\" height=\"1\" src=\"https://bradford.digital/bradford-digital/wp-content/uploads/bradford-digital-ogo-32x60.svg\" class=\"attachment-medium size-medium\" alt=\"\" /></a></p>\n"
+        },
+        "caption": {
+            "rendered": ""
+        },
+        "alt_text": "",
+        "media_type": "image",
+        "mime_type": "image/svg+xml",
+        "media_details": {},
+        "post": null,
+        "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/bradford-digital-ogo-32x60.svg",
+        "_links": {
+            "self": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media/43"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/types/attachment"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/users/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/comments?post=43"
+                }
+            ]
+        }
+    },
+    {
+        "id": 41,
+        "date": "2019-02-03T10:32:45",
+        "date_gmt": "2019-02-03T17:32:45",
+        "guid": {
+            "rendered": "http://bradford.digital/bradford-digital/wp-content/uploads/james-bradford.jpg"
+        },
+        "modified": "2019-02-03T10:37:32",
+        "modified_gmt": "2019-02-03T17:37:32",
+        "slug": "rhdr",
+        "status": "inherit",
+        "type": "attachment",
+        "link": "https://bradford.digital/james-bradford-about-and-contact/rhdr/",
+        "title": {
+            "rendered": ""
+        },
+        "author": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": [],
+        "description": {
+            "rendered": "<p class=\"attachment\"><a href='https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford.jpg'><img width=\"300\" height=\"225\" src=\"https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-300x225.jpg\" class=\"attachment-medium size-medium\" alt=\"James Bradford\" srcset=\"https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-300x225.jpg 300w, https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-768x576.jpg 768w, https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-1024x768.jpg 1024w, https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-100x75.jpg 100w, https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-1600x1200.jpg 1600w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+        },
+        "caption": {
+            "rendered": ""
+        },
+        "alt_text": "James Bradford",
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "media_details": {
+            "width": 3968,
+            "height": 2976,
+            "file": "james-bradford.jpg",
+            "sizes": {
+                "thumbnail": {
+                    "file": "james-bradford-150x150.jpg",
+                    "width": 150,
+                    "height": 150,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-150x150.jpg"
+                },
+                "medium": {
+                    "file": "james-bradford-300x225.jpg",
+                    "width": 300,
+                    "height": 225,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-300x225.jpg"
+                },
+                "medium_large": {
+                    "file": "james-bradford-768x576.jpg",
+                    "width": 768,
+                    "height": 576,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-768x576.jpg"
+                },
+                "large": {
+                    "file": "james-bradford-1024x768.jpg",
+                    "width": 1024,
+                    "height": 768,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-1024x768.jpg"
+                },
+                "post-thumbnail": {
+                    "file": "james-bradford-150x150.jpg",
+                    "width": 150,
+                    "height": 150,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-150x150.jpg"
+                },
+                "small": {
+                    "file": "james-bradford-100x75.jpg",
+                    "width": 100,
+                    "height": 75,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-100x75.jpg"
+                },
+                "extralarge": {
+                    "file": "james-bradford-1600x1200.jpg",
+                    "width": 1600,
+                    "height": 1200,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-1600x1200.jpg"
+                },
+                "transitions-featured-image": {
+                    "file": "james-bradford-2000x1200.jpg",
+                    "width": 2000,
+                    "height": 1200,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford-2000x1200.jpg"
+                },
+                "full": {
+                    "file": "james-bradford.jpg",
+                    "width": 3968,
+                    "height": 2976,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford.jpg"
+                }
+            },
+            "image_meta": {
+                "aperture": "1.8",
+                "credit": "",
+                "camera": "EML-L09",
+                "caption": "rhdr",
+                "created_timestamp": "1543249794",
+                "copyright": "",
+                "focal_length": "3.95",
+                "iso": "50",
+                "shutter_speed": "0.0015625",
+                "title": "rhdr",
+                "orientation": "0",
+                "keywords": []
+            }
+        },
+        "post": 9,
+        "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/james-bradford.jpg",
+        "_links": {
+            "self": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media/41"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/types/attachment"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/users/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/comments?post=41"
+                }
+            ]
+        }
+    },
+    {
+        "id": 23,
+        "date": "2019-02-03T07:37:08",
+        "date_gmt": "2019-02-03T14:37:08",
+        "guid": {
+            "rendered": "http://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait.jpg"
+        },
+        "modified": "2019-02-03T07:37:08",
+        "modified_gmt": "2019-02-03T14:37:08",
+        "slug": "james-bradford-portrait",
+        "status": "inherit",
+        "type": "attachment",
+        "link": "https://bradford.digital/james-bradford-about-and-contact/james-bradford-portrait/",
+        "title": {
+            "rendered": "James-Bradford-Portrait"
+        },
+        "author": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": [],
+        "description": {
+            "rendered": "<p class=\"attachment\"><a href='https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait.jpg'><img width=\"300\" height=\"200\" src=\"https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-300x200.jpg 300w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-768x512.jpg 768w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-1024x683.jpg 1024w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-100x67.jpg 100w, https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-1600x1067.jpg 1600w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+        },
+        "caption": {
+            "rendered": ""
+        },
+        "alt_text": "",
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "media_details": {
+            "width": 3000,
+            "height": 2000,
+            "file": "James-Bradford-Portrait.jpg",
+            "sizes": {
+                "thumbnail": {
+                    "file": "James-Bradford-Portrait-150x150.jpg",
+                    "width": 150,
+                    "height": 150,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-150x150.jpg"
+                },
+                "medium": {
+                    "file": "James-Bradford-Portrait-300x200.jpg",
+                    "width": 300,
+                    "height": 200,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-300x200.jpg"
+                },
+                "medium_large": {
+                    "file": "James-Bradford-Portrait-768x512.jpg",
+                    "width": 768,
+                    "height": 512,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-768x512.jpg"
+                },
+                "large": {
+                    "file": "James-Bradford-Portrait-1024x683.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-1024x683.jpg"
+                },
+                "post-thumbnail": {
+                    "file": "James-Bradford-Portrait-150x150.jpg",
+                    "width": 150,
+                    "height": 150,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-150x150.jpg"
+                },
+                "small": {
+                    "file": "James-Bradford-Portrait-100x67.jpg",
+                    "width": 100,
+                    "height": 67,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-100x67.jpg"
+                },
+                "extralarge": {
+                    "file": "James-Bradford-Portrait-1600x1067.jpg",
+                    "width": 1600,
+                    "height": 1067,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-1600x1067.jpg"
+                },
+                "transitions-featured-image": {
+                    "file": "James-Bradford-Portrait-2000x1200.jpg",
+                    "width": 2000,
+                    "height": 1200,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait-2000x1200.jpg"
+                },
+                "full": {
+                    "file": "James-Bradford-Portrait.jpg",
+                    "width": 3000,
+                    "height": 2000,
+                    "mime_type": "image/jpeg",
+                    "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait.jpg"
+                }
+            },
+            "image_meta": {
+                "aperture": "0",
+                "credit": "",
+                "camera": "",
+                "caption": "",
+                "created_timestamp": "0",
+                "copyright": "",
+                "focal_length": "0",
+                "iso": "0",
+                "shutter_speed": "0",
+                "title": "",
+                "orientation": "0",
+                "keywords": []
+            }
+        },
+        "post": 9,
+        "source_url": "https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Portrait.jpg",
+        "_links": {
+            "self": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media/23"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/media"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://bradford.digital/wp-json/wp/v2/types/attachment"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/users/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https://bradford.digital/wp-json/wp/v2/comments?post=23"
+                }
+            ]
+        }
+    }
+]
