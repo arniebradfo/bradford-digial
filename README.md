@@ -1,4 +1,4 @@
-# bradford-digial
+# bradford-digital
 A portfolio blog site run on Gatsby and hosted by gh pages.
 
 
