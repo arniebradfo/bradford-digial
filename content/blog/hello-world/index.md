@@ -13,7 +13,7 @@ We spent two weeks in efficient, clean, well-designed Japan. We utilized the imp
 
 [TOKYO GALLERY](https://adobe.ly/2Gotu7K) / [SOUTHERN JAPAN GALLERY](https://adobe.ly/2Sqm7Tt)
 
-![Japan Gate](../../../lfs-media/James-Bradford-Travel-Photo-Japan-2.jpg)
+![Japan Gate](../../lfs-media/James-Bradford-Travel-Photo-Japan-2.jpg)
 
 ## Thailand
 Bangkok was a harsh awakening after the clean efficiency of Japan. We traveled by train and bus to the rainforests of Khao Sok National Park and the beaches at Ao Nang. Our favorite was Khao Sok, where we spent a night in a floating pontoon cabin and saw monkeys and toucans.
