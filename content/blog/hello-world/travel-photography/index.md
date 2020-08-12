@@ -13,9 +13,9 @@ We spent two weeks in efficient, clean, well-designed Japan. We utilized the imp
 
 [Tokyo Gallery](https://adobe.ly/2Gotu7K)[Southern Japan Gallery](https://adobe.ly/2Sqm7Tt)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Japan-2.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Japan-2.jpg)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Japan-9.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Japan-9.jpg)
 
 \[gallery maxwidth=1200 ids="113,105" class="alignnone"\]
 
@@ -23,7 +23,7 @@ We spent two weeks in efficient, clean, well-designed Japan. We utilized the imp
 
 \[gallery maxwidth=1200 ids="106,99,103" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Japan-6.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Japan-6.jpg)
 
 \[gallery maxwidth=1200 ids="102,101" class="alignnone"\]
 
@@ -33,11 +33,11 @@ Bangkok was a harsh awakening after the clean efficiency of Japan. We traveled b
 
 [Bangkok Gallery](https://adobe.ly/2Gnv1e0)[Khao Sok Gallery](https://adobe.ly/2GjKD2l)[Ao Nang Gallery](https://adobe.ly/2GnhALi)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Thailand-5.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Thailand-5.jpg)
 
 \[gallery maxwidth=1200 ids="147,138" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Thailand-9.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Thailand-9.jpg)
 
 \[gallery maxwidth=1200 ids="150,143,140" class="alignnone"\]
 
@@ -45,7 +45,7 @@ Bangkok was a harsh awakening after the clean efficiency of Japan. We traveled b
 
 \[gallery maxwidth=1200 ids="144,141,139" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Thailand-11.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Thailand-11.jpg)
 
 ## Singapore
 
@@ -53,11 +53,11 @@ Singapore is some kind of futuristic utopian mega-city. The entire city is a per
 
 [Singapore Gallery](https://adobe.ly/2SpQDNn)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Singapore-1.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Singapore-1.jpg)
 
 \[gallery maxwidth=1200 ids="137,136,135,134" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Singapore-2.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Singapore-2.jpg)
 
 ## Malaysia
 
@@ -67,7 +67,7 @@ We spent a couple days in Kuala Lumpur as a stopover between Singapore and India
 
 \[gallery maxwidth=1200 class="alignnone" ids="124,126,125"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Malaysia-1.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Malaysia-1.jpg)
 
 ## Ladakh
 
@@ -75,7 +75,7 @@ We flew into Delhi, met up with our college friend, and a few hours laters were 
 
 [Ladakh Gallery](https://adobe.ly/2SxPXFX)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Ledakh-9.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Ledakh-9.jpg)
 
 \[gallery maxwidth=1200 ids="121,120" class="alignnone"\]
 
@@ -83,7 +83,7 @@ We flew into Delhi, met up with our college friend, and a few hours laters were 
 
 \[gallery maxwidth=1200 ids="116,114" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Ledakh-2.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Ledakh-2.jpg)
 
 ## India
 
@@ -91,7 +91,7 @@ After our time in Ladakh, we began a month-long trek across central and western 
 
 [Delhi Gallery](https://adobe.ly/2Sr7qzr)[Ajanta & Ellora Gallery](https://adobe.ly/2Sr7qzr)[Udaipur Gallery](https://adobe.ly/2SmTFlD)[Jodhpur Gallery](https://adobe.ly/2Gmo2lz)[Jaisalmer Gallery](https://adobe.ly/2GkYLIw)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-India-Jaisalmer-Lake.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-India-Jaisalmer-Lake.jpg)
 
 \[gallery maxwidth=1200 ids="80,88,81" class="alignnone"\]
 
@@ -101,7 +101,7 @@ After our time in Ladakh, we began a month-long trek across central and western 
 
 \[gallery maxwidth=1200 ids="86,85" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-India-Udaipur-Sunset.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-India-Udaipur-Sunset.jpg)
 
 ## The United Arab Emirates
 
@@ -111,11 +111,11 @@ We were lucky to have two weeks of rest and relaxation in Abu Dhabi, where my wi
 
 \[gallery maxwidth=1200 ids="157,153" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-UAE-5.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-UAE-5.jpg)
 
 \[gallery maxwidth=1200 ids="154,156,152" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-UAE-1.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-UAE-1.jpg)
 
 ## Greece
 
@@ -129,7 +129,7 @@ We spent three weeks island-hopping by ferry in Greece, starting, actually, in B
 
 \[gallery maxwidth=1200 ids="74,73" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg)
 
 \[gallery maxwidth=1200 ids="72,65" class="alignnone"\]
 
@@ -139,7 +139,7 @@ The food in Italy is amazing. We ate pizza nearly every day of the two weeks we 
 
 [Naples Gallery](https://adobe.ly/2SmOP7S) [Rome Gallery](https://adobe.ly/2Sr6Z8h)[Florence Gallery](https://adobe.ly/2GlpyEE)[Turin Gallery](https://adobe.ly/2GpLCxJ)
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Italy-10.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Italy-10.jpg)
 
 \[gallery maxwidth=1200 ids="96,95,94" class="alignnone"\]
 
@@ -147,7 +147,7 @@ The food in Italy is amazing. We ate pizza nearly every day of the two weeks we 
 
 \[gallery maxwidth=1200 ids="158,92,89" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Italy-3.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Italy-3.jpg)
 
 ## Oman
 
@@ -157,7 +157,7 @@ Maddy’s family gathered in Abu Dhabi for an early Christmas, and we took a fam
 
 \[gallery maxwidth=1200 ids="130,127" class="alignnone"\]
 
-![](https://bradford.digital/bradford-digital/wp-content/uploads/James-Bradford-Travel-Photo-Oman-2.jpg)
+![](../../../lfs-media/James-Bradford-Travel-Photo-Oman-2.jpg)
 
 \[gallery maxwidth=1200 ids="131,129" class="alignnone"\]
 
@@ -167,4 +167,4 @@ Taking sixth months off from life to travel the world was a transformative exper
 
 [Full Lightroom Gallery](https://lightroom.adobe.com/gallery/2de9ff03734e438d9982ba2b3ad4b5b8)
 
-\[caption id="attachment\_98" align="aligncenter" width="5184"\]![](https://bradford.digital/bradford-digital/wp-content/uploads/James-and-Maddy-Mauna-Loa-Hawaii.jpg) My wife Maddy and I on our honeymoon in Hawaii near the peak of Mauna Loa.\[/caption\]
+\[caption id="attachment\_98" align="aligncenter" width="5184"\]![](../../../lfs-media/James-and-Maddy-Mauna-Loa-Hawaii.jpg) My wife Maddy and I on our honeymoon in Hawaii near the peak of Mauna Loa.\[/caption\]
