@@ -60,8 +60,7 @@ module.exports = {
             },
           },
           `gatsby-remark-prismjs`,
-          w
-            `gatsby-remark-smartypants`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
