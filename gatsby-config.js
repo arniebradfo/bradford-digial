@@ -28,24 +28,40 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/lfs-media`,
+        name: `lfs-media`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-images`,
+          //   options: {
+          //     maxWidth: 590,
+          //   },
+          // },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              ignoreFileExtensions: [],
+              // `ignoreFileExtensions` defaults to [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
+              // as we assume you'll use gatsby-remark-images to handle images
+              // ...but we cant use gatsby image processing with netlify lfs
+            },
+          },
           `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          w
+            `gatsby-remark-smartypants`,
         ],
       },
     },

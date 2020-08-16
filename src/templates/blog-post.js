@@ -40,7 +40,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               style={{
                 ...scale(-1 / 5),
               }}>
-              {post.frontmatter.tags.map(tag => <><a><small>{tag}</small></a>{' '}</>)}
+              {post.frontmatter.tags.map((tag, i) => <a key={i} style={{ marginRight: 8 }}><small>{tag}</small></a>)}
             </p>
           )}
         </header>
