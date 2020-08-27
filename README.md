@@ -10,6 +10,18 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
 ---
 
 ## TODO
+add this to `git config --local`
+```conf
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
+[include]
+  path = /Users/brad993/.netlify/helper/git-config
+```
 - images with lfs
   - https://github.com/gatsbyjs/gatsby/issues/12438#issuecomment-474113335
   - write a custom `<Image/>` component that uses [Netlify Large Media Image Transforms](https://docs.netlify.com/large-media/transform-images/#request-transformations)
