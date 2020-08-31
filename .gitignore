@@ -71,6 +71,7 @@ yarn-error.log
 # just ignore some stuff
 content/ignore-media/**
 plugins
+plugins-ignore
 # plugins/gatsby-remark-images
 # plugins/gatsby-remark-images-contentful
 # plugins/gatsby-remark-copy-linked-files
