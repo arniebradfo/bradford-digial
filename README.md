@@ -21,6 +21,9 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
     - how do plugins work? https://www.gatsbyjs.com/docs/creating-plugins/
   - fork the [`gatsby-remark-images` plugin](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images) and make it use Netlify Image Transform API
     - https://www.gatsbyjs.com/plugins/gatsby-remark-images/
+  - preprocess all image files into an height & width object so we can get the size of things
+    - maybe even use the css gradients or svg outlines other preprocess stuff.
+    - commit that config.js or json file and run on it during gatsby build
 - use mdx
   - https://mdxjs.com/
   - https://www.gatsbyjs.com/docs/mdx/

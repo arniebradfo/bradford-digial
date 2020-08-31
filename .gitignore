@@ -67,7 +67,15 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# just ignore some stuff
 content/ignore-media/**
+plugins
+# plugins/gatsby-remark-images
+# plugins/gatsby-remark-images-contentful
+# plugins/gatsby-remark-copy-linked-files
+# plugins/gatsby-transformer-sharp
+# plugins/gatsby-plugin-sharp
 
 # Local Netlify folder
 .netlify
