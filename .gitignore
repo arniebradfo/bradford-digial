@@ -67,7 +67,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-# content/lfs-media/**
+content/ignore-media/**
 
 # Local Netlify folder
 .netlify
