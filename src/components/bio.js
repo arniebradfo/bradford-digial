@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
+import { FixedObjectNetlify } from "./gatsby-image-netlify"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -38,6 +39,8 @@ const Bio = () => {
     }
   `)
 
+
+
   const { author, social } = data.site.siteMetadata
   return (
     <div
@@ -46,8 +49,9 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      {/* <Image
-        fixed={data.avatar.childImageSharp.fixed}
+      <Image
+        // fixed={data.avatar.childImageSharp.fixed}
+        fixed={FixedObjectNetlify(data.avatar.publicURL, { width: 50, height: 50 })}
         alt={author.name}
         style={{
           marginRight: rhythm(1 / 2),
@@ -58,8 +62,8 @@ const Bio = () => {
         imgStyle={{
           borderRadius: `50%`,
         }}
-      /> */}
-      <img
+      />
+      {/* <img
         src={data.avatar.publicURL}
         alt={author.name}
         style={{
@@ -68,7 +72,7 @@ const Bio = () => {
           minWidth: 50,
           borderRadius: `100%`,
         }}
-      />
+      /> */}
       <p>
         Written by <strong>{author.name}</strong> {author.summary}
         <br />

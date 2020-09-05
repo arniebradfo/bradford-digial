@@ -24,6 +24,7 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
   - preprocess all image files into an height & width object so we can get the size of things
     - maybe even use the css gradients or svg outlines other preprocess stuff.
     - commit that config.js or json file and run on it during gatsby build
+    - could feed it directly to `<GatsbyImage/>`
 - use mdx
   - https://mdxjs.com/
   - https://www.gatsbyjs.com/docs/mdx/
