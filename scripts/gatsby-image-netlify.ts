@@ -262,7 +262,7 @@ function nf_resize(
     if (width > 0)
         urlParams += `&w=${width}`
     if (height > 0)
-        urlParams += `&h=${width}`
+        urlParams += `&h=${height}`
     return urlParams;
 }
 
