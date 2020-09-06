@@ -22,10 +22,10 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
     <SEO title="Netlify Image Test" />
 
     <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 50, height: 50, fileSize: data.testImg.size })} backgroundColor />
-    <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor />
+    {/* <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor /> */}
 
     <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 400, fileSize: data.testImg.size })} backgroundColor />
-    <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor />
+    {/* <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor /> */}
   </Layout>
 )
 
@@ -37,14 +37,14 @@ export const query = graphql`
       publicURL
       name
       size
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-        fluid(maxWidth: 630, srcSetBreakpoints:[300]) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      # childImageSharp {
+      #   fixed(width: 50, height: 50) {
+      #     ...GatsbyImageSharpFixed
+      #   }
+      #   fluid(maxWidth: 630, srcSetBreakpoints:[300]) {
+      #     ...GatsbyImageSharpFluid
+      #   }
+      # }
     }
   }
 `
