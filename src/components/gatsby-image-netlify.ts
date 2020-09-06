@@ -38,7 +38,7 @@ const defaultSharedOptions: ISharedOptions = {
     toFormat: 'NO_CHANGE',
     toFormatBase64: 'JPG',
     base64Width: 20,
-    cropFocus: 'ATTENTION',
+    cropFocus: 'CENTER',
     fit: 'COVER',
     pngCompressionSpeed: 4,
     rotate: 0,
@@ -144,9 +144,9 @@ function FixedObjectNetlify(src: string, options?: IFixedOptions): FixedObject {
         ...options,
     }
 
-    if (options.fit !== 'CONTAIN' && options.fit !== 'INSIDE') {
-        console.warn('FixedObjectNetlify only supports fit:CONTAIN and fit:INSIDE')
-        options.fit = 'CONTAIN';
+    if (options.fit !== 'COVER' && options.fit !== 'INSIDE') {
+        console.warn('FixedObjectNetlify only supports fit:COVER and fit:INSIDE')
+        options.fit = 'COVER';
     }
     if (options.cropFocus !== 'CENTER') {
         console.warn('FixedObjectNetlify only supports cropFocus:CENTER')
