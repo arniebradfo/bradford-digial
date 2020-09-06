@@ -25,6 +25,10 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
     - maybe even use the css gradients or svg outlines other preprocess stuff.
     - commit that config.js or json file and run on it during gatsby build
     - could feed it directly to `<GatsbyImage/>`
+  - look in gatsby-config.js for plugins gatsby-source-filesystem options path, name
+    - and build sourceFolders based on that
+  - support maxHeight
+  - 
 - use mdx
   - https://mdxjs.com/
   - https://www.gatsbyjs.com/docs/mdx/

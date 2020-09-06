@@ -4,9 +4,8 @@ const glob = require("glob")
 const sizeOf = require('image-size');
 // const cliProgress = require('cli-progress');
 
-
-// console.log(__dirname);
-
+// TODO: look in gatsby-config.js for plugins gatsby-source-filesystem options path, name
+// and build sourceFolders based on that
 const sourceFolders = [
     `content/blog`,
     `content/assets`,
