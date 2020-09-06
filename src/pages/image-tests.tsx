@@ -11,64 +11,50 @@ import { FixedObjectNetlify, FluidObjectNetlify } from "../../scripts/gatsby-ima
 type DataProps = {
   testImg: {
     publicURL: string
-    name: string
     childImageSharp: any
     base: string
   }
 }
 
-const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) => {
-  console.log(data.testImg);
+const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) => (
+  <Layout title="Netlify LFS Large Media Resize Tests" location={location}>
+    <SEO title="Netlify Image Test" />
 
-  return (
-    <Layout title="Netlify LFS Large Media Resize Tests" location={location}>
-      <SEO title="Netlify Image Test" />
+    {/* <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { fileName: data.testImg.base })} backgroundColor /> */}
+    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 100, height: 100, fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 100, fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { height: 100, fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor />
 
-      <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 50, height: 50, fileName: data.testImg.base })} backgroundColor />
-      {/* <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor /> */}
-
-      <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 400, fileName: data.testImg.base })} backgroundColor />
-      {/* <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor /> */}
-    </Layout>
-  )
-}
+    <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 630, fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage
+      fluid={FluidObjectNetlify(data.testImg.publicURL, {
+        maxWidth: 630,
+        fileName: data.testImg.base,
+        srcSetBreakpoints: [100, 200, 300, 400, 500, 630],
+        sizes: "(max-width: 672px) calc(100vw - 21), 672px"
+      })}
+      backgroundColor />
+    <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor />
+  </Layout>
+)
 
 export default ImageTests
 
 export const query = graphql`
   {
     testImg: file(absolutePath: { regex: "/James-Bradford-Travel-Photo-Japan-8.jpg/" }) {
-      # publicURL
-      # name
-      # size
-
       publicURL
-      id
-      absolutePath
-      relativePath
-      relativeDirectory
-      sourceInstanceName
-
-      root
-      dir
       base
-      ext
-      extension
-      name
-
-      blksize
-      blocks
-      dev
-      size
-
-      # childImageSharp {
-      #   fixed(width: 50, height: 50) {
-      #     ...GatsbyImageSharpFixed
-      #   }
-      #   fluid(maxWidth: 630, srcSetBreakpoints:[300]) {
-      #     ...GatsbyImageSharpFluid
-      #   }
-      # }
+      childImageSharp {
+        fixed(height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+        fluid(maxWidth: 630, srcSetBreakpoints:[300, 1000]) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
 `

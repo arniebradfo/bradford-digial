@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require('path');
 const glob = require("glob")
 const sizeOf = require('image-size');
-const cliProgress = require('cli-progress');
+// const cliProgress = require('cli-progress');
 
 
 // console.log(__dirname);
@@ -24,26 +24,28 @@ const imageTypes = [
 const imgDimensions = {}
 const callback = (er, files) => {
     // console.log(er, files)
-    const bar1 = new cliProgress.SingleBar()
-    bar1.start(files.length, 0)
+    // const bar1 = new cliProgress.SingleBar()
+    // bar1.start(files.length, 0)
     files.forEach((file, index) => {
         var fileSize = fs.statSync(file).size
         var fileName = path.basename(file)
         var dimensions = sizeOf(file)
         // console.log(stats, dimensions)
         // imgDimensions[`${fileName}-${fileSize}`] = {
+        if (imgDimensions[`${fileName}`] != null)
+            console.warn(`All media files must have a unique name. '${fileName}' is duplicated and is being overwritten`)
         imgDimensions[`${fileName}`] = {
             height: dimensions.height,
             width: dimensions.width,
             aspectRatio: dimensions.width / dimensions.height,
         };
-        bar1.update(index + 1)
+        // bar1.update(index + 1)
     })
-    bar1.stop()
+    // bar1.stop()
     // console.log(imgDimensions);
-    fs.writeFileSync('./src/img-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
+    fs.writeFileSync('./scripts/img-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
     //TODO: detect if there were duplicate fileSizes
-    console.log('done')
+    // console.log('done')
 
 }
 // sourceFolders.forEach(sourceFolder => {
