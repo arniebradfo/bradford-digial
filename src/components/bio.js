@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
-import { FixedObjectNetlify } from "./gatsby-image-netlify"
+import { FixedObjectNetlify } from "../../scripts/gatsby-image-netlify"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`

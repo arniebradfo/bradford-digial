@@ -1,6 +1,6 @@
 import React from "react"
 import GatsbyImage, { FixedObject, FluidObject, GatsbyImageProps } from "gatsby-image"
-import intrinsicImgDimensions from "../img-dimensions.json";
+import intrinsicImgDimensions from "./img-dimensions.json";
 
 // Understanding gatsby-image @ Medium
 // https://medium.com/@alexasteinbrueck/a-look-under-the-hood-of-gatsby-image-part-1-graphql-generated-files-generated-markup-ee404e4ff9cf

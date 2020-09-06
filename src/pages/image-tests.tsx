@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GatsbyImage from "gatsby-image"
 
-import { FixedObjectNetlify, FluidObjectNetlify } from "../components/gatsby-image-netlify"
+import { FixedObjectNetlify, FluidObjectNetlify } from "../../scripts/gatsby-image-netlify"
 
 type DataProps = {
   testImg: {
