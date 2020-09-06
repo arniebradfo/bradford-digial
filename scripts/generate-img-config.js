@@ -32,7 +32,7 @@ const callback = (er, files) => {
         var dimensions = sizeOf(file)
         // console.log(stats, dimensions)
         // imgDimensions[`${fileName}-${fileSize}`] = {
-        imgDimensions[`${fileSize}`] = {
+        imgDimensions[`${fileName}`] = {
             height: dimensions.height,
             width: dimensions.width,
             aspectRatio: dimensions.width / dimensions.height,

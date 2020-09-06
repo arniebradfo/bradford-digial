@@ -30,7 +30,7 @@ interface ISharedOptions {
     webpQuality?: number,
 
     // we need the size to to stuff and things...
-    fileSize: number;
+    fileName: string;
 }
 const defaultSharedOptions: ISharedOptions = {
     grayscale: false,
@@ -44,7 +44,7 @@ const defaultSharedOptions: ISharedOptions = {
     rotate: 0,
 
     quality: 50,
-    fileSize: 0,
+    fileName: '',
 }
 
 
@@ -116,7 +116,7 @@ function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
     }
 
     //magic
-    const aspectRatio = getIntrinsicImgDimensions(options.fileSize)?.aspectRatio
+    const aspectRatio = getIntrinsicImgDimensions(options.fileName)?.aspectRatio
 
     return {
         aspectRatio: aspectRatio,
@@ -187,8 +187,8 @@ function netlifyRequestImageTransform(
     return urlParams;
 }
 
-function getIntrinsicImgDimensions(fileSize: number) {
-    return intrinsicImgDimensions[fileSize.toString()];
+function getIntrinsicImgDimensions(fileName: string) {
+    return intrinsicImgDimensions[fileName];
 }
 
 export { FixedObjectNetlify, FluidObjectNetlify };

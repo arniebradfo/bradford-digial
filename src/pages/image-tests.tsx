@@ -13,7 +13,7 @@ type DataProps = {
     publicURL: string
     name: string
     childImageSharp: any
-    size: number
+    base: string
   }
 }
 
@@ -24,10 +24,10 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
     <Layout title="Netlify LFS Large Media Resize Tests" location={location}>
       <SEO title="Netlify Image Test" />
 
-      <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 50, height: 50, fileSize: data.testImg.size })} backgroundColor />
+      <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 50, height: 50, fileName: data.testImg.base })} backgroundColor />
       {/* <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor /> */}
 
-      <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 400, fileSize: data.testImg.size })} backgroundColor />
+      <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 400, fileName: data.testImg.base })} backgroundColor />
       {/* <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor /> */}
     </Layout>
   )
