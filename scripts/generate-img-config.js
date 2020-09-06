@@ -1,13 +1,17 @@
-var fs = require("fs");
-var glob = require("glob")
-var sizeOf = require('image-size');
+const fs = require("fs");
+const path = require('path');
+const glob = require("glob")
+const sizeOf = require('image-size');
+const cliProgress = require('cli-progress');
+
 
 // console.log(__dirname);
 
 const sourceFolders = [
     `content/blog`,
     `content/assets`,
-    `content/lfs-media`
+    `content/lfs-media`,
+    'content/ignore-media'
 ]
 const imageTypes = [
     'jpg',
@@ -17,16 +21,38 @@ const imageTypes = [
     'gif'
 ]
 
+const imgDimensions = {}
 const callback = (er, files) => {
-    console.log(er, files)
+    // console.log(er, files)
+    const bar1 = new cliProgress.SingleBar()
+    bar1.start(files.length, 0)
+    files.forEach((file, index) => {
+        var fileSize = fs.statSync(file).size
+        var fileName = path.basename(file)
+        var dimensions = sizeOf(file)
+        // console.log(stats, dimensions)
+        // imgDimensions[`${fileName}-${fileSize}`] = {
+        imgDimensions[`${fileSize}`] = {
+            height: dimensions.height,
+            width: dimensions.width,
+            aspectRatio: dimensions.width / dimensions.height,
+        };
+        bar1.update(index + 1)
+    })
+    bar1.stop()
+    // console.log(imgDimensions);
+    fs.writeFileSync('./src/img-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
+    //TODO: detect if there were duplicate fileSizes
+    console.log('done')
+
 }
-let files = []
-sourceFolders.forEach(sourceFolder => {
-    const globPattern = `**/${sourceFolder}/*.{${imageTypes.join(',')}}`
-    console.log(globPattern);
-    files = files.concat(glob.sync(globPattern))
-})
-console.log(files);
+// sourceFolders.forEach(sourceFolder => {
+
+const globPattern = `./{${sourceFolders.join(',')}}/*.{${imageTypes.join(',')}}`
+console.log('reading glob pattern: ', globPattern);
+glob(globPattern, callback)
+
+// })
 
 // feed all the images from public folders
 /*

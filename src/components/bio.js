@@ -7,7 +7,7 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import GatsbyImage from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
 import { FixedObjectNetlify } from "./gatsby-image-netlify"
@@ -18,13 +18,13 @@ const Bio = () => {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         publicURL
         name
-      }
       # childImageSharp {
       #     fixed(width: 50, height: 50) {
       #       ...GatsbyImageSharpFixed
       #     }
       #   }
       # }
+      }
       site {
         siteMetadata {
           author {
@@ -49,7 +49,7 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
+      <GatsbyImage
         // fixed={data.avatar.childImageSharp.fixed}
         fixed={FixedObjectNetlify(data.avatar.publicURL, { width: 50, height: 50 })}
         alt={author.name}

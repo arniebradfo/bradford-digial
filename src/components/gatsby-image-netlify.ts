@@ -1,6 +1,9 @@
 import React from "react"
 import GatsbyImage, { FixedObject, FluidObject, GatsbyImageProps } from "gatsby-image"
+import intrinsicImgDimensions from "../img-dimensions.json";
 
+// Understanding gatsby-image @ Medium
+// https://medium.com/@alexasteinbrueck/a-look-under-the-hood-of-gatsby-image-part-1-graphql-generated-files-generated-markup-ee404e4ff9cf
 
 type FitOptions = 'COVER' | 'CONTAIN' | 'FILL' | 'INSIDE' | 'OUTSIDE';
 type CropFocusOptions = 'CENTER' | 'NORTH' | 'NORTHEAST' | 'EAST' | 'SOUTHEAST' | 'SOUTH' | 'SOUTHWEST' | 'WEST' | 'NORTHWEST' | 'ENTROPY' | 'ATTENTION';
@@ -10,21 +13,24 @@ type ToFormatBase64 = 'JPG' | 'PNG' | 'WEBP';
 
 interface ISharedOptions {
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#shared-options
-    grayscale: boolean,
-    duotone: boolean,
-    toFormat: ToFormat,
-    toFormatBase64: ToFormatBase64,
-    base64Width: number,
-    cropFocus: CropFocusOptions,
-    fit: FitOptions,
-    pngCompressionSpeed: number,
-    rotate: number,
+    grayscale?: boolean,
+    duotone?: boolean,
+    toFormat?: ToFormat,
+    toFormatBase64?: ToFormatBase64,
+    base64Width?: number,
+    cropFocus?: CropFocusOptions,
+    fit?: FitOptions,
+    pngCompressionSpeed?: number,
+    rotate?: number,
 
     // on both but not listed in shared?
-    quality: number,
+    quality?: number,
     jpegQuality?: number,
     pngQuality?: number,
     webpQuality?: number,
+
+    // we need the size to to stuff and things...
+    fileSize: number;
 }
 const defaultSharedOptions: ISharedOptions = {
     grayscale: false,
@@ -38,15 +44,64 @@ const defaultSharedOptions: ISharedOptions = {
     rotate: 0,
 
     quality: 50,
+    fileSize: 0,
 }
 
 
+
+/*  Examples
+    
+    fluid(maxWidth: 800) outputs =>
+    sizes="(max-width: 800px) 100vw, 800px" 
+    srcset="
+        ...jpg 200w,  *.25
+        ...jpg 400w,  *.5
+        ...jpg 800w,  *1
+        ...jpg 1200w, *1.5
+        ...jpg 1600w, *2
+        ...jpg 5184w  full
+    " 
+
+    fluid(maxWidth: 630, sizes:"(max-width: 672px) calc(100vw - 21), 672px" ) outputs =>
+    sizes="(max-width: 672px) calc(100vw - 21), 672px" 
+    srcset="
+        ...jpg 158w,  *.25
+        ...jpg 315w,  *.5
+        ...jpg 630w,  *1
+        ...jpg 945w,  *1.5
+        ...jpg 1260w, *2
+        ...jpg 5184w  full
+    "
+
+    fluid(maxWidth: 630, srcSetBreakpoints:[100, 200, 300, 400, 500, 630]) outputs =>
+    sizes="(max-width: 630px) 100vw, 630px"
+    srcset="
+        ...jpg 100w, 
+        ...jpg 200w,
+        ...jpg 300w,
+        ...jpg 400w,
+        ...jpg 500w,
+        ...jpg 630w,
+        ...jpg 5184w
+    "
+
+    fluid(maxWidth: 630, srcSetBreakpoints:[300]) outputs =>
+    sizes="(max-width: 630px) 100vw, 630px"
+    srcset="
+        ...jpg 300w,
+        ...jpg 630w,
+        ...jpg 5184w
+    "
+
+*/
+
 interface IFluidOptions extends ISharedOptions {
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fluid
-    maxWidth: number,
+    maxWidth?: number,
     maxHeight?: number,
-    srcSetBreakpoints: number[],
-    background: string
+    srcSetBreakpoints?: number[],
+    sizes?: string;
+    background?: string
 }
 const defaultFluidOptions: IFluidOptions = {
     ...defaultSharedOptions,
@@ -61,10 +116,11 @@ function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
     }
 
     //magic
+    const aspectRatio = getIntrinsicImgDimensions(options.fileSize)?.aspectRatio
 
     return {
-        aspectRatio: 1,
-        src: '',
+        aspectRatio: aspectRatio,
+        src: src,
         srcSet: '',
         sizes: '',
     }
@@ -73,7 +129,7 @@ function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
 
 interface IFixedOptions extends ISharedOptions {
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fixed
-    width: number,
+    width?: number,
     height?: number,
 }
 const defaultFixedOptions: IFixedOptions = {
@@ -88,11 +144,21 @@ function FixedObjectNetlify(src: string, options?: IFixedOptions): FixedObject {
         ...options,
     }
 
+    if (options.fit !== 'CONTAIN' && options.fit !== 'INSIDE') {
+        console.warn('FixedObjectNetlify only supports fit:CONTAIN and fit:INSIDE')
+        options.fit = 'CONTAIN';
+    }
+    if (options.cropFocus !== 'CENTER') {
+        console.warn('FixedObjectNetlify only supports cropFocus:CENTER')
+        options.cropFocus = 'CENTER';
+    }
+
     // Automatically create sizes for different resolutions — we do 1x, 1.5x, and 2x
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fixed
-    let srcSet = `${src}${netlifyRequestImageTransform(options.width, options.height)} 1x`
-    srcSet += `, ${src}${netlifyRequestImageTransform(options.width * 1.5, options.height * 1.5)} 1.5x`
-    srcSet += `, ${src}${netlifyRequestImageTransform(options.width * 2, options.height * 2)} 2x`
+    let resize: nfResize = options.fit === 'INSIDE' ? 'fit' : 'smartcrop';
+    let srcSet = `${src}${netlifyRequestImageTransform(options.width, options.height, resize)} 1x`
+    srcSet += `,\n${src}${netlifyRequestImageTransform(options.width * 1.5, options.height * 1.5, resize)} 1.5x`
+    srcSet += `,\n${src}${netlifyRequestImageTransform(options.width * 2, options.height * 2, resize)} 2x`
 
     //magic
 
@@ -104,10 +170,11 @@ function FixedObjectNetlify(src: string, options?: IFixedOptions): FixedObject {
     }
 }
 
+type nfResize = 'fit' | 'smartcrop';
 function netlifyRequestImageTransform(
     width: number = 0,
     height: number = 0,
-    resize: 'fit' | 'smartcrop' = 'smartcrop',
+    resize: nfResize = 'smartcrop',
 ): string {
     // https://docs.netlify.com/large-media/transform-images/#request-transformations
     if (!width && !height)
@@ -120,9 +187,11 @@ function netlifyRequestImageTransform(
     return urlParams;
 }
 
-export { FixedObjectNetlify };
+function getIntrinsicImgDimensions(fileSize: number) {
+    return intrinsicImgDimensions[fileSize.toString()];
+}
 
-
+export { FixedObjectNetlify, FluidObjectNetlify };
 
 
 
