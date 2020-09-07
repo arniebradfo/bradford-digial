@@ -142,71 +142,69 @@ const defaultFluidOptions: IFluidOptions = {
     background: 'rgba(0,0,0,1)',
 }
 function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
-    options = normalizeOptions({
+
+    options = {
         ...defaultFluidOptions,
         ...options,
-    })
+    }
+    let { maxWidth: width, maxHeight: height, sizes, srcSetBreakpoints, fileName, fit } = options
 
-    const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(options.fileName)
+    const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(fileName)
     if (imgDimensions == null) {
-        console.error(`'${options.fileName}' did not exist in the media-dimensions.json lookup.`)
+        console.error(`'${fileName}' did not exist in the media-dimensions.json lookup.`)
         return {
             aspectRatio: 1.5, // assume its 3:2 ? better than not existing, right?
             src: src,
             srcSet: '',
-            sizes: options.sizes,
+            sizes: sizes,
         }
     }
-    let { width, height, aspectRatio } = imgDimensions
-    let { maxWidth, maxHeight } = options
+    let { aspectRatio } = imgDimensions
 
-
-
-    if (maxHeight != null && maxWidth == null) {
-        maxWidth = Math.round(maxHeight * aspectRatio)
-    } else if (maxWidth != null && maxHeight == null) {
-        maxHeight = 0
-    } else if (maxWidth == null && maxHeight == null) {
-        maxHeight = 0
-        maxWidth = 800 // default from https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fluid
-    } else if (maxWidth > 0 && maxHeight > 0) {
-        aspectRatio = maxWidth / maxHeight
+    if (height != null && width == null) {
+        width = Math.round(height * aspectRatio)
+    } else if (width != null && height == null) {
+        height = 0
+    } else if (width == null && height == null) {
+        height = 0
+        width = 800 // default from https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fluid
+    } else if (width > 0 && height > 0) {
+        aspectRatio = width / height
     }
 
-    if (options.sizes == null) {
-        options.sizes = `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`
+    if (width < 1 && height < 1) {
+        console.warn(`'${fileName}': fluid height and width are both 0. What are you asking for`)
     }
 
-    if (options.srcSetBreakpoints.length === 0) {
-        options.srcSetBreakpoints = [.25, .5, 1, 1.5, 2].map(coefficient => Math.round(maxWidth * coefficient))
+    if (sizes == null) {
+        sizes = `(max-width: ${width}px) 100vw, ${width}px`
+    }
+
+    // if height and width are both defined, we want to crop in
+    let resize: nfResize = (width > 0 && height > 0) ? 'smartcrop' : 'fit';
+    // let resize: nfResize = fit === 'INSIDE' ? 'fit' : 'smartcrop';
+
+    // srcSetBreakpoints is analogous to resolutions
+    if (srcSetBreakpoints.length === 0) {
+        srcSetBreakpoints = [.25, .5, 1, 1.5, 2].map(coefficient => Math.round(width * coefficient))
     } else {
-        if (!options.srcSetBreakpoints.includes(maxWidth))
-            options.srcSetBreakpoints.push(maxWidth)
-        options.srcSetBreakpoints.sort((a, b) => a - b)
+        if (!srcSetBreakpoints.includes(width))
+            srcSetBreakpoints.push(width)
+        srcSetBreakpoints.sort((a, b) => a - b)
     }
 
-    // TODO: handle this depending of if maxHeight and maxWidth are both Set?
-    // let resize: nfResize = options.fit === 'INSIDE' ? 'fit' : 'smartcrop';
-    // let resize: nfResize = 'fit'; // always fit for now
-    let resize: nfResize = (maxWidth > 0 && maxHeight > 0) ? 'smartcrop' : 'fit';
-
-    let srcSets = options.srcSetBreakpoints.map(breakpointWidth => {
-        const breakpointHeight = maxHeight > 0 ? Math.round(breakpointWidth / aspectRatio) : 0;
-        console.log(breakpointHeight);
-
+    let srcSets = srcSetBreakpoints.map(breakpointWidth => {
+        const breakpointHeight = height > 0 ? Math.round(breakpointWidth / aspectRatio) : 0;
         return `${src}${nf_resize(breakpointWidth, breakpointHeight, resize)} ${breakpointWidth}w`
     })
-    srcSets.push(`${src} ${width}w`)
-    console.log(aspectRatio, options.sizes, srcSets);
-
-
+    srcSets.push(`${src} ${imgDimensions.width}w`) // TODO: this doesn't make sense for constrained/cropped images
     const srcSet = srcSets.join(`,\n`)
 
     return {
         aspectRatio: aspectRatio,
         src: src,
         srcSet: srcSet,
-        sizes: options.sizes,
+        sizes: sizes,
     }
 }
 
@@ -229,30 +227,33 @@ function FixedObjectNetlify(src: string, options?: IFixedOptions): FixedObject {
         ...defaultFixedOptions,
         ...options,
     }
+    let { width, height, fileName, fit } = options
 
-    if (options.height != null && options.width == null)
-        options.width = 0
-    else if (options.width != null && options.height == null)
-        options.height = 0
-    else if (options.width == null && options.height == null) {
-        options.height = 0
-        options.width = 400 // default from https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fixed
-    }
-
-
-    const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(options.fileName)
+    const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(fileName)
     if (imgDimensions == null) {
-        console.error(`'${options.fileName}' did not exist in the 'media-dimensions.json' lookup. please rerun {the npm command}`)
+        console.error(`'${fileName}' did not exist in the 'media-dimensions.json' lookup. please rerun {the npm command}`)
         return {
-            width: options.width,
-            height: options.height,
+            width: width,
+            height: height,
             src: src,
             srcSet: '',
         }
     }
+    let { aspectRatio } = imgDimensions
 
-    if (options.width < 1 && options.height < 1) {
-        console.warn(`'${options.fileName}': fixed height and width are both 0. This will return a full size image`)
+    if (height != null && width == null)
+        width = 0
+    else if (width != null && height == null)
+        height = 0
+    else if (width == null && height == null) {
+        height = 0
+        width = 400 // default from https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fixed
+    } // else if (width > 0 && height > 0) {
+    // aspectRatio = width / height // this won't be used
+    // }
+
+    if (width < 1 && height < 1) {
+        console.warn(`'${fileName}': fixed height and width are both 0. This will return a full size image`)
         return {
             width: imgDimensions.width,
             height: imgDimensions.height,
@@ -261,20 +262,25 @@ function FixedObjectNetlify(src: string, options?: IFixedOptions): FixedObject {
         }
     }
 
-    // if height and width are both defined, we want to crop in
-    let resize: nfResize = (options.width > 0 && options.height > 0) ? 'smartcrop' : 'fit';
-    // let resize: nfResize = options.fit === 'INSIDE' ? 'fit' : 'smartcrop';
+    // sizes... height and width attributes are used instead
 
+    // if height and width are both defined, we want to crop in
+    let resize: nfResize = (width > 0 && height > 0) ? 'smartcrop' : 'fit';
+    // let resize: nfResize = fit === 'INSIDE' ? 'fit' : 'smartcrop';
+
+    // resolutions is analogous to srcSetBreakpoints
     // "Automatically create sizes for different resolutions — we do 1x, 1.5x, and 2x"
     // - https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fixed
-    let srcSets = [1, 1.5, 2].map(resolution => {
-        return `${src}${nf_resize(options.width * resolution, options.height * resolution, resize)} ${resolution}x`
+    const resolutions = [1, 1.5, 2]
+
+    let srcSets = resolutions.map(resolution => {
+        return `${src}${nf_resize(width * resolution, height * resolution, resize)} ${resolution}x`
     })
     const srcSet = srcSets.join(`,\n`)
 
     return {
-        width: options.width || Math.round(options.height * imgDimensions.aspectRatio),
-        height: options.height || Math.round(options.width / imgDimensions.aspectRatio),
+        width: width || Math.round(height * aspectRatio),
+        height: height || Math.round(width / aspectRatio),
         src: src,
         srcSet: srcSet,
     }
