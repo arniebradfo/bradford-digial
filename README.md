@@ -1,5 +1,5 @@
 # bradford-digital
-A portfolio blog site run on Gatsby and hosted by gh pages.
+A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-17c5e4.netlify.app/).
 
 
 # Links
@@ -15,26 +15,28 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
   - https://mdxjs.com/
   - https://www.gatsbyjs.com/docs/mdx/
   - replace all images in markdown
-- page transitions with POSE and reach router
-  - https://popmotion.io/pose/learn/route-transitions-reach-router/
-  - https://www.gatsbyjs.com/docs/routing/
-  - https://reach.tech/router/
-- install netlify stuff
-  - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/?=netlify
-  - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify-cache/?=netlify
 - get to reasonable parity
   - homepage
   - about page
+  - better css - more like original
+- deploy 
+  - change domain
+  - ga analytics
+  - take all old data down
 
-## TODO - images with lfs
+## TODO Later
 - images with lfs
   - make a `gatsby-plugin-netlify-lfs` plugin
     - how do plugins work? https://www.gatsbyjs.com/docs/creating-plugins/
   - fork the [`gatsby-remark-images` plugin](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images) and make it use Netlify Image Transform API
     - https://www.gatsbyjs.com/plugins/gatsby-remark-images/
   - use [sharp](https://github.com/lovell/sharp) to generate the base64 preview and svg outline and save it in the `media-dimensions.json` file
-  - fork this into its own project
+  - fork this into its own example project
     - at least put up a gist
+- page transitions with POSE and reach router
+  - https://popmotion.io/pose/learn/route-transitions-reach-router/
+  - https://www.gatsbyjs.com/docs/routing/
+  - https://reach.tech/router/
 
 ## DONE
 - setup Netlify
@@ -51,4 +53,7 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
     - https://www.gatsbyjs.com/plugins/gatsby-plugin-sharp/
     - https://www.gatsbyjs.com/plugins/gatsby-transformer-sharp/
 - delete gh-pages branch
-- delete netlify cms app and git repo
+  - delete netlify cms app and git repo
+- install netlify stuff - not 100% sure what this does but oh well
+  - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/?=netlify
+  - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify-cache/?=netlify
