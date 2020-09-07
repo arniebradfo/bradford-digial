@@ -14,7 +14,9 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 - use mdx - could be the fastest right now...
   - https://mdxjs.com/
   - https://www.gatsbyjs.com/docs/mdx/
-  - replace all images in markdown
+  - convert from remark to mdx - https://www.gatsbyjs.com/blog/2019-11-21-how-to-convert-an-existing-gatsby-blog-to-use-mdx/
+  - replace all images in markdown - https://github.com/gatsbyjs/gatsby/issues/21934#issuecomment-596668111
+  - 
 - get to reasonable parity
   - homepage
   - about page
