@@ -1,6 +1,6 @@
 import React from "react"
 import GatsbyImage, { FixedObject, FluidObject, GatsbyImageProps } from "gatsby-image"
-import intrinsicImgDimensions from "./img-dimensions.json";
+import intrinsicImgDimensions from "./media-dimensions.json";
 import { option } from "yargs";
 
 // Understanding gatsby-image @ Medium

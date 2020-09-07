@@ -42,7 +42,7 @@ const callback = (er, files) => {
     })
     // bar1.stop()
     // console.log(imgDimensions);
-    fs.writeFileSync('./scripts/img-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
+    fs.writeFileSync('./scripts/media-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
     //TODO: detect if there were duplicate fileSizes
     // console.log('done')
 
