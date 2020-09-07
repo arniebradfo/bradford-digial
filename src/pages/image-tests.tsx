@@ -24,7 +24,7 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
     <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 100, fileName: data.testImg.base })} backgroundColor />
     <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { height: 100, fileName: data.testImg.base })} backgroundColor />
     <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { fileName: data.testImg.base })} backgroundColor />
-    <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor />
+    {/* <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor /> */}
 
     <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 630, fileName: data.testImg.base })} backgroundColor />
     <GatsbyImage
@@ -37,7 +37,7 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
       backgroundColor />
     <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxHeight: 630, fileName: data.testImg.base })} backgroundColor />
     <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 400, maxHeight: 600, fileName: data.testImg.base })} backgroundColor />
-    <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor />
+    {/* <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor /> */}
   </Layout>
 )
 
@@ -48,14 +48,14 @@ export const query = graphql`
     testImg: file(absolutePath: { regex: "/James-Bradford-Travel-Photo-Japan-8.jpg/" }) {
       publicURL
       base
-      childImageSharp {
-        fixed(height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-        fluid(maxWidth: 400, maxHeight: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      # childImageSharp {
+      #   fixed(height: 50) {
+      #     ...GatsbyImageSharpFixed
+      #   }
+      #   fluid(maxWidth: 400, maxHeight: 600) {
+      #     ...GatsbyImageSharpFluid
+      #   }
+      # }
     }
   }
 `
