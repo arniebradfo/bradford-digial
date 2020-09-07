@@ -19,8 +19,6 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
   - https://popmotion.io/pose/learn/route-transitions-reach-router/
   - https://www.gatsbyjs.com/docs/routing/
   - https://reach.tech/router/
-- delete gh-pages branch
-- delete netlify cms app and git repo
 - install netlify stuff
   - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/?=netlify
   - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify-cache/?=netlify
@@ -52,3 +50,5 @@ A portfolio blog site run on Gatsby and hosted by gh pages.
     - https://www.gatsbyjs.com/plugins/gatsby-image/
     - https://www.gatsbyjs.com/plugins/gatsby-plugin-sharp/
     - https://www.gatsbyjs.com/plugins/gatsby-transformer-sharp/
+- delete gh-pages branch
+- delete netlify cms app and git repo
