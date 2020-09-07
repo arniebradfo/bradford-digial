@@ -40,7 +40,11 @@ const callback = (er, files) => {
         };
     })
     fs.writeFileSync('./scripts/media-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
-    console.log(`DONE! Mapped ${Object.keys(imgDimensions).length} media files`)
+    console.log(
+        `DONE! Mapped dimensions for ${Object.keys(imgDimensions).length} media files in:\n`,
+        path.resolve('./scripts/media-dimensions.json'), `\n`,
+        `Please commit this file.`
+    )
 }
 
 glob(globPattern, callback) // RUN IT!

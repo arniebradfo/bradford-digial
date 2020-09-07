@@ -10,14 +10,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
-import { FixedObjectNetlify } from "../../scripts/gatsby-image-netlify"
+import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         publicURL
-        name
+        base
       # childImageSharp {
       #     fixed(width: 50, height: 50) {
       #       ...GatsbyImageSharpFixed
@@ -51,7 +51,7 @@ const Bio = () => {
     >
       <GatsbyImage
         // fixed={data.avatar.childImageSharp.fixed}
-        fixed={FixedObjectNetlify(data.avatar.publicURL, { width: 50, height: 50 })}
+        fixed={GatsbyNetlifyLfsFixed({ src: data.avatar.publicURL, fileName: data.avatar.base, width: 50, height: 50 })}
         alt={author.name}
         style={{
           marginRight: rhythm(1 / 2),

@@ -1,12 +1,10 @@
 // If you don't want to use TypeScript you can delete this file!
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
-
+import { PageProps, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GatsbyImage from "gatsby-image"
-
-import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify"
+import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 
 type DataProps = {
   testImg: {
