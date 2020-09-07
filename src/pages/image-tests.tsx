@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GatsbyImage from "gatsby-image"
 
-import { FixedObjectNetlify, FluidObjectNetlify } from "../../scripts/gatsby-image-netlify"
+import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify"
 
 type DataProps = {
   testImg: {
@@ -20,23 +20,24 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
   <Layout title="Netlify LFS Large Media Resize Tests" location={location}>
     <SEO title="Netlify Image Test" />
 
-    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 100, height: 100, fileName: data.testImg.base })} backgroundColor />
-    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { width: 100, fileName: data.testImg.base })} backgroundColor />
-    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { height: 100, fileName: data.testImg.base })} backgroundColor />
-    <GatsbyImage fixed={FixedObjectNetlify(data.testImg.publicURL, { fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fixed={GatsbyNetlifyLfsFixed({ src: data.testImg.publicURL, fileName: data.testImg.base, width: 100, height: 100 })} backgroundColor />
+    <GatsbyImage fixed={GatsbyNetlifyLfsFixed({ src: data.testImg.publicURL, fileName: data.testImg.base, width: 100 })} backgroundColor />
+    <GatsbyImage fixed={GatsbyNetlifyLfsFixed({ src: data.testImg.publicURL, fileName: data.testImg.base, height: 100 })} backgroundColor />
+    <GatsbyImage fixed={GatsbyNetlifyLfsFixed({ src: data.testImg.publicURL, fileName: data.testImg.base, })} backgroundColor />
     {/* <GatsbyImage fixed={data.testImg.childImageSharp.fixed} backgroundColor /> */}
 
-    <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 630, fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: data.testImg.publicURL, fileName: data.testImg.base, maxWidth: 630 })} backgroundColor />
     <GatsbyImage
-      fluid={FluidObjectNetlify(data.testImg.publicURL, {
-        maxWidth: 630,
+      fluid={GatsbyNetlifyLfsFluid({
+        src: data.testImg.publicURL,
         fileName: data.testImg.base,
+        maxWidth: 630,
         srcSetBreakpoints: [100, 200, 300, 400, 500, 630, 1260],
         sizes: "(max-width: 672px) calc(100vw - 21), 672px"
       })}
       backgroundColor />
-    <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxHeight: 630, fileName: data.testImg.base })} backgroundColor />
-    <GatsbyImage fluid={FluidObjectNetlify(data.testImg.publicURL, { maxWidth: 400, maxHeight: 600, fileName: data.testImg.base })} backgroundColor />
+    <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: data.testImg.publicURL, fileName: data.testImg.base, maxHeight: 630 })} backgroundColor />
+    <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: data.testImg.publicURL, fileName: data.testImg.base, maxWidth: 400, maxHeight: 600 })} backgroundColor />
     {/* <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor /> */}
   </Layout>
 )

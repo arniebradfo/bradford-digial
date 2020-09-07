@@ -1,7 +1,6 @@
 import React from "react"
-import GatsbyImage, { FixedObject, FluidObject, GatsbyImageProps } from "gatsby-image"
+import { FixedObject, FluidObject } from "gatsby-image"
 import intrinsicImgDimensions from "./media-dimensions.json";
-import { option } from "yargs";
 
 // Understanding gatsby-image @ Medium
 // https://medium.com/@alexasteinbrueck/a-look-under-the-hood-of-gatsby-image-part-1-graphql-generated-files-generated-markup-ee404e4ff9cf
@@ -15,7 +14,6 @@ type ImgDimensions = {
     width: number  // int
     aspectRatio: number // float
 }
-
 
 interface ISharedOptions {
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#shared-options
@@ -35,8 +33,9 @@ interface ISharedOptions {
     pngQuality?: number,
     webpQuality?: number,
 
-    // we need the size to to stuff and things...
+    // things we need to transform the img
     fileName: string;
+    src: string;
 }
 const defaultSharedOptions: ISharedOptions = {
     grayscale: false,
@@ -50,83 +49,9 @@ const defaultSharedOptions: ISharedOptions = {
     rotate: 0,
 
     quality: 50,
-    fileName: '',
+    fileName: undefined,
+    src: undefined
 }
-
-
-
-/*  Examples
-    
-    fluid(maxWidth: 800) outputs =>
-    sizes="(max-width: 800px) 100vw, 800px" 
-    srcset="
-        ...jpg 200w,  *.25
-        ...jpg 400w,  *.5
-        ...jpg 800w,  *1
-        ...jpg 1200w, *1.5
-        ...jpg 1600w, *2
-        ...jpg 5184w  full
-    " 
-
-    fluid(maxWidth: 630, sizes:"(max-width: 672px) calc(100vw - 21), 672px" ) outputs =>
-    sizes="(max-width: 672px) calc(100vw - 21), 672px" 
-    srcset="
-        ...jpg 158w,  *.25
-        ...jpg 315w,  *.5
-        ...jpg 630w,  *1
-        ...jpg 945w,  *1.5
-        ...jpg 1260w, *2
-        ...jpg 5184w  full
-    "
-
-    fluid(maxWidth: 630, srcSetBreakpoints:[100, 200, 300, 400, 500, 630]) outputs =>
-    sizes="(max-width: 630px) 100vw, 630px"
-    srcset="
-        ...jpg 100w, 
-        ...jpg 200w,
-        ...jpg 300w,
-        ...jpg 400w,
-        ...jpg 500w,
-        ...jpg 630w,
-        ...jpg 5184w
-    "
-
-    fluid(maxWidth: 630, srcSetBreakpoints:[300]) outputs =>
-    sizes="(max-width: 630px) 100vw, 630px"
-    srcset="
-        ...jpg 300w,
-        ...jpg 630w,
-        ...jpg 5184w
-    "
-
-
-    fluid(maxHeight: 630) outputs =>
-    sizes="(max-width: 945px) 100vw, 945px"
-    srcset="
-        ...jpg 237w,
-        ...jpg 473w,
-        ...jpg 945w,
-        ...jpg 1418w,
-        ...jpg 1890w,
-        ...jpg 5184w
-    "
-    image is 3:2 so looks like its taking the width still?
-
-
-    fluid(maxWidth: 630, maxHeight: 630) outputs =>
-    sizes="(max-width: 630px) 100vw, 630px"
-    srcset="
-        ...jpg 158w,
-        ...jpg 315w,
-        ...jpg 630w,
-        ...jpg 945w,
-        ...jpg 1260w,
-        ...jpg 5184w
-    "
-    image is cropped to square, or to aspect ratio specified
-
-*/
-
 interface IFluidOptions extends ISharedOptions {
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fluid
     maxWidth?: number,
@@ -141,13 +66,13 @@ const defaultFluidOptions: IFluidOptions = {
     srcSetBreakpoints: [],
     background: 'rgba(0,0,0,1)',
 }
-function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
+function GatsbyNetlifyLfsFluid(options: IFluidOptions): FluidObject {
 
     options = {
         ...defaultFluidOptions,
         ...options,
     }
-    let { maxWidth: width, maxHeight: height, sizes, srcSetBreakpoints, fileName, fit } = options
+    let { maxWidth: width, maxHeight: height, sizes, srcSetBreakpoints, fileName, fit, src } = options
 
     const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(fileName)
     if (imgDimensions == null) {
@@ -221,13 +146,13 @@ const defaultFixedOptions: IFixedOptions = {
     // width: 400,
     // height: 0,
 }
-function FixedObjectNetlify(src: string, options?: IFixedOptions): FixedObject {
+function GatsbyNetlifyLfsFixed(options: IFixedOptions): FixedObject {
 
     options = {
         ...defaultFixedOptions,
         ...options,
     }
-    let { width, height, fileName, fit } = options
+    let { width, height, fileName, fit, src } = options
 
     const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(fileName)
     if (imgDimensions == null) {
@@ -319,7 +244,76 @@ function getIntrinsicImgDimensions(fileName: string): ImgDimensions | undefined 
     return intrinsicImgDimensions[fileName];
 }
 
-export { FixedObjectNetlify, FluidObjectNetlify };
+export { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid };
+
+/*  Examples
+
+    fluid(maxWidth: 800) outputs =>
+    sizes="(max-width: 800px) 100vw, 800px"
+    srcset="
+        ...jpg 200w,  *.25
+        ...jpg 400w,  *.5
+        ...jpg 800w,  *1
+        ...jpg 1200w, *1.5
+        ...jpg 1600w, *2
+        ...jpg 5184w  full
+    "
+
+    fluid(maxWidth: 630, sizes:"(max-width: 672px) calc(100vw - 21), 672px" ) outputs =>
+    sizes="(max-width: 672px) calc(100vw - 21), 672px"
+    srcset="
+        ...jpg 158w,  *.25
+        ...jpg 315w,  *.5
+        ...jpg 630w,  *1
+        ...jpg 945w,  *1.5
+        ...jpg 1260w, *2
+        ...jpg 5184w  full
+    "
+
+    fluid(maxWidth: 630, srcSetBreakpoints:[100, 200, 300, 400, 500, 630]) outputs =>
+    sizes="(max-width: 630px) 100vw, 630px"
+    srcset="
+        ...jpg 100w,
+        ...jpg 200w,
+        ...jpg 300w,
+        ...jpg 400w,
+        ...jpg 500w,
+        ...jpg 630w,
+        ...jpg 5184w
+    "
+
+    fluid(maxWidth: 630, srcSetBreakpoints:[300]) outputs =>
+    sizes="(max-width: 630px) 100vw, 630px"
+    srcset="
+        ...jpg 300w,
+        ...jpg 630w,
+        ...jpg 5184w
+    "
 
 
+    fluid(maxHeight: 630) outputs =>
+    sizes="(max-width: 945px) 100vw, 945px"
+    srcset="
+        ...jpg 237w,
+        ...jpg 473w,
+        ...jpg 945w,
+        ...jpg 1418w,
+        ...jpg 1890w,
+        ...jpg 5184w
+    "
+    image is 3:2 so looks like its taking the width still?
 
+
+    fluid(maxWidth: 630, maxHeight: 630) outputs =>
+    sizes="(max-width: 630px) 100vw, 630px"
+    srcset="
+        ...jpg 158w,
+        ...jpg 315w,
+        ...jpg 630w,
+        ...jpg 945w,
+        ...jpg 1260w,
+        ...jpg 5184w
+    "
+    image is cropped to square, or to aspect ratio specified
+
+*/
