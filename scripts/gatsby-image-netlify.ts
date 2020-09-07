@@ -99,6 +99,32 @@ const defaultSharedOptions: ISharedOptions = {
         ...jpg 5184w
     "
 
+
+    fluid(maxHeight: 630) outputs =>
+    sizes="(max-width: 945px) 100vw, 945px"
+    srcset="
+        ...jpg 237w,
+        ...jpg 473w,
+        ...jpg 945w,
+        ...jpg 1418w,
+        ...jpg 1890w,
+        ...jpg 5184w
+    "
+    image is 3:2 so looks like its taking the width still?
+
+
+    fluid(maxWidth: 630, maxHeight: 630) outputs =>
+    sizes="(max-width: 630px) 100vw, 630px"
+    srcset="
+        ...jpg 158w,
+        ...jpg 315w,
+        ...jpg 630w,
+        ...jpg 945w,
+        ...jpg 1260w,
+        ...jpg 5184w
+    "
+    image is cropped to square, or to aspect ratio specified
+
 */
 
 interface IFluidOptions extends ISharedOptions {
@@ -121,23 +147,6 @@ function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
         ...options,
     })
 
-    if (options.maxHeight != null && options.maxWidth == null) {
-        // options.maxWidth = 0 // later...
-        // TODO: what if its a maxHeight?
-        console.warn(`'${options.fileName}' maxHeight is yet supported on fluid images`)
-        options.maxHeight = 0
-        options.maxWidth = 800
-    } else if (options.maxWidth != null && options.maxHeight == null) {
-        options.maxHeight = 0
-    } else if (options.maxWidth == null && options.maxHeight == null) {
-        options.maxHeight = 0
-        options.maxWidth = 800 // default from https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fluid
-    }
-
-    if (options.sizes == null) {
-        options.sizes = `(max-width: ${options.maxWidth}px) 100vw, ${options.maxWidth}px`
-    }
-
     const imgDimensions: ImgDimensions = getIntrinsicImgDimensions(options.fileName)
     if (imgDimensions == null) {
         console.error(`'${options.fileName}' did not exist in the media-dimensions.json lookup.`)
@@ -148,9 +157,25 @@ function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
             sizes: options.sizes,
         }
     }
+    let { width, height, aspectRatio } = imgDimensions
+    let { maxWidth, maxHeight } = options
 
-    const { width, height, aspectRatio } = imgDimensions
-    const { maxWidth, maxHeight } = options
+
+
+    if (maxHeight != null && maxWidth == null) {
+        maxWidth = Math.round(maxHeight * aspectRatio)
+    } else if (maxWidth != null && maxHeight == null) {
+        maxHeight = 0
+    } else if (maxWidth == null && maxHeight == null) {
+        maxHeight = 0
+        maxWidth = 800 // default from https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp#fluid
+    } else if (maxWidth > 0 && maxHeight > 0) {
+        aspectRatio = maxWidth / maxHeight
+    }
+
+    if (options.sizes == null) {
+        options.sizes = `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`
+    }
 
     if (options.srcSetBreakpoints.length === 0) {
         options.srcSetBreakpoints = [.25, .5, 1, 1.5, 2].map(coefficient => Math.round(maxWidth * coefficient))
@@ -162,12 +187,18 @@ function FluidObjectNetlify(src: string, options?: IFluidOptions): FluidObject {
 
     // TODO: handle this depending of if maxHeight and maxWidth are both Set?
     // let resize: nfResize = options.fit === 'INSIDE' ? 'fit' : 'smartcrop';
-    let resize: nfResize = 'fit'; // always fit for now
+    // let resize: nfResize = 'fit'; // always fit for now
+    let resize: nfResize = (maxWidth > 0 && maxHeight > 0) ? 'smartcrop' : 'fit';
 
-    let srcSets = options.srcSetBreakpoints.map(breakpoint => {
-        return `${src}${nf_resize(breakpoint, 0, resize)} ${breakpoint}w`
+    let srcSets = options.srcSetBreakpoints.map(breakpointWidth => {
+        const breakpointHeight = maxHeight > 0 ? Math.round(breakpointWidth / aspectRatio) : 0;
+        console.log(breakpointHeight);
+
+        return `${src}${nf_resize(breakpointWidth, breakpointHeight, resize)} ${breakpointWidth}w`
     })
     srcSets.push(`${src} ${width}w`)
+    console.log(aspectRatio, options.sizes, srcSets);
+
 
     const srcSet = srcSets.join(`,\n`)
 
