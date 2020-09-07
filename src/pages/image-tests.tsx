@@ -31,7 +31,7 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
       fluid={FluidObjectNetlify(data.testImg.publicURL, {
         maxWidth: 630,
         fileName: data.testImg.base,
-        srcSetBreakpoints: [100, 200, 300, 400, 500, 630],
+        srcSetBreakpoints: [100, 200, 300, 400, 500, 630, 1260],
         sizes: "(max-width: 672px) calc(100vw - 21), 672px"
       })}
       backgroundColor />
