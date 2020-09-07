@@ -2,16 +2,7 @@ const fs = require("fs");
 const path = require('path');
 const glob = require("glob")
 const sizeOf = require('image-size');
-// const cliProgress = require('cli-progress');
 
-// TODO: look in gatsby-config.js for plugins gatsby-source-filesystem options path, name
-// and build sourceFolders based on that
-const sourceFolders = [
-    `content/blog`,
-    `content/assets`,
-    `content/lfs-media`,
-    'content/ignore-media'
-]
 const imageTypes = [
     'jpg',
     'jpeg',
@@ -20,17 +11,26 @@ const imageTypes = [
     'gif'
 ]
 
+const gatsbyConfig = require('../gatsby-config')
+const filesystemSources = gatsbyConfig.plugins.filter(plugin => plugin.resolve === 'gatsby-source-filesystem')
+const sourceDirectories = filesystemSources.map(filesystemSource => {
+    const projectRoot = path.resolve('./')
+    const filesystemSourcePath = path.resolve(filesystemSource.options.path)
+    const relativeFilesystemSourcePath = '.' + filesystemSourcePath.substring(projectRoot.length)
+    // return [projectRoot, filesystemSourcePath, relativeFilesystemSourcePath]
+    return relativeFilesystemSourcePath
+})
+console.log(`Searching gatsby-source-filesystem directories:`, sourceDirectories);
+
+const globPattern = `{${sourceDirectories.join(',')}}/*.{${imageTypes.join(',')}}`
+// console.log('Reading glob pattern: ', globPattern);
+
 const imgDimensions = {}
 const callback = (er, files) => {
-    // console.log(er, files)
-    // const bar1 = new cliProgress.SingleBar()
-    // bar1.start(files.length, 0)
     files.forEach((file, index) => {
-        var fileSize = fs.statSync(file).size
+        // var fileSize = fs.statSync(file).size // we can't use this during netlify's gatsby build
         var fileName = path.basename(file)
         var dimensions = sizeOf(file)
-        // console.log(stats, dimensions)
-        // imgDimensions[`${fileName}-${fileSize}`] = {
         if (imgDimensions[`${fileName}`] != null)
             console.warn(`All media files must have a unique name. '${fileName}' is duplicated and is being overwritten`)
         imgDimensions[`${fileName}`] = {
@@ -38,33 +38,9 @@ const callback = (er, files) => {
             width: dimensions.width,
             aspectRatio: dimensions.width / dimensions.height,
         };
-        // bar1.update(index + 1)
     })
-    // bar1.stop()
-    // console.log(imgDimensions);
     fs.writeFileSync('./scripts/media-dimensions.json', JSON.stringify(imgDimensions), 'utf-8')
-    //TODO: detect if there were duplicate fileSizes
-    // console.log('done')
-
+    console.log(`DONE! Mapped ${Object.keys(imgDimensions).length} media files`)
 }
-// sourceFolders.forEach(sourceFolder => {
 
-const globPattern = `./{${sourceFolders.join(',')}}/*.{${imageTypes.join(',')}}`
-console.log('reading glob pattern: ', globPattern);
-glob(globPattern, callback)
-
-// })
-
-// feed all the images from public folders
-/*
-make an object of {
-    [`${fileName}-${fileSize}`]: {
-        height: number,
-        width: number,
-        aspectRatio: number,
-    };
-}
-*/
-
-// var stats = fs.statSync("myfile.txt")
-// var fileSizeInBytes = stats["size"]
+glob(globPattern, callback) // RUN IT!

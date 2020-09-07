@@ -39,8 +39,7 @@
     "gh-pages": "^3.1.0",
     "prettier": "2.0.5",
     "glob": "^7.1.6",
-    "image-size": "^0.9.1",
-    "cli-progress": "^3.8.2"
+    "image-size": "^0.9.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
