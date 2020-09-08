@@ -1,6 +1,9 @@
 ---
 title: "WordPress Syntax Highlighter Plugin"
 date: "2019-01-20"
+tags: ["Photography","Travel"]
+description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+
 ---
 
 > A plug-in has never made me cry but this one has. It is the most amazing, lightweight, and functional plugin I have ever had the honor of using. It is a must use plugin for any one serious about WordPress and frankly should be built in to WordPress.
