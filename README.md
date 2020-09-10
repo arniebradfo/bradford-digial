@@ -16,7 +16,19 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - https://www.gatsbyjs.com/docs/mdx/
   - convert from remark to mdx - https://www.gatsbyjs.com/blog/2019-11-21-how-to-convert-an-existing-gatsby-blog-to-use-mdx/
   - replace all images in markdown - https://github.com/gatsbyjs/gatsby/issues/21934#issuecomment-596668111
-  - 
+    - images in mdx https://stackoverflow.com/q/60696636/5648839
+      ```graphql
+      query MyQuery {
+        allFile(filter: {ext: {regex: "/(jpg|png|jpg|svg)/i"}}) {
+          edges {
+            node {
+              publicURL
+              base
+            }
+          }
+        }
+      }
+      ```
 - get to reasonable parity
   - homepage
   - about page

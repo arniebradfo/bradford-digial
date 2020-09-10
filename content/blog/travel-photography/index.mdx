@@ -6,6 +6,7 @@ tags: ["Photography","Travel"]
 ---
 
 import Test from '../../../src/components/test'
+import ImageRow from '../../../src/components/image-row'
 
 <!-- // import GatsbyImage from 'gatsby-image'
 // import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from '../../../scripts/gatsby-image-netlify-lfs'
@@ -30,7 +31,7 @@ We spent two weeks in efficient, clean, well-designed Japan. We utilized the imp
 
 </Test>
 
-<!-- {/* <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: props.data.JapanPhoto3.publicURL, fileName: props.data.JapanPhoto3.base, maxWidth: 630 })} backgroundColor /> */} -->
+<ImageRow fluidImageIndicesFromWp={[ 113, 105 ]} />
 
 ## Thailand
 Bangkok was a harsh awakening after the clean efficiency of Japan. We traveled by train and bus to the rainforests of Khao Sok National Park and the beaches at Ao Nang. Our favorite was Khao Sok, where we spent a night in a floating pontoon cabin and saw monkeys and toucans.
