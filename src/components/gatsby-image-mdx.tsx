@@ -33,6 +33,11 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
   // TODO: test the performance of this...
   const image = allImages.edges.find(edge => imageName == edge.node.base)
 
+  if (image == null) {
+    console.warn(`GatsbyImageMdx couldn't find the image named: '${imageName}'`)
+    return (<img />)
+  }
+
   if (fluidName != null) {
     props.fluid = GatsbyNetlifyLfsFluid({ src: image.node.publicURL, fileName: image.node.base })
   } else if (fixedName != null) {
