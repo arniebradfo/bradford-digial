@@ -5,16 +5,18 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 
 type ImageRowProps = {
-    fluidImageObjects?: FluidObject[]
-    ids: number[]
-    maxwidth
+  fluidImageObjects?: FluidObject[]
+  ids?: number[]
+  imageNames?: string[]
+  maxwidth?: number
 }
 // [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
 
 
-const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxwidth: maxWidth }) => {
-    const { allImages } = useStaticQuery(graphql`
-      query AllImages {
+const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxwidth: maxWidth, imageNames }) => {
+
+  const { allImages } = useStaticQuery(graphql`
+      query {
         allImages: allFile(filter: {ext: {regex: "/(jpeg|jpg|png|svg|gif)/i"}}) {
           edges {
             node {
@@ -26,37 +28,38 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
       }
     `);
 
-    // console.log(allImages);
+  // if (fluidImageObjects == null) { // Can't use this now?
 
-    const fluidImageNames = fluidImageIndicesFromWp.map(fluidImageIndexFromWp => WpIndexImageMapping[fluidImageIndexFromWp])
+  if (imageNames == null)
+    imageNames = fluidImageIndicesFromWp.map(fluidImageIndexFromWp => WpIndexImageMapping[fluidImageIndexFromWp])
 
-    // console.log(fluidImageNames);
+  // TODO: test the performance of this...
+  const images = allImages.edges.filter(edge => {
+    for (let i = 0; i < imageNames.length; i++) {
+      const imageName = imageNames[i];
+      if (imageName == edge.node.base) return true
+    }
+  });
 
-    const images = allImages.edges.filter(edge => {
-        for (let i = 0; i < fluidImageNames.length; i++) {
-            const fluidImageName = fluidImageNames[i];
-            if (fluidImageName == edge.node.base) return true
-        }
-    });
+  fluidImageObjects = images.map(image => GatsbyNetlifyLfsFluid({ src: image.node.publicURL, fileName: image.node.base }))
 
-    fluidImageObjects = images.map(image => GatsbyNetlifyLfsFluid({ src: image.node.publicURL, fileName: image.node.base }))
-    // console.log(fluidImages);
+  // }
 
-    return (
-        <div style={{ display: 'flex' }}>
-            {fluidImageObjects.map((fluidImage, i) => (
-                // do the GatsbyNetlifyLfsFluid in here... and edit the maxWidth somehow??
-                <GatsbyImage
-                    fluid={fluidImage}
-                    style={{
-                        flex: fluidImage.aspectRatio,
-                        marginRight: i === fluidImageObjects.length - 1 ? '' : '1rem'
-                    }}
-                    key={i}
-                />
-            ))}
-        </div>
-    )
+  return (
+    <div style={{ display: 'flex' }}>
+      {fluidImageObjects.map((fluidImage, i) => (
+        // do the GatsbyNetlifyLfsFluid in here... and edit the maxWidth somehow??
+        <GatsbyImage
+          fluid={fluidImage}
+          style={{
+            flex: fluidImage.aspectRatio,
+            marginRight: i === fluidImageObjects.length - 1 ? '' : '1rem'
+          }}
+          key={i}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default ImageRow
