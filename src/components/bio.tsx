@@ -9,7 +9,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
 
-import { rhythm } from "../utils/typography"
 import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
 
 const Bio = () => {
@@ -43,31 +42,24 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <div>
       <GatsbyImage
         // fixed={data.avatar.childImageSharp.fixed}
         fixed={GatsbyNetlifyLfsFixed({ src: data.avatar.publicURL, fileName: data.avatar.base, width: 50, height: 50 })}
         alt={author.name}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
+      // style={{
+      //   marginBottom: 0,
+      //   minWidth: 50,
+      //   borderRadius: `100%`,
+      // }}
+      // imgStyle={{
+      //   borderRadius: `50%`,
+      // }}
       />
       {/* <img
         src={data.avatar.publicURL}
         alt={author.name}
         style={{
-          marginRight: rhythm(1 / 2),
           marginBottom: 0,
           minWidth: 50,
           borderRadius: `100%`,

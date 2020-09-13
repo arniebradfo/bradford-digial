@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `Bradford Digital`,
     author: {
-      name: `James Bradfprd`,
+      name: `James Bradford`,
       summary: `who just forked a Gatsby blog starter...`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
@@ -31,6 +31,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/lfs-media`,
+        name: `lfs-media`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/ignore-media`,
         name: `lfs-media`,
       },
     },
@@ -88,14 +95,19 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-less`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        lessOptions: {
+          plugins: [require('less-plugin-glob')],
+        },
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+
+    // This (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    // Netlify stuff? caching seems to break things?
     // `gatsby-plugin-netlify-cache`,
     // `gatsby-plugin-netlify`,
   ],

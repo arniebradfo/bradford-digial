@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -20,37 +19,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
+          <h1>
             {post.frontmatter.title}
           </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              marginBottom: rhythm(0),
-            }}
-          >
+          <p>
             {post.frontmatter.date}
           </p>
           {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
-            <p
-              style={{
-                ...scale(-1 / 5),
-              }}>
-              {post.frontmatter.tags.map((tag, i) => <a key={i} style={{ marginRight: 8 }}><small>{tag}</small></a>)}
+            <p>
+              {post.frontmatter.tags.map((tag, i) => <><a key={i}><small>{tag}</small></a> </>)}
             </p>
           )}
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <hr />
         <footer>
           <Bio />
         </footer>
