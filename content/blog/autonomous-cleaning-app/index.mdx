@@ -5,6 +5,10 @@ date: "2017-11-08"
 
 import ImageRow from '../../../src/components/image-row'
 import GatsbyImageMdx from '../../../src/components/gatsby-image-mdx'
+import MdxVideo from '../../../src/components/mdx-video'
+import tabletVideo from '../../ignore-media/Cleaning-App_Tablet.mp4'
+import mobileVideo from '../../ignore-media/Cleaning-App_Mobile.mp4'
+
 
 ## Use Case
 
@@ -16,11 +20,11 @@ The app was designed to alternate between a mobile single-column width as well a
 
 ### Mobile Width: Single-Column
 
-\[video width="360" height="640" mp4="https://bradford.digital/bradford-digital/wp-content/uploads/Cleaning-App\_Mobile.mp4"\]\[/video\]
+<MdxVideo src={mobileVideo} />
 
 ### Tablet Width: Two-Column
 
-\[video width="1024" height="768" mp4="https://bradford.digital/bradford-digital/wp-content/uploads/Cleaning-App\_Tablet.mp4"\]\[/video\]
+<MdxVideo src={tabletVideo} />
 
 ## Mockups
 
