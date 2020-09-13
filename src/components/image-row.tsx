@@ -3,6 +3,7 @@ import GatsbyImage, { FluidObject } from "gatsby-image"
 import WpIndexImageMapping from './image-row-mapping.json'
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import Constants from "../constants"
 
 type ImageRowProps = {
   fluidImageObjects?: FluidObject[]
@@ -41,7 +42,19 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
     }
   });
 
-  fluidImageObjects = images.map(image => GatsbyNetlifyLfsFluid({ src: image.node.publicURL, fileName: image.node.base }))
+  if (maxWidth == null) {
+    maxWidth = images.length > 1 ? Math.round(Constants.maxWidth / (images.length - 0.5)) : Constants.maxWidth;
+  }
+
+  // sizes: "(max-width: 864px) calc(100vw - 64px), 864px"
+  const sizes = `(max-width: ${(Constants.maxWidth + Constants.padding)}px) calc((100vw - ${Constants.padding}px)/${(images.length - 0.5)}), ${maxWidth}px`
+
+  fluidImageObjects = images.map(image => GatsbyNetlifyLfsFluid({
+    src: image.node.publicURL,
+    fileName: image.node.base,
+    maxWidth: maxWidth,
+    sizes: sizes
+  }))
 
   // }
 
@@ -53,7 +66,7 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
           fluid={fluidImage}
           style={{
             flex: fluidImage.aspectRatio,
-            marginRight: i === fluidImageObjects.length - 1 ? '' : '1rem'
+            marginRight: i === fluidImageObjects.length - 1 ? 0 : 4
           }}
           key={i}
         />

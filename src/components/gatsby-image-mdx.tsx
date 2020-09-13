@@ -3,6 +3,7 @@ import GatsbyImage, { FluidObject, GatsbyImageProps } from "gatsby-image"
 import WpIndexImageMapping from './image-row-mapping.json'
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import Constants from "../constants"
 
 interface GatsbyImageMdxProps extends GatsbyImageProps {
   fluidName?: string | number
@@ -39,7 +40,7 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
   }
 
   if (fluidName != null) {
-    props.fluid = GatsbyNetlifyLfsFluid({ src: image.node.publicURL, fileName: image.node.base })
+    props.fluid = GatsbyNetlifyLfsFluid({ src: image.node.publicURL, fileName: image.node.base, maxWidth: Constants.maxWidth })
   } else if (fixedName != null) {
     props.fixed = GatsbyNetlifyLfsFixed({ src: image.node.publicURL, fileName: image.node.base })
   } else {

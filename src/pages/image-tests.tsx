@@ -31,7 +31,7 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
         fileName: data.testImg.base,
         maxWidth: 630,
         srcSetBreakpoints: [100, 200, 300, 400, 500, 630, 1260],
-        sizes: "(max-width: 672px) calc(100vw - 21), 672px"
+        sizes: "(max-width: 864px) calc(100vw - 64px), 864px"
       })}
       backgroundColor />
     <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: data.testImg.publicURL, fileName: data.testImg.base, maxHeight: 630 })} backgroundColor />

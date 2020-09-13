@@ -27,7 +27,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
           {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
             <p>
-              {post.frontmatter.tags.map((tag, i) => <><a key={i}><small>{tag}</small></a> </>)}
+              {post.frontmatter.tags.map((tag, i) => <a key={i}><small>{tag}</small></a>)}
             </p>
           )}
         </header>
