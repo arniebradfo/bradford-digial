@@ -59,7 +59,7 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
   // }
 
   return (
-    <p style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', margin: '0.5rem 0' }}>
       {fluidImageObjects.map((fluidImage, i) => (
         // do the GatsbyNetlifyLfsFluid in here... and edit the maxWidth somehow??
         <GatsbyImage
@@ -71,7 +71,7 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
           key={i}
         />
       ))}
-    </p>
+    </div>
   )
 }
 

@@ -49,7 +49,7 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
   }
 
   return (
-    <GatsbyImage {...props} />
+    <GatsbyImage {...props} style={{ margin: '0.5rem 0' }} />
   )
 }
 
