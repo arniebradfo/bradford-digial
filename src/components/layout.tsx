@@ -3,17 +3,18 @@ import { Link } from "gatsby"
 import '../style/style.less'
 
 const Layout = ({ location, title, children }) => {
-  // const rootPath = `${__PATH_PREFIX__}/`
-  // if (location.pathname === rootPath) {
+  const rootPath = `${__PATH_PREFIX__}/`
 
   return (
     <div>
       <header>
-        <h1>
-          <Link to={`/`} >
-            {title}
-          </Link>
-        </h1>
+        {(location.pathname === rootPath) ? (
+          <h1>
+            <Link to={`/`} >{title}</Link>
+          </h1>
+        ) : (
+            <Link to={`/`} >{title}</Link>
+          )}
       </header>
       <main>{children}</main>
       <footer>

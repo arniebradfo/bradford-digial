@@ -5,6 +5,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import GatsbyImage from "gatsby-image"
+import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -19,9 +21,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
+          {/* {post.frontmatter.featuredImage && 
+            <GatsbyImage fixed={GatsbyNetlifyLfsFixed({
+              src: post.frontmatter.featuredImage.publicURL,
+              fileName: post.frontmatter.featuredImage.base,
+              height: 100,
+              width: 100
+            })} />
+          } */}
           <h1>
             {post.frontmatter.title}
           </h1>
+          {post.frontmatter.excerpt &&
+            <small>{post.frontmatter.excerpt}</small>
+          }
           <p>
             {post.frontmatter.date}
           </p>
@@ -84,8 +97,12 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
         tags
+        excerpt
+        featuredImage {
+          publicURL
+          base
+        }
       }
     }
   }
