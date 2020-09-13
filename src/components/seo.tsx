@@ -10,14 +10,14 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ excerpt, lang, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
-            description
+            excerpt
             social {
               twitter
             }
@@ -27,7 +27,7 @@ const SEO = ({ description, lang, meta, title }) => {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = excerpt || site.siteMetadata.excerpt
 
   return (
     <Helmet
@@ -77,11 +77,11 @@ const SEO = ({ description, lang, meta, title }) => {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  excerpt: ``,
 }
 
 SEO.propTypes = {
-  description: PropTypes.string,
+  excerpt: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,

@@ -17,7 +17,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        excerpt={post.frontmatter.excerpt || post.excerpt}
       />
       <article>
         <header>
@@ -99,10 +99,10 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         excerpt
-        featuredImage {
-          publicURL
-          base
-        }
+        # featuredImage {
+        #   publicURL
+        #   base
+        # }
       }
     }
   }

@@ -1,12 +1,12 @@
 module.exports = {
   pathPrefix: "/bradford-digital",
   siteMetadata: {
-    title: `Bradford Digital`,
+    title: `bradford.digital`,
     author: {
       name: `James Bradford`,
       summary: `who just forked a Gatsby blog starter...`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    excerpt: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://arniebradfo.github.io/bradford-digital/`,
     social: {
       twitter: `arniebradfo`,
