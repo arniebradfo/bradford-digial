@@ -9,9 +9,7 @@ const Layout = ({ location, title, children }) => {
     <div>
       <header>
         {(location.pathname === rootPath) ? (
-          <h1>
-            <Link to={`/`} >{title}</Link>
-          </h1>
+          <h1>{title}</h1>
         ) : (
             <Link to={`/`} >{title}</Link>
           )}

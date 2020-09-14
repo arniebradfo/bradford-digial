@@ -43,34 +43,8 @@ const Bio = () => {
   const { author, social } = data.site.siteMetadata
   return (
     <div>
-      <GatsbyImage
-        // fixed={data.avatar.childImageSharp.fixed}
-        fixed={GatsbyNetlifyLfsFixed({ src: data.avatar.publicURL, fileName: data.avatar.base, width: 50, height: 50 })}
-        alt={author.name}
-      // style={{
-      //   marginBottom: 0,
-      //   minWidth: 50,
-      //   borderRadius: `100%`,
-      // }}
-      // imgStyle={{
-      //   borderRadius: `50%`,
-      // }}
-      />
-      {/* <img
-        src={data.avatar.publicURL}
-        alt={author.name}
-        style={{
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-      /> */}
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        <br />
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should NOT follow him on Twitter
-        </a>
+        <strong>{author.name}</strong> is a UX designer currently working at <a href="https://www.pnnl.gov/">PNNL</a> in the <a href="https://www.pnnl.gov/visual-analytics-0" >Visual Analytics Group</a>.
       </p>
     </div>
   )

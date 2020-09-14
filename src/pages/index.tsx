@@ -14,13 +14,13 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <Bio />
       {/* <Link to="/using-typescript">using typescript</Link> */}
-      <Link to="/image-tests">image tests</Link>
+      {/* <Link to="/image-tests">image tests</Link> */}
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
+          <article key={node.fields.slug} style={{ margin: '3rem 0' }}>
             <header>
-              <h3>
+              <h3 style={{ margin: 0 }}>
                 <Link to={node.fields.slug}>
                   {title}
                 </Link>

@@ -11,28 +11,11 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 ---
 
 ## TODO
-- use mdx - could be the fastest right now...
-  - https://mdxjs.com/
-  - https://www.gatsbyjs.com/docs/mdx/
-  - convert from remark to mdx - https://www.gatsbyjs.com/blog/2019-11-21-how-to-convert-an-existing-gatsby-blog-to-use-mdx/
-  - replace all images in markdown - https://github.com/gatsbyjs/gatsby/issues/21934#issuecomment-596668111
-    - images in mdx https://stackoverflow.com/q/60696636/5648839
-      ```graphql
-      query MyQuery {
-        allFile(filter: {ext: {regex: "/(jpg|png|jpg|svg)/i"}}) {
-          edges {
-            node {
-              publicURL
-              base
-            }
-          }
-        }
-      }
-      ```
 - get to reasonable parity
   - homepage
   - about page
   - better css - more like original
+  - hide password protected pages
 - deploy 
   - change domain
   - ga analytics
@@ -71,3 +54,21 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 - install netlify stuff - not 100% sure what this does but oh well
   - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/?=netlify
   - https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify-cache/?=netlify
+- use mdx - could be the fastest right now...
+  - https://mdxjs.com/
+  - https://www.gatsbyjs.com/docs/mdx/
+  - convert from remark to mdx - https://www.gatsbyjs.com/blog/2019-11-21-how-to-convert-an-existing-gatsby-blog-to-use-mdx/
+  - replace all images in markdown - https://github.com/gatsbyjs/gatsby/issues/21934#issuecomment-596668111
+    - images in mdx https://stackoverflow.com/q/60696636/5648839
+      ```graphql
+      query MyQuery {
+        allFile(filter: {ext: {regex: "/(jpg|png|jpg|svg)/i"}}) {
+          edges {
+            node {
+              publicURL
+              base
+            }
+          }
+        }
+      }
+      ```
