@@ -34,13 +34,13 @@ module.exports = {
         name: `lfs-media`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/ignore-media`,
-        name: `ignore-media`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/ignore-media`,
+    //     name: `ignore-media`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
