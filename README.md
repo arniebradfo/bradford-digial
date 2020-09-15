@@ -19,6 +19,7 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - about page
   - better css - more like original
   - hide password protected pages
+  - videos are absent after netlify build...
 - deploy 
   - change domain
   - ga analytics
