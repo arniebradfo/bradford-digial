@@ -47,7 +47,7 @@ const BlogIndex = ({ data, location }) => {
             <section>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.excerpt || node.excerpt,
+                  __html: node.frontmatter.description || node.description,
                 }}
               />
             </section>
@@ -70,14 +70,14 @@ export const pageQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          # description
           fields {
             slug
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            excerpt
+            description
             featuredImage {
               publicURL
               base

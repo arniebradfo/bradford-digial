@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: "/bradford-digital",
   siteMetadata: {
     title: `bradford.digital`,
-    excerpt: `UX & UI, Design & Development`,
+    description: `UX & UI, Design & Development`,
     author: {
       name: `James Bradford`,
       summary: `UX & UI, Design & Development`,

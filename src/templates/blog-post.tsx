@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
-        excerpt={post.frontmatter.excerpt || post.excerpt}
+        description={post.frontmatter.description || post.description}
       />
       <article>
         <header style={{ marginBottom: 64, marginTop: 64 }}>
@@ -28,8 +28,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </h1>
           <p><small>{post.frontmatter.date}</small></p>
 
-          {post.frontmatter.excerpt &&
-            <p>{post.frontmatter.excerpt}</p>
+          {post.frontmatter.description &&
+            <p>{post.frontmatter.description}</p>
           }
           {/* {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
             <p>
@@ -99,13 +99,13 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      # description(pruneLength: 160)
       body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         tags
-        excerpt
+        description
         featuredImage {
           publicURL
           base
