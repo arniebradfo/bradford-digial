@@ -10,11 +10,12 @@ type ImageRowProps = {
   ids?: number[]
   imageNames?: string[]
   maxwidth?: number
+  backgroundColor?: string | boolean
 }
 // [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
 
 
-const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxwidth: maxWidth, imageNames }) => {
+const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxwidth: maxWidth, imageNames, backgroundColor = true, ...props }) => {
 
   const { allImages } = useStaticQuery(graphql`
       query {
@@ -28,6 +29,7 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
         }
       }
     `);
+
 
   // if (fluidImageObjects == null) { // Can't use this now?
 
@@ -66,9 +68,11 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
           fluid={fluidImage}
           style={{
             flex: fluidImage.aspectRatio,
-            marginRight: i === fluidImageObjects.length - 1 ? 0 : 4
+            marginRight: i === fluidImageObjects.length - 1 ? 0 : 8
           }}
           key={i}
+          backgroundColor={backgroundColor}
+          {...props}
         />
       ))}
     </div>

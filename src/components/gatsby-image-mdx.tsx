@@ -27,6 +27,8 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
     }
   `);
 
+  props.backgroundColor = props.backgroundColor || true;
+
   let imageName = fluidName || fixedName;
   if (typeof imageName === "number")
     imageName = WpIndexImageMapping[imageName]

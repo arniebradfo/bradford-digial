@@ -12,6 +12,9 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 
 ## TODO
 - get to reasonable parity
+  - bio
+    - social links
+    - about page
   - homepage
   - about page
   - better css - more like original

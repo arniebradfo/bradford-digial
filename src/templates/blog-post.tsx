@@ -6,7 +6,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import GatsbyImage from "gatsby-image"
-import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
+import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import Constants from "../constants"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -20,32 +21,38 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         excerpt={post.frontmatter.excerpt || post.excerpt}
       />
       <article>
-        <header>
-          {/* {post.frontmatter.featuredImage && 
-            <GatsbyImage fixed={GatsbyNetlifyLfsFixed({
-              src: post.frontmatter.featuredImage.publicURL,
-              fileName: post.frontmatter.featuredImage.base,
-              height: 100,
-              width: 100
-            })} />
-          } */}
-          <h1>
+        <header style={{ marginBottom: 64, marginTop: 64 }}>
+
+          <h1 style={{ margin: 0 }}>
             {post.frontmatter.title}
           </h1>
+          <p><small>{post.frontmatter.date}</small></p>
+
           {post.frontmatter.excerpt &&
-            <small>{post.frontmatter.excerpt}</small>
+            <p>{post.frontmatter.excerpt}</p>
           }
-          <p>
-            {post.frontmatter.date}
-          </p>
-          {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
+          {/* {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
             <p>
               {post.frontmatter.tags.map((tag, i) => <a key={i}><small>{tag}</small></a>)}
             </p>
-          )}
+          )} */}
+          {post.frontmatter.featuredImage &&
+            <GatsbyImage fluid={GatsbyNetlifyLfsFluid({
+              src: post.frontmatter.featuredImage.publicURL,
+              fileName: post.frontmatter.featuredImage.base,
+              maxWidth: Constants.maxWidth,
+              // sizes: Constants.sizes
+              // width: 100
+            })}
+              style={{ margin: `0 -${(Constants.padding / 2)}px` }}
+            />
+          }
         </header>
+        <hr style={{ margin: '6rem 0' }} />
+
         <MDXRenderer>{post.body}</MDXRenderer>
-        <hr />
+
+        <hr style={{ margin: '6rem 0' }} />
         <footer>
           <Bio />
         </footer>
@@ -99,10 +106,10 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         excerpt
-        # featuredImage {
-        #   publicURL
-        #   base
-        # }
+        featuredImage {
+          publicURL
+          base
+        }
       }
     }
   }

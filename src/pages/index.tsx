@@ -4,6 +4,9 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GatsbyImage from "gatsby-image"
+import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import Constants from "../constants"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -18,13 +21,27 @@ const BlogIndex = ({ data, location }) => {
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug} style={{ margin: '3rem 0' }}>
+          <article key={node.fields.slug} style={{ margin: '5rem 0' }}>
             <header>
-              <h3 style={{ margin: 0 }}>
+              {node.frontmatter.featuredImage &&
+                <Link to={node.fields.slug}>
+                  <GatsbyImage fluid={GatsbyNetlifyLfsFluid({
+                    src: node.frontmatter.featuredImage.publicURL,
+                    fileName: node.frontmatter.featuredImage.base,
+                    maxWidth: Constants.maxWidth,
+                    // maxHeight: 300,
+                    sizes: Constants.sizes
+                    // width: 100
+                  })}
+                    backgroundColor
+                  />
+                </Link>
+              }
+              <h2 style={{ marginBottom: 0, marginTop: '1em' }}>
                 <Link to={node.fields.slug}>
                   {title}
                 </Link>
-              </h3>
+              </h2>
               <small>{node.frontmatter.date}</small>
             </header>
             <section>
@@ -37,7 +54,7 @@ const BlogIndex = ({ data, location }) => {
           </article>
         )
       })}
-    </Layout>
+    </Layout >
   )
 }
 
@@ -61,6 +78,10 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             excerpt
+            featuredImage {
+              publicURL
+              base
+            }
           }
         }
       }
