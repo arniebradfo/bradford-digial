@@ -5,17 +5,17 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 
-type ImageRowProps = {
+type MdxImageRowProps = {
   fluidImageObjects?: FluidObject[]
   ids?: number[]
   imageNames?: string[]
-  maxwidth?: number
+  maxWidth?: number
   backgroundColor?: string | boolean
 }
 // [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
 
 
-const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxwidth: maxWidth, imageNames, backgroundColor = true, ...props }) => {
+const MdxImageRow: React.FC<MdxImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxWidth, imageNames, backgroundColor = true, ...props }) => {
 
   const { allImages } = useStaticQuery(graphql`
       query {
@@ -79,4 +79,4 @@ const ImageRow: React.FC<ImageRowProps> = ({ fluidImageObjects, ids: fluidImageI
   )
 }
 
-export default ImageRow
+export default MdxImageRow
