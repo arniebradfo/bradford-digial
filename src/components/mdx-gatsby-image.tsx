@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 
-interface GatsbyImageMdxProps extends GatsbyImageProps {
+interface MdxGatsbyImageProps extends GatsbyImageProps {
   fluidName?: string | number
   fixedName?: string | number
   height?: number
@@ -13,7 +13,7 @@ interface GatsbyImageMdxProps extends GatsbyImageProps {
 }
 // [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
 
-const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, height, width, ...props }) => {
+const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({ fluidName, fixedName, height, width, ...props }) => {
   const { allImages } = useStaticQuery(graphql`
     query {
       allImages: allFile(filter: {ext: {regex: "/(jpeg|jpg|png|svg|gif)/i"}}) {
@@ -37,7 +37,7 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
   const image = allImages.edges.find(edge => imageName == edge.node.base)
 
   if (image == null) {
-    console.warn(`GatsbyImageMdx couldn't find the image named: '${imageName}'`)
+    console.warn(`MdxGatsbyImage couldn't find the image named: '${imageName}'`)
     return (<img />)
   }
 
@@ -46,7 +46,7 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
   } else if (fixedName != null) {
     props.fixed = GatsbyNetlifyLfsFixed({ src: image.node.publicURL, fileName: image.node.base })
   } else {
-    console.warn('GatsbyImageMdx requires a fluidName or fixedName')
+    console.warn('MdxGatsbyImage requires a fluidName or fixedName')
     return (<></>)
   }
 
@@ -55,4 +55,4 @@ const GatsbyImageMdx: React.FC<GatsbyImageMdxProps> = ({ fluidName, fixedName, h
   )
 }
 
-export default GatsbyImageMdx
+export default MdxGatsbyImage
