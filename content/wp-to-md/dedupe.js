@@ -1,9 +1,8 @@
-
-const matchDuplicateImgRegEx = /\d+x\d+\./ig;
-
 //requiring path and fs modules
 const path = require('path');
 const fs = require('fs');
+
+const matchDuplicateImgRegEx = /\d+x\d+\./ig;
 
 //joining path of directory
 const directoryPath = path.join(__dirname, 'uploads');
