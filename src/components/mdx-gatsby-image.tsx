@@ -1,6 +1,5 @@
 import React from "react"
 import GatsbyImage, { FluidObject, GatsbyImageProps } from "gatsby-image"
-import WpIndexImageMapping from './image-row-mapping.json'
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
@@ -30,8 +29,6 @@ const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({ fluidName, fixedName, h
   props.backgroundColor = props.backgroundColor || true;
 
   let imageName = fluidName || fixedName;
-  if (typeof imageName === "number")
-    imageName = WpIndexImageMapping[imageName]
 
   // TODO: test the performance of this...
   const image = allImages.edges.find(edge => imageName == edge.node.base)

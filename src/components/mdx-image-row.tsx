@@ -1,21 +1,17 @@
 import React from "react"
 import GatsbyImage, { FluidObject } from "gatsby-image"
-import WpIndexImageMapping from './image-row-mapping.json'
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 
 type MdxImageRowProps = {
   fluidImageObjects?: FluidObject[]
-  ids?: number[]
   imageNames?: string[]
   maxWidth?: number
   backgroundColor?: string | boolean
 }
-// [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
 
-
-const MdxImageRow: React.FC<MdxImageRowProps> = ({ fluidImageObjects, ids: fluidImageIndicesFromWp, maxWidth, imageNames, backgroundColor = true, ...props }) => {
+const MdxImageRow: React.FC<MdxImageRowProps> = ({ fluidImageObjects, maxWidth, imageNames, backgroundColor = true, ...props }) => {
 
   const { allImages } = useStaticQuery(graphql`
       query {
@@ -32,9 +28,6 @@ const MdxImageRow: React.FC<MdxImageRowProps> = ({ fluidImageObjects, ids: fluid
 
 
   // if (fluidImageObjects == null) { // Can't use this now?
-
-  if (imageNames == null)
-    imageNames = fluidImageIndicesFromWp.map(fluidImageIndexFromWp => WpIndexImageMapping[fluidImageIndexFromWp])
 
   // TODO: test the performance of this...
   const images = allImages.edges.filter(edge => {
