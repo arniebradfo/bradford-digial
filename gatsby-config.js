@@ -2,10 +2,10 @@ module.exports = {
   pathPrefix: "/bradford-digital",
   siteMetadata: {
     title: `bradford.digital`,
-    description: `UX & UI, Design & Development`,
+    description: `UX Design and Frontend Development`,
     author: {
       name: `James Bradford`,
-      summary: `UX & UI, Design & Development`,
+      summary: `James Bradford is a UX Designer working in the Visual Analytics Group at Pacific Northwest National Laboratory.`,
     },
     siteUrl: `https://arniebradfo.github.io/bradford-digital/`,
     social: {
@@ -33,6 +33,14 @@ module.exports = {
         path: `${__dirname}/content/lfs-media`,
         name: `lfs-media`,
       },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        }
+      }
     },
     // {
     //   resolve: `gatsby-source-filesystem`,
@@ -102,6 +110,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-emotion`
 
     // This (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GatsbyImage from "gatsby-image"
@@ -13,9 +12,9 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMdx.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={data.site.siteMetadata.author.name} subtitle={data.site.siteMetadata.description}>
       <SEO title="All posts" />
-      <Bio />
+      {/* <Bio /> */}
       {/* <Link to="/using-typescript">using typescript</Link> */}
       {/* <Link to="/image-tests">image tests</Link> */}
       {posts.map(({ node }) => {
@@ -65,6 +64,11 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
+        author{
+          name
+          summary
+        }
       }
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {

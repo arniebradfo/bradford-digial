@@ -1,15 +1,29 @@
 import React from "react"
+import { css } from "@emotion/core"
+
+import Logo from '../../content/assets/logo/hexagon.inline.svg';
 import { Link } from "gatsby"
 import '../style/style.less'
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, subtitle = '', children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
   return (
     <div>
-      <header>
+      <header css={css`
+          display:flex;   
+          align-items: center;
+        `}>
+
+        <Logo css={css`
+          width: 75px;
+          .hexagon{
+            opacity: 0.1;
+          }
+        `} />
+
         {(location.pathname === rootPath) ? (
-          <h1>{title}</h1>
+          <h1 css={css`margin:1rem;`}>{title}</h1>
         ) : (
             <Link to={`/`} >{title}</Link>
           )}

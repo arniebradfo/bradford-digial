@@ -6,9 +6,10 @@
  */
 
 import React from "react"
+import { css } from "@emotion/core"
 import { useStaticQuery, graphql } from "gatsby"
-import GatsbyImage from "gatsby-image"
 
+import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
 
 const Bio = () => {
@@ -37,8 +38,6 @@ const Bio = () => {
       }
     }
   `)
-
-
 
   const { author, social } = data.site.siteMetadata
   return (
