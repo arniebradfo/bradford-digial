@@ -1,12 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 17.7">
-    <path class="hexagon"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.3 15 17.7">
+    <radialGradient id="radial-gradient" cx="0.4" cy="0.3" r="0.7" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-opacity="0.03"/>
+      <stop offset="1" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="linear-gradient" x1="1.365" y1="1.34" x2="0.5" y2="-0.529" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#000000"/>
+      <stop offset="1" stop-color="#676767"/>
+    </linearGradient>
+    <filter id="drop-shadow" x="0 " y="0" width="15" height="18" filterUnits="userSpaceOnUse">
+      <feOffset dy="0.3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.3" result="blur"/>
+      <feFlood flood-opacity="0.3"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <path class="hexagon" fill="url(#radial-gradient)"
         d="M14.57,4.27,7.93.44a.83.83,0,0,0-.86,0L.43,4.27A.86.86,0,0,0,0,5v7.66a.86.86,0,0,0,.43.75l6.64,3.83a.83.83,0,0,0,.86,0l6.64-3.83a.86.86,0,0,0,.43-.75V5A.86.86,0,0,0,14.57,4.27Z" />
-    <g class="lettering">
-        <path class="1"
-            d="M6.87,4.29,5.62,3.57a.28.28,0,0,0-.25,0l-1.25.72A.27.27,0,0,0,4,4.51V6a.27.27,0,0,0,.12.22l1.25.72a.23.23,0,0,0,.25,0l1.25-.72A.26.26,0,0,0,7,6V4.51A.26.26,0,0,0,6.87,4.29Z" />
-        <path class="2"
-            d="M6.81,7.36,4.12,8.91A.27.27,0,0,0,4,9.13v3.25a.11.11,0,0,1-.06.1L1.19,14.07a.12.12,0,0,0,0,.22l2.68,1.55a.28.28,0,0,0,.25,0l2.75-1.59A.23.23,0,0,0,7,14V7.47A.12.12,0,0,0,6.81,7.36Z" />
-        <path class="3"
-            d="M13.87,6.6,11.06,5A.11.11,0,0,1,11,4.87v-3a.23.23,0,0,0-.13-.21L8.19.14A.13.13,0,0,0,8,.25V6.53a.27.27,0,0,0,.12.22l2.82,1.62a.11.11,0,0,1,.06.11v.43a.11.11,0,0,1-.06.11l-3,1.73a.12.12,0,0,0,0,.22l2.68,1.55a.28.28,0,0,0,.25,0l3-1.73a.26.26,0,0,0,.13-.22V6.82A.26.26,0,0,0,13.87,6.6Z" />
+    <g class="letters" filter="url(#drop-shadow)" > 
+        <g fill="url(#linear-gradient)">
+            <path class="1"
+                d="M6.87,4.29,5.62,3.57a.28.28,0,0,0-.25,0l-1.25.72A.27.27,0,0,0,4,4.51V6a.27.27,0,0,0,.12.22l1.25.72a.23.23,0,0,0,.25,0l1.25-.72A.26.26,0,0,0,7,6V4.51A.26.26,0,0,0,6.87,4.29Z" />
+            <path class="2"
+                d="M6.81,7.36,4.12,8.91A.27.27,0,0,0,4,9.13v3.25a.11.11,0,0,1-.06.1L1.19,14.07a.12.12,0,0,0,0,.22l2.68,1.55a.28.28,0,0,0,.25,0l2.75-1.59A.23.23,0,0,0,7,14V7.47A.12.12,0,0,0,6.81,7.36Z" />
+            <path class="3"
+                d="M13.87,6.6,11.06,5A.11.11,0,0,1,11,4.87v-3a.23.23,0,0,0-.13-.21L8.19.14A.13.13,0,0,0,8,.25V6.53a.27.27,0,0,0,.12.22l2.82,1.62a.11.11,0,0,1,.06.11v.43a.11.11,0,0,1-.06.11l-3,1.73a.12.12,0,0,0,0,.22l2.68,1.55a.28.28,0,0,0,.25,0l3-1.73a.26.26,0,0,0,.13-.22V6.82A.26.26,0,0,0,13.87,6.6Z" />
+        </g>
     </g>
-</svg>
+</svg> 
