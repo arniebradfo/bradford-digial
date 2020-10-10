@@ -6,11 +6,23 @@ module.exports = {
     author: {
       name: `James Bradford`,
       summary: `James Bradford is a UX Designer working in the Visual Analytics Group at Pacific Northwest National Laboratory.`,
+      contacts: ['james', 'bradford', 'digital'] // ${contact[0]}@${contact[1]}.${contact[2]} // mis-formatted to avoid crawlers
     },
     siteUrl: `https://arniebradfo.github.io/bradford-digital/`,
-    social: {
-      twitter: `arniebradfo`,
-    },
+    socials: [
+      {
+        text: `LinkedIn`,
+        link: `https://www.linkedin.com/in/arniebradfo/`,
+      },
+      {
+        text: `CodePen`,
+        link: `https://codepen.io/arniebradfo/`,
+      },
+      {
+        text: `Github`,
+        link: `https://github.com/arniebradfo`,
+      },
+    ],
   },
   plugins: [
     {

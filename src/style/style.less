@@ -2,6 +2,28 @@
 
 @import './*.less';
 
+:root{
+    --font-family-sans: -apple-system, 
+        BlinkMacSystemFont, 
+        avenir next, 
+        avenir, 
+        helvetica neue, 
+        helvetica, 
+        Ubuntu, 
+        roboto, 
+        noto, 
+        segoe ui, 
+        arial, 
+        sans-serif;
+    --font-family-mono:
+         Menlo, 
+         Consolas, 
+         Monaco, 
+         Liberation Mono, 
+         Lucida Console, 
+         monospace;
+}
+
 html{
     font-family: sans-serif;
 }
@@ -15,6 +37,12 @@ body{
     color: #555;
 
     line-height: 1.8em;
+
+    font-family: sans-serif;
+    font-family: var(--font-family-sans);
+        
+    letter-spacing: 0.05ch;
+
 }
 
 h1,h2,h3,h4,h5,h6{

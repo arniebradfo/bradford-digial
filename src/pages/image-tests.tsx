@@ -1,10 +1,10 @@
 // If you don't want to use TypeScript you can delete this file!
 import React from "react"
 import { PageProps, graphql } from "gatsby"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import { Header } from "../components/header"
 
 type DataProps = {
   testImg: {
@@ -15,7 +15,8 @@ type DataProps = {
 }
 
 const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) => (
-  <Layout title="Netlify LFS Large Media Resize Tests" location={location}>
+  <div>
+    <Header />
     <SEO title="Netlify Image Test" />
 
     <GatsbyImage fixed={GatsbyNetlifyLfsFixed({ src: data.testImg.publicURL, fileName: data.testImg.base, width: 100, height: 100 })} backgroundColor />
@@ -37,7 +38,7 @@ const ImageTests: React.FC<PageProps<DataProps>> = ({ data, path, location }) =>
     <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: data.testImg.publicURL, fileName: data.testImg.base, maxHeight: 630 })} backgroundColor />
     <GatsbyImage fluid={GatsbyNetlifyLfsFluid({ src: data.testImg.publicURL, fileName: data.testImg.base, maxWidth: 400, maxHeight: 600 })} backgroundColor />
     {/* <GatsbyImage fluid={data.testImg.childImageSharp.fluid} backgroundColor /> */}
-  </Layout>
+  </div>
 )
 
 export default ImageTests

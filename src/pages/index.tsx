@@ -1,59 +1,33 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
+import { Footer } from "../components/footer"
+import { Header } from "../components/header"
+import { css } from "@emotion/core"
+import Bio from "../components/bio"
+import { Post } from "../components/post"
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+  // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
 
   return (
-    <Layout location={location} title={data.site.siteMetadata.author.name} subtitle={data.site.siteMetadata.description}>
-      <SEO title="All posts" />
-      {/* <Bio /> */}
-      {/* <Link to="/using-typescript">using typescript</Link> */}
-      {/* <Link to="/image-tests">image tests</Link> */}
+    <div>
+      <Header size='hero' css={css`margin:4rem 0;`} />
+      <SEO title="Portfolio" />
+
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug} style={{ margin: '5rem 0' }}>
-            <header>
-              {node.frontmatter.featuredImage &&
-                <Link to={node.fields.slug}>
-                  <GatsbyImage fluid={GatsbyNetlifyLfsFluid({
-                    src: node.frontmatter.featuredImage.publicURL,
-                    fileName: node.frontmatter.featuredImage.base,
-                    maxWidth: Constants.maxWidth,
-                    // maxHeight: 300,
-                    sizes: Constants.sizes
-                    // width: 100
-                  })}
-                    backgroundColor
-                  />
-                </Link>
-              }
-              <h2 style={{ marginBottom: 0, marginTop: '1em' }}>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h2>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.description,
-                }}
-              />
-            </section>
-          </article>
+          <Post key={node.fields.slug} css={css`margin:5rem 0;`} node={node} />
         )
       })}
-    </Layout >
+      <a href={'#'} children={'Top'} />
+      <Bio />
+      <Footer />
+    </div>
   )
 }
 
@@ -61,16 +35,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        description
-        author{
-          name
-          summary
-        }
-      }
-    }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
@@ -79,7 +43,8 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            dateTime: date
+            dateHuman: date(formatString: "MM / DD / YYYY")
             title
             description
             featuredImage {

@@ -2,24 +2,29 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
+import { Header } from "../components/header"
+import { Footer } from "../components/footer"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
-  const siteTitle = data.site.siteMetadata.title
+  // const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <div>
+
+      <Header />
+
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.description}
       />
+
       <article>
         <header style={{ marginBottom: 64, marginTop: 64 }}>
 
@@ -84,7 +89,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
-    </Layout>
+
+      <Footer />
+
+    </div>
   )
 }
 

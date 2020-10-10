@@ -11,39 +11,32 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
+import { Links } from "./links"
+import styled from "@emotion/styled"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        publicURL
-        base
-      # childImageSharp {
-      #     fixed(width: 50, height: 50) {
-      #       ...GatsbyImageSharpFixed
-      #     }
-      #   }
-      # }
-      }
       site {
         siteMetadata {
           author {
             name
             summary
           }
-          social {
-            twitter
-          }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
-  return (
+  const { author } = data.site.siteMetadata
+  return (  
     <div>
+      <h5>About</h5>
       <p>
-        <strong>{author.name}</strong> is a UX designer currently working at <a href="https://www.pnnl.gov/">PNNL</a> in the <a href="https://www.pnnl.gov/visual-analytics-0" >Visual Analytics Group</a>.
+        <strong>{author.name}</strong> is a UX designer currently working at <a href="https://www.pnnl.gov/">Pacific Northwest National Laboratory</a> in the <a href="https://www.pnnl.gov/visual-analytics-0" >Visual Analytics Group</a>.
+      </p>
+      <p>
+        <Links />
       </p>
     </div>
   )

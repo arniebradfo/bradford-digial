@@ -18,9 +18,7 @@ const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
-            social {
-              twitter
-            }
+            # socials { }
           }
         }
       }
@@ -36,40 +34,40 @@ const SEO = ({ description, lang, meta, title }) => {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+      // meta={[
+      //   {
+      //     name: `description`,
+      //     content: metaDescription,
+      //   },
+      //   {
+      //     property: `og:title`,
+      //     content: title,
+      //   },
+      //   {
+      //     property: `og:description`,
+      //     content: metaDescription,
+      //   },
+      //   {
+      //     property: `og:type`,
+      //     content: `website`,
+      //   },
+      //   {
+      //     name: `twitter:card`,
+      //     content: `summary`,
+      //   },
+      //   {
+      //     name: `twitter:creator`,
+      //     content: site.siteMetadata.socials.twitter,
+      //   },
+      //   {
+      //     name: `twitter:title`,
+      //     content: title,
+      //   },
+      //   {
+      //     name: `twitter:description`,
+      //     content: metaDescription,
+      //   },
+      // ].concat(meta)}
     />
   )
 }
