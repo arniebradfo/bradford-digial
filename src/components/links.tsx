@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
+interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> { }
 
 export const Links: React.FunctionComponent<Props> = ({ ...props }) => {
 
@@ -30,10 +30,7 @@ export const Links: React.FunctionComponent<Props> = ({ ...props }) => {
   const handleInput = () => { setUseRealContact(true) }
 
   return (
-    <div
-      {...props}
-      css={css``}
-    >
+    <span {...props} >
       <ContactSpan>
         <a
           onMouseOver={handleInput}
@@ -62,7 +59,7 @@ export const Links: React.FunctionComponent<Props> = ({ ...props }) => {
           </a>
         </ContactSpan>
       ))}
-    </div>
+    </span>
   )
 }
 

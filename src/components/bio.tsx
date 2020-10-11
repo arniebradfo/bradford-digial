@@ -29,7 +29,7 @@ const Bio = () => {
   `)
 
   const { author } = data.site.siteMetadata
-  return (  
+  return (
     <div>
       <h5 className={'mini-header'}>About</h5>
       <p className={'subtle-link'}>
