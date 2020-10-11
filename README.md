@@ -13,15 +13,7 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 ## TODO
 - get to reasonable parity
   - hide password protected pages
-  - logo
-  - bio
-    - social links
-    - about page
   - videos are absent after netlify build...
-  - no -
-  - homepage
-  - about page
-  - better css - more like original
 - deploy 
   - change domain
   - ga analytics
@@ -42,6 +34,10 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - https://reach.tech/router/
 
 ## DONE
+- get to reasonable parity
+  - make simple mockups
+    - style and layout
+    - logo & favicon
 - setup Netlify
 - use Git LFS for media - setup with netlify
 - images with lfs
