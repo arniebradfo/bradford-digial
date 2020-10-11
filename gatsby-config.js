@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: "/bradford-digital",
   siteMetadata: {
     title: `bradford.digital`,
-    description: `UX Design and Frontend Development`,
+    description: `UX Design & Frontend Development`,
     author: {
       name: `James Bradford`,
       summary: `James Bradford is a UX Designer working in the Visual Analytics Group at Pacific Northwest National Laboratory.`,
@@ -110,7 +110,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/logo/logo-512.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
