@@ -11,17 +11,17 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 ---
 
 ## TODO
-- get to reasonable parity
-  - hide password protected pages
-  - videos are absent after netlify build...
-  - remove unused 'pages'
 - deploy 
   - change domain
   - ga analytics
-  - take all old data down
+  - deactivate bluehost site
+  - setup email
 
 ## TODO Later
+- gifs don't retain after being passed through the api
 - images with lfs
+  - gifs?
+  - videos are absent after netlify build...
   - make a `gatsby-plugin-netlify-lfs` plugin
     - how do plugins work? https://www.gatsbyjs.com/docs/creating-plugins/
   - fork the [`gatsby-remark-images` plugin](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images) and make it use Netlify Image Transform API
@@ -33,15 +33,23 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - https://popmotion.io/pose/learn/route-transitions-reach-router/
   - https://www.gatsbyjs.com/docs/routing/
   - https://reach.tech/router/
+- pagination
+- add resume?
+- content
+
 
 ## DONE
 - get to reasonable parity
+  - hide sensitive pages
+  - remove unused 'pages'
   - make simple mockups
     - style and layout
     - logo & favicon
 - setup Netlify
 - use Git LFS for media - setup with netlify
 - images with lfs
+  - videos are absent after netlify build...
+  - gifs don't retain after being passed through the api
   - netlify gatsby build doesn't have access to image data: https://github.com/gatsbyjs/gatsby/issues/12438#issuecomment-474113335
   - write a replacement for `gatsby-plugin-sharp` and `gatsby-transformer-sharp` that uses netlify [Netlify Large Media Image Transforms](https://docs.netlify.com/large-media/transform-images/#request-transformations)
   - preprocess all image files into a `media-dimensions.json` object with height width and aspect ratio
