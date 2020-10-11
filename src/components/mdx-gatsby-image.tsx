@@ -3,6 +3,7 @@ import GatsbyImage, { FluidObject, GatsbyImageProps } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
+import { css } from "@emotion/core"
 
 interface MdxGatsbyImageProps extends GatsbyImageProps {
   fluidName?: string | number
@@ -48,7 +49,10 @@ const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({ fluidName, fixedName, h
   }
 
   return (
-    <GatsbyImage {...props} style={{ margin: '0.5rem 0' }} />
+    <GatsbyImage
+      {...props}
+      css={css`margin: 0.5rem 0;`}
+    />
   )
 }
 

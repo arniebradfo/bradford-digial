@@ -7,9 +7,10 @@ import Constants from "../constants"
 
 interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   node: any
+  ctaText?: string
 }
 
-export const Post: React.FunctionComponent<Props> = ({ node, ...props }) => {
+export const Post: React.FunctionComponent<Props> = ({ node, ctaText = 'Read more', ...props }) => {
   const title = node.frontmatter.title || node.fields.slug
 
   return (
@@ -33,18 +34,13 @@ export const Post: React.FunctionComponent<Props> = ({ node, ...props }) => {
         }
         <h3
           css={css`
-            margin:2rem 0 0 0;
+            margin:2rem 0 0.25rem 0;
             font-size: 2rem;
-            line-height: initial;
           `}
         >
           {title}
         </h3>
         <time
-          css={css`
-            font-size: 0.8rem;
-            font-family: var(--font-family-mono);
-          `}
           dateTime={node.frontmatter.dateTime}>
           {node.frontmatter.dateHuman}
         </time>
@@ -59,9 +55,8 @@ export const Post: React.FunctionComponent<Props> = ({ node, ...props }) => {
         <strong>
           <Link
             to={node.fields.slug}
-          >
-            Read More {/* → */}
-          </Link>
+            children={ctaText}
+          />
         </strong>
       </section>
     </article>

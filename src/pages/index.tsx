@@ -9,6 +9,7 @@ import { Header } from "../components/header"
 import { css } from "@emotion/core"
 import Bio from "../components/bio"
 import { Post } from "../components/post"
+import { Links } from "../components/links"
 
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
@@ -17,16 +18,36 @@ const BlogIndex = ({ data, location }) => {
   return (
     <div>
       <Header size='hero' css={css`margin:4rem 0;`} />
+
       <SEO title="Portfolio" />
+
+      <div
+        css={css`
+        display:flex; 
+        justify-content: space-between; 
+        flex-wrap: wrap-reverse; 
+        align-items:baseline;
+        `}
+      >
+        <h2 className={'mini-header'}>Portfolio</h2>
+        <Links />
+      </div>
 
       {posts.map(({ node }) => {
         return (
-          <Post key={node.fields.slug} css={css`margin:5rem 0;`} node={node} />
+          <Post key={node.fields.slug} css={css`margin:2rem 0 5rem; `} node={node} />
         )
       })}
-      <a href={'#'} children={'Top'} />
+
+      <hr />
+
+      {/* <a href={'#'} children={'Top'} /> */}
       <Bio />
+
+      <hr />
+
       <Footer />
+
     </div>
   )
 }

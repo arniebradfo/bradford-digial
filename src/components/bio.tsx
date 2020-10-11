@@ -31,9 +31,13 @@ const Bio = () => {
   const { author } = data.site.siteMetadata
   return (  
     <div>
-      <h5>About</h5>
-      <p>
-        <strong>{author.name}</strong> is a UX designer currently working at <a href="https://www.pnnl.gov/">Pacific Northwest National Laboratory</a> in the <a href="https://www.pnnl.gov/visual-analytics-0" >Visual Analytics Group</a>.
+      <h5 className={'mini-header'}>About</h5>
+      <p className={'subtle-link'}>
+        <strong css={css`color:black;`}>{author.name}</strong>{' '}
+        is a UX designer currently working{' '}
+        in the <a href="https://www.pnnl.gov/visual-analytics-0" >Visual Analytics Group</a>{' '}
+        at <a href="https://www.pnnl.gov/">Pacific Northwest National Laboratory</a>{' '}
+        in Richland, WA.
       </p>
       <p>
         <Links />

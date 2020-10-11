@@ -7,7 +7,10 @@ interface MdxVideoProps {
 const MdxVideo: React.FC<MdxVideoProps> = ({ src, ...props }) => {
 
     return (
-        <video preload="metadata" controls style={{ maxWidth: '100%' }}>
+        <video
+            preload="metadata"
+            controls
+        >
             <source type="video/mp4" src={src} />
             <a href={src}>{src}</a>
         </video>

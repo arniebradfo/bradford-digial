@@ -3,6 +3,7 @@ import GatsbyImage, { FluidObject } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
+import { css } from "@emotion/core"
 
 type MdxImageRowProps = {
   fluidImageObjects?: FluidObject[]
@@ -54,15 +55,20 @@ const MdxImageRow: React.FC<MdxImageRowProps> = ({ fluidImageObjects, maxWidth, 
   // }
 
   return (
-    <div style={{ display: 'flex', margin: '0.5rem 0' }}>
+    <div
+      css={css` 
+        display: flex; 
+        margin: 0.5rem 0;
+      `}
+    >
       {fluidImageObjects.map((fluidImage, i) => (
         // do the GatsbyNetlifyLfsFluid in here... and edit the maxWidth somehow??
         <GatsbyImage
           fluid={fluidImage}
-          style={{
+          css={css({
             flex: fluidImage.aspectRatio,
             marginRight: i === fluidImageObjects.length - 1 ? 0 : 8
-          }}
+          })}
           key={i}
           backgroundColor={backgroundColor}
           {...props}

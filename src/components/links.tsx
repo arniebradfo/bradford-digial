@@ -69,8 +69,10 @@ export const Links: React.FunctionComponent<Props> = ({ ...props }) => {
 const transformContact = (contacts: string[]): string => `${contacts[0]}@${contacts[1]}.${contacts[2]}`;
 
 const ContactSpan = styled.span`
+  font-size: 0.8rem;
+  font-weight: 600;
   &:after{
-    content:' • ';
+    content:' · ';
     letter-spacing: 0.5ch;
   }
   &:last-child:after{

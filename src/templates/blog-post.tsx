@@ -9,6 +9,8 @@ import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gats
 import Constants from "../constants"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
+import { Post } from "../components/post"
+import { css } from "@emotion/core"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -26,68 +28,96 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
 
       <article>
-        <header style={{ marginBottom: 64, marginTop: 64 }}>
+        <header css={css` margin: 4rem 0; `} >
 
-          <h1 style={{ margin: 0 }}>
-            {post.frontmatter.title}
-          </h1>
-          <p><small>{post.frontmatter.date}</small></p>
+          <div css={css` margin-bottom: 2em; `} >
+            <h1 css={css` margin-bottom: 0.25em; `} >
+              {post.frontmatter.title}
+            </h1>
+            <time
+              dateTime={post.frontmatter.dateTime}>
+              {post.frontmatter.dateHuman}
+            </time>
+          </div>
 
-          {post.frontmatter.description &&
+          {/* {post.frontmatter.description &&
             <p>{post.frontmatter.description}</p>
-          }
+          } */}
+
           {/* {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
             <p>
               {post.frontmatter.tags.map((tag, i) => <a key={i}><small>{tag}</small></a>)}
             </p>
           )} */}
+
           {post.frontmatter.featuredImage &&
-            <GatsbyImage fluid={GatsbyNetlifyLfsFluid({
-              src: post.frontmatter.featuredImage.publicURL,
-              fileName: post.frontmatter.featuredImage.base,
-              maxWidth: Constants.maxWidth,
-              // sizes: Constants.sizes
-              // width: 100
-            })}
-              style={{ margin: `0 -${(Constants.padding / 2)}px` }}
+            <GatsbyImage
+              css={css` margin: 0 -${(Constants.padding / 2)}px;`}
+              fluid={GatsbyNetlifyLfsFluid({
+                src: post.frontmatter.featuredImage.publicURL,
+                fileName: post.frontmatter.featuredImage.base,
+                maxWidth: Constants.maxWidth,
+                  // sizes: Constants.sizes
+                  // width: 100
+              })}
             />
           }
         </header>
-        <hr style={{ margin: '6rem 0' }} />
+
+        <hr />
 
         <MDXRenderer>{post.body}</MDXRenderer>
 
-        <hr style={{ margin: '6rem 0' }} />
+        <hr css={css`margin-top: 10rem;`} />
+
         <footer>
           <Bio />
         </footer>
+
       </article>
 
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
+      <hr css={css`margin-bottom: 1rem;`} />
+
+      <nav >
+        <div
+          css={css`
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              list-style: none;
+              padding: 0;
+            `}
         >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+          <Link to={`/`} >{'All Posts'}</Link>
+          <Link to={`#`} >{'Top ↑'}</Link>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+            margin: 3rem 0;
+            @media (max-width: 700px){
+              flex-wrap: wrap;
+            }
+          `}
+        >
+          {next && (
+            <Post
+              node={next}
+              ctaText={'← Newer'}
+              css={css`margin-right: 1rem;`}
+            />
+          )}
+          {previous && (
+            <Post
+              node={previous}
+              ctaText={'Older →'}
+            // css={css`flex: 1 1 50%;`}
+            />
+          )}
+        </div>
       </nav>
 
       <Footer />
@@ -100,19 +130,14 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     mdx(fields: { slug: { eq: $slug } }) {
       id
       # description(pruneLength: 160)
       body
       frontmatter {
+        dateTime: date
+        dateHuman: date(formatString: "MM / DD / YYYY")
         title
-        date(formatString: "MMMM DD, YYYY")
-        tags
         description
         featuredImage {
           publicURL
