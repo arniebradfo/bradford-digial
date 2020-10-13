@@ -10,14 +10,22 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 
 ---
 
-## TODO
-- deploy 
-  - change domain
-  - ga analytics
-  - deactivate bluehost site
-  - setup email
 
-## TODO Later
+## TODO
+- content
+  - current
+    - caffeine machine process book
+    - remove smoothscroll
+    - non-outlined image
+    - better bio - add to social media
+  - future
+    - mobius design system xd file
+    - blog vs archives vs case study
+    - logos page
+    - add explainer to each post
+    - blog about netlify lfs with gatsby
+- pagination
+- add resume?
 - gifs don't retain after being passed through the api
 - images with lfs
   - gifs?
@@ -33,12 +41,19 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - https://popmotion.io/pose/learn/route-transitions-reach-router/
   - https://www.gatsbyjs.com/docs/routing/
   - https://reach.tech/router/
-- pagination
-- add resume?
-- content
+
 
 
 ## DONE
+- content
+  - caffeine machine site 
+  - avymap link and site
+
+- deploy 
+  - change domain
+  - ga analytics
+  - deactivate wordpress site
+  - setup email
 - get to reasonable parity
   - hide sensitive pages
   - remove unused 'pages'
