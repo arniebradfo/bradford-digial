@@ -54,6 +54,12 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/layouts/index.tsx`),
+      },
+    },
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {

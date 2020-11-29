@@ -5,12 +5,16 @@ import Bio from "../components/bio"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import GatsbyImage from "gatsby-image"
-import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import {
+  GatsbyNetlifyLfsFixed,
+  GatsbyNetlifyLfsFluid,
+} from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { Post } from "../components/post"
 import { css } from "@emotion/core"
+import { motion } from "framer-motion"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -19,7 +23,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   return (
     <div>
-
       <Header />
 
       <SEO
@@ -28,14 +31,26 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
 
       <article>
-        <header css={css` margin: 4rem 0; `} >
-
-          <div css={css` margin-bottom: 2em; `} >
-            <h1 css={css` margin-bottom: 0.25em; `} >
+        <header
+          css={css`
+            margin: 4rem 0;
+          `}
+        >
+          <div
+            css={css`
+              margin-bottom: 2em;
+            `}
+          >
+            <motion.h1
+              layoutId={post.frontmatter.title}
+              css={css`
+                margin-bottom: 0.25em;
+                font-size: 2rem;
+              `}
+            >
               {post.frontmatter.title}
-            </h1>
-            <time
-              dateTime={post.frontmatter.dateTime}>
+            </motion.h1>
+            <time dateTime={post.frontmatter.dateTime}>
               {post.frontmatter.dateHuman}
             </time>
           </div>
@@ -50,46 +65,55 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             </p>
           )} */}
 
-          {post.frontmatter.featuredImage &&
+          {post.frontmatter.featuredImage && (
             <GatsbyImage
-              css={css` margin: 0 -${(Constants.padding / 2)}px;`}
+              css={css`
+                margin: 0 -${Constants.padding / 2}px;
+              `}
               fluid={GatsbyNetlifyLfsFluid({
                 src: post.frontmatter.featuredImage.publicURL,
                 fileName: post.frontmatter.featuredImage.base,
                 maxWidth: Constants.maxWidth,
-                  // sizes: Constants.sizes
-                  // width: 100
+                // sizes: Constants.sizes
+                // width: 100
               })}
             />
-          }
+          )}
         </header>
 
         <hr />
 
         <MDXRenderer>{post.body}</MDXRenderer>
 
-        <hr css={css`margin-top: 10rem;`} />
+        <hr
+          css={css`
+            margin-top: 10rem;
+          `}
+        />
 
         <footer>
           <Bio />
         </footer>
-
       </article>
 
-      <hr css={css`margin-bottom: 1rem;`} />
+      <hr
+        css={css`
+          margin-bottom: 1rem;
+        `}
+      />
 
-      <nav >
+      <nav>
         <div
           css={css`
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              list-style: none;
-              padding: 0;
-            `}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+          `}
         >
-          <Link to={`/`} >{'All Posts'}</Link>
-          <Link to={`#`} >{'Top ↑'}</Link>
+          <Link to={`/`}>{"All Posts"}</Link>
+          <Link to={`#`}>{"Top ↑"}</Link>
         </div>
         <div
           css={css`
@@ -98,7 +122,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             list-style: none;
             padding: 0;
             margin: 3rem 0;
-            @media (max-width: 700px){
+            @media (max-width: 700px) {
               flex-wrap: wrap;
             }
           `}
@@ -106,22 +130,23 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           {next && (
             <Post
               node={next}
-              ctaText={'← Newer'}
-              css={css`margin-right: 1rem;`}
+              ctaText={"← Newer"}
+              css={css`
+                margin-right: 1rem;
+              `}
             />
           )}
           {previous && (
             <Post
               node={previous}
-              ctaText={'Older →'}
-            // css={css`flex: 1 1 50%;`}
+              ctaText={"Older →"}
+              // css={css`flex: 1 1 50%;`}
             />
           )}
         </div>
       </nav>
 
       <Footer />
-
     </div>
   )
 }

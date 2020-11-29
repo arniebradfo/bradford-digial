@@ -37,10 +37,11 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - use [sharp](https://github.com/lovell/sharp) to generate the base64 preview and svg outline and save it in the `media-dimensions.json` file
   - fork this into its own example project
     - at least put up a gist
-- page transitions with POSE and reach router
-  - https://popmotion.io/pose/learn/route-transitions-reach-router/
-  - https://www.gatsbyjs.com/docs/routing/
-  - https://reach.tech/router/
+- page transitions with Framer motion
+  - https://www.gatsbyjs.com/docs/routing/ - Gastby uses Reach Router https://reach.tech/router/
+  - How to animate pages using a common wrapper component on all pages with `gatsby-plugin-layout` https://www.digitalocean.com/community/tutorials/how-to-animate-page-transitions-on-a-static-gatsbyjs-site
+  - How to preform cross-route transitions with Framer-Motion https://dev.to/darthknoppix/page-transitions-in-next-js-with-framer-motion-1e4i
+  - https://www.framer.com/api/motion/animate-shared-layout/
 
 
 
