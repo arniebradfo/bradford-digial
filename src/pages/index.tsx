@@ -10,32 +10,44 @@ import { css } from "@emotion/core"
 import Bio from "../components/bio"
 import { Post } from "../components/post"
 import { Links } from "../components/links"
+import { ScrollContainer } from "../components/scroll-container"
 
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
 
   return (
-    <div>
-      <Header size='hero' css={css`margin:4rem 0;`} />
+    <ScrollContainer>
+      <Header
+        size="hero"
+        css={css`
+          margin: 4rem 0;
+        `}
+      />
 
       <SEO title="Portfolio" />
 
       <div
         css={css`
-        display:flex; 
-        justify-content: space-between; 
-        flex-wrap: wrap-reverse; 
-        align-items:baseline;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap-reverse;
+          align-items: baseline;
         `}
       >
-        <h2 className={'mini-header'}>Portfolio</h2>
+        <h2 className={"mini-header"}>Portfolio</h2>
         <Links />
       </div>
 
       {posts.map(({ node }) => {
         return (
-          <Post key={node.fields.slug} css={css`margin:2rem 0 5rem; `} node={node} />
+          <Post
+            key={node.fields.slug}
+            css={css`
+              margin: 2rem 0 5rem;
+            `}
+            node={node}
+          />
         )
       })}
 
@@ -47,8 +59,7 @@ const BlogIndex = ({ data, location }) => {
       <hr />
 
       <Footer />
-
-    </div>
+    </ScrollContainer>
   )
 }
 
@@ -57,9 +68,9 @@ export default BlogIndex
 export const pageQuery = graphql`
   query {
     allMdx(
-      filter: { frontmatter: { draft: { ne: true } } }, 
+      filter: { frontmatter: { draft: { ne: true } } }
       sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+    ) {
       edges {
         node {
           # description

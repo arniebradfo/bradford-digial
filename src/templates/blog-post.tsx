@@ -15,6 +15,7 @@ import { Footer } from "../components/footer"
 import { Post } from "../components/post"
 import { css } from "@emotion/core"
 import { motion } from "framer-motion"
+import { ScrollContainer } from "../components/scroll-container"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -22,7 +23,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
-    <div>
+    <ScrollContainer>
       <Header />
 
       <SEO
@@ -147,7 +148,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       </nav>
 
       <Footer />
-    </div>
+    </ScrollContainer>
   )
 }
 
