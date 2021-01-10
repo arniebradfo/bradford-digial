@@ -26,29 +26,30 @@ export const Post: React.FunctionComponent<Props> = ({
     <article {...props}>
       <header>
         {node.frontmatter.featuredImage && (
-          <Link to={node.fields.slug}>
-            <GatsbyImage
-              fluid={GatsbyNetlifyLfsFluid({
-                src: node.frontmatter.featuredImage.publicURL,
-                fileName: node.frontmatter.featuredImage.base,
-                maxWidth: Constants.maxWidth,
-                // maxHeight: 300,
-                sizes: Constants.sizes,
-                // width: 100
-              })}
-              backgroundColor
-            />
-          </Link>
+          <motion.div layoutId={title}>
+            <Link to={node.fields.slug}>
+              <GatsbyImage
+                fluid={GatsbyNetlifyLfsFluid({
+                  src: node.frontmatter.featuredImage.publicURL,
+                  fileName: node.frontmatter.featuredImage.base,
+                  maxWidth: Constants.maxWidth,
+                  sizes: Constants.sizes,
+                  // maxHeight: 300,
+                  // width: 100
+                })}
+                backgroundColor
+              />
+            </Link>
+          </motion.div>
         )}
-        <motion.h3
-          layoutId={title}
+        <h3
           css={css`
             margin: 2rem 0 0.25rem 0;
             font-size: 2rem;
           `}
         >
           {title}
-        </motion.h3>
+        </h3>
         <time dateTime={node.frontmatter.dateTime}>
           {node.frontmatter.dateHuman}
         </time>

@@ -15,6 +15,8 @@ import { ScrollContainer } from "../components/scroll-container"
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
+    // const scrollRestoration = useScrollRestoration(`index-scroll-container`)
+
 
   return (
     <ScrollContainer>

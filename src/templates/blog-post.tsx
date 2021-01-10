@@ -42,15 +42,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               margin-bottom: 2em;
             `}
           >
-            <motion.h1
-              layoutId={post.frontmatter.title}
+            <h1
+              // layoutId={post.frontmatter.title}
               css={css`
                 margin-bottom: 0.25em;
                 font-size: 2rem;
               `}
             >
               {post.frontmatter.title}
-            </motion.h1>
+            </h1>
             <time dateTime={post.frontmatter.dateTime}>
               {post.frontmatter.dateHuman}
             </time>
@@ -67,18 +67,23 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           )} */}
 
           {post.frontmatter.featuredImage && (
-            <GatsbyImage
+            <motion.div
+              layoutId={post.frontmatter.title}
               css={css`
                 margin: 0 -${Constants.padding / 2}px;
               `}
-              fluid={GatsbyNetlifyLfsFluid({
-                src: post.frontmatter.featuredImage.publicURL,
-                fileName: post.frontmatter.featuredImage.base,
-                maxWidth: Constants.maxWidth,
-                // sizes: Constants.sizes
-                // width: 100
-              })}
-            />
+            >
+              <GatsbyImage
+                fluid={GatsbyNetlifyLfsFluid({
+                  src: post.frontmatter.featuredImage.publicURL,
+                  fileName: post.frontmatter.featuredImage.base,
+                  maxWidth: Constants.maxWidth,
+                  sizes: Constants.sizes
+                  // width: 100
+                })}
+                backgroundColor
+              />
+            </motion.div>
           )}
         </header>
 

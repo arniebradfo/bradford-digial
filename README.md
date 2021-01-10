@@ -12,6 +12,7 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 
 
 ## TODO
+- remove emotion, use less. It will render more consistently with global css
 - page transitions with Framer motion
   - https://www.gatsbyjs.com/docs/routing/ - Gastby uses Reach Router https://reach.tech/router/
   - How to animate pages using a common wrapper component on all pages with `gatsby-plugin-layout` https://www.digitalocean.com/community/tutorials/how-to-animate-page-transitions-on-a-static-gatsbyjs-site
@@ -20,8 +21,8 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
   - try multiple scroll-boxes local to rendered component? 
     - so the page itself doesn't scroll and share scroll across pages? 
       - https://www.gatsbyjs.com/docs/scroll-restoration/
-    - put this in the layout component?
-    - hopefully i remember what that means - lol
+    - put this in the layout component? - using `gatsby-plugin-layout`
+    - hopefully i remember what that means
 
 - content
   - current
