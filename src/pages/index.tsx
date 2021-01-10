@@ -18,7 +18,7 @@ const BlogIndex = ({ data, location }) => {
 
 
   return (
-    <ScrollContainer>
+    <ScrollContainer scrollKey={'index-page-scroll'}>
       <Header
         size="hero"
         css={css`
