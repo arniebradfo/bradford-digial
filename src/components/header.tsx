@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Logo from '../../content/assets/logo/hexagon.inline.svg';
 import { graphql, Link, useStaticQuery } from "gatsby"
 import '../style/style.less'

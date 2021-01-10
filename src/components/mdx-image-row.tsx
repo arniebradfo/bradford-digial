@@ -3,7 +3,7 @@ import GatsbyImage, { FluidObject } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 
 type MdxImageRowProps = {
   fluidImageObjects?: FluidObject[]

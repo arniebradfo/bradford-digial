@@ -6,7 +6,7 @@
  */
 
 import React from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import GatsbyImage from "gatsby-image"

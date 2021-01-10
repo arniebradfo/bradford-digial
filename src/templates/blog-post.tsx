@@ -13,7 +13,7 @@ import Constants from "../constants"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { Post } from "../components/post"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { motion } from "framer-motion"
 import { ScrollContainer } from "../components/scroll-container"
 

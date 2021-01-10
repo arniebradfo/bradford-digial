@@ -6,7 +6,7 @@ import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Bio from "../components/bio"
 import { Post } from "../components/post"
 import { Links } from "../components/links"
@@ -15,7 +15,6 @@ import { ScrollContainer } from "../components/scroll-container"
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
-    // const scrollRestoration = useScrollRestoration(`index-scroll-container`)
 
 
   return (
