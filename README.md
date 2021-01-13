@@ -12,18 +12,23 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 
 
 ## TODO
-- remove emotion, use less. It will render more consistently with global css
-- page transitions with Framer motion
-  - https://www.gatsbyjs.com/docs/routing/ - Gastby uses Reach Router https://reach.tech/router/
-  - How to animate pages using a common wrapper component on all pages with `gatsby-plugin-layout` https://www.digitalocean.com/community/tutorials/how-to-animate-page-transitions-on-a-static-gatsbyjs-site
-  - How to preform cross-route transitions with Framer-Motion https://dev.to/darthknoppix/page-transitions-in-next-js-with-framer-motion-1e4i
-  - https://www.framer.com/api/motion/animate-shared-layout/
-  - try multiple scroll-boxes local to rendered component? 
-    - so the page itself doesn't scroll and share scroll across pages? 
-      - https://www.gatsbyjs.com/docs/scroll-restoration/
-    - put this in the layout component? - using `gatsby-plugin-layout`
-    - hopefully i remember what that means
+- Page transitions with Framer motion 
+  - Get up an running
+    - https://www.gatsbyjs.com/docs/routing/ - Gastby uses Reach Router https://reach.tech/router/
+    - How to animate pages using a common wrapper component on all pages with `gatsby-plugin-layout` https://www.digitalocean.com/community/tutorials/how-to-animate-page-transitions-on-a-static-gatsbyjs-site
+    - How to preform cross-route transitions with Framer-Motion https://dev.to/darthknoppix/page-transitions-in-next-js-with-framer-motion-1e4i
+    - https://www.framer.com/api/motion/animate-shared-layout/
+  - **Scroll Restoration**
+    - try multiple scroll-boxes inside a single rendered component? 
+      - so the page itself doesn't scroll and share scroll across pages? - https://www.gatsbyjs.com/docs/scroll-restoration/
+      - put this in the layout component? - using `gatsby-plugin-layout`
+    - reconstruct scroll restoration
+      - on forward, shared-animate to post
+      - on back, if at top shared-animate back to scroll positioned index
+        - else pusedo-shared-animate back to scroll positioned index
+  - fade everything else
 
+- remove emotion, use less. It will render more consistently with global css?
 - content
   - current
     - caffeine machine process book

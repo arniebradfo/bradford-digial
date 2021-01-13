@@ -6,6 +6,7 @@ import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
+import { ContentWrapper } from "../components/content-wrapper"
 import { css } from "@emotion/react"
 import Bio from "../components/bio"
 import { Post } from "../components/post"
@@ -19,47 +20,51 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <ScrollContainer scrollKey={'index-page-scroll'}>
-      <Header
-        size="hero"
-        css={css`
-          margin: 4rem 0;
-        `}
-      />
+      <ContentWrapper>
 
-      <SEO title="Portfolio" />
+        <Header
+          size="hero"
+          css={css`
+            margin: 4rem 0;
+          `}
+        />
 
-      <div
-        css={css`
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap-reverse;
-          align-items: baseline;
-        `}
-      >
-        <h2 className={"mini-header"}>Portfolio</h2>
-        <Links />
-      </div>
+        <SEO title="Portfolio" />
 
-      {posts.map(({ node }) => {
-        return (
-          <Post
-            key={node.fields.slug}
-            css={css`
-              margin: 2rem 0 5rem;
-            `}
-            node={node}
-          />
-        )
-      })}
+        <div
+          css={css`
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap-reverse;
+            align-items: baseline;
+          `}
+        >
+          <h2 className={"mini-header"}>Portfolio</h2>
+          <Links />
+        </div>
 
-      <hr />
+        {posts.map(({ node }) => {
+          return (
+            <Post
+              key={node.fields.slug}
+              css={css`
+                margin: 2rem 0 5rem;
+              `}
+              node={node}
+            />
+          )
+        })}
 
-      {/* <a href={'#'} children={'Top'} /> */}
-      <Bio />
+        <hr />
 
-      <hr />
+        {/* <a href={'#'} children={'Top'} /> */}
+        <Bio />
 
-      <Footer />
+        <hr />
+
+        <Footer />
+        
+      </ContentWrapper>
     </ScrollContainer>
   )
 }
