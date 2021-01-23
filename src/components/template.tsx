@@ -1,11 +1,8 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
-import { css } from "@emotion/react"
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {}
+interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
 
 export const Template: React.FunctionComponent<Props> = ({
   children,

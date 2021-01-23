@@ -1,17 +1,22 @@
 import React from "react"
 import { AnimateSharedLayout } from "framer-motion"
 import { css } from "@emotion/react"
+import { useParams, useLocation } from "@reach/router"
+import { useScrollRestoration } from "gatsby"
 
-const Layout = ({ children, location }) => (
+const Layout = ({ children, location }) => {
+
+  // console.log(useParams());
+  // console.log(useLocation());
+  console.log(location);
+  
+  
+  return (
   <AnimateSharedLayout
-    // css={css` // this component doesn't render an element
-    //   overflow: hidden;
-    //   height: 100%;
-    //   outline: 1px solid red !important;
-    // `}
+
     type="crossfade"
   >
     {children}
   </AnimateSharedLayout>
-)
+)}
 export default Layout

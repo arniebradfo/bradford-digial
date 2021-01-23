@@ -12,11 +12,11 @@ import Bio from "../components/bio"
 import { Post } from "../components/post"
 import { Links } from "../components/links"
 import { ScrollContainer } from "../components/scroll-container"
+import { useNavigate, useLocation, globalHistory } from '@reach/router'
 
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
-
 
   return (
     <ScrollContainer scrollKey={'index-page-scroll'}>

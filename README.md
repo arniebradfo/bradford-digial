@@ -26,6 +26,9 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
       - on forward, shared-animate to post
       - on back, if at top shared-animate back to scroll positioned index
         - else pusedo-shared-animate back to scroll positioned index
+    - copy ScrollContext https://github.com/gatsbyjs/gatsby/tree/10dfe011c368e28e8de19f0f5569748ebb9a6bc3/packages/gatsby-react-router-scroll/src
+    - on navigate, set a read a page to page delta that includes
+      - scroll position, page type
   - fade everything else
 
 - remove emotion, use less. It will render more consistently with global css?

@@ -17,6 +17,7 @@ import { css } from "@emotion/react"
 import { motion } from "framer-motion"
 import { ScrollContainer } from "../components/scroll-container"
 import { ContentWrapper } from "../components/content-wrapper"
+import { animationProps } from "../style/animations"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -40,10 +41,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               margin: 4rem 0;
             `}
           >
-            <div
+            <motion.div
               css={css`
                 margin-bottom: 2em;
               `}
+              key={`title-${post.frontmatter.title}`}
+              {...animationProps}
             >
               <h1
                 // layoutId={post.frontmatter.title}
@@ -57,7 +60,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <time dateTime={post.frontmatter.dateTime}>
                 {post.frontmatter.dateHuman}
               </time>
-            </div>
+            </motion.div>
 
             {/* {post.frontmatter.description &&
               <p>{post.frontmatter.description}</p>
@@ -90,28 +93,34 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             )}
           </header>
 
-          <hr />
+          <motion.hr key={`header-hr-${post.frontmatter.title}`} {...animationProps} />
 
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <motion.section key={`content-${post.frontmatter.title}`} {...animationProps} >
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </motion.section>
 
-          <hr
+          <motion.hr
+            key={`content-hr-${post.frontmatter.title}`}
+            {...animationProps} 
             css={css`
               margin-top: 10rem;
             `}
           />
 
-          <footer>
+          <motion.footer key={`bio-${post.frontmatter.title}`} {...animationProps} >
             <Bio />
-          </footer>
+          </motion.footer>
         </article>
 
-        <hr
+        <motion.hr
+          key={`footer-hr-${post.frontmatter.title}`}
+          {...animationProps}
           css={css`
             margin-bottom: 1rem;
           `}
         />
 
-        <nav>
+        <motion.nav key={`nav-${post.frontmatter.title}`} {...animationProps} >
           <div
             css={css`
               display: flex;
@@ -153,7 +162,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               />
             )}
           </div>
-        </nav>
+        </motion.nav>
 
         <Footer />
 

@@ -4,6 +4,8 @@ import Logo from '../../content/assets/logo/hexagon.inline.svg';
 import { graphql, Link, useStaticQuery } from "gatsby"
 import '../style/style.less'
 import Constants from "../constants";
+import { animationProps } from "../style/animations";
+import { motion } from "framer-motion";
 
 interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   size?: 'hero' | 'small',
@@ -42,13 +44,15 @@ interface PropsMore extends Props {
 
 const HeaderHero: React.FunctionComponent<PropsMore> = ({ title, subtitle, ...props }) => {
   return (
-    <header
+    <motion.header
       {...props}
       css={css`
           display: flex;   
           align-items: center;
           flex-wrap:wrap;
         `}
+      {...animationProps}
+      key={'header-hero'}
     >
 
       <Logo css={css`
@@ -81,19 +85,21 @@ const HeaderHero: React.FunctionComponent<PropsMore> = ({ title, subtitle, ...pr
         </span>
       </h1>
 
-    </header>
+    </motion.header>
   )
 }
 
 
 const HeaderSmall: React.FunctionComponent<PropsMore> = ({ title, subtitle, size, ...props }) => {
   return (
-    <header
+    <motion.header
       {...props}
       css={css`
           display: flex;   
           align-items: center;
         `}
+      {...animationProps}
+      key={'header-small'}
     >
 
       <Link
@@ -115,6 +121,6 @@ const HeaderSmall: React.FunctionComponent<PropsMore> = ({ title, subtitle, size
         </span>
       </Link>
 
-    </header>
+    </motion.header>
   )
 }
