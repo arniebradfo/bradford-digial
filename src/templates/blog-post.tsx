@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { LinkHistory } from "../components/link-history"
 import Bio from "../components/bio"
 import SEO from "../components/seo"
@@ -22,10 +22,22 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   // const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const from = location.state.from
+  
+  const isFromHome = location.state.from === 'home-list';
+  const [isSharedLayout, setIsSharedLayout] = useState(isFromHome);
+  useEffect(() => {
+    setIsSharedLayout(isFromHome)
+    console.log('isSharedLayout: ', isSharedLayout);
+  }, [location])
+  const removeSharedLayout = () => {
+    setIsSharedLayout(false)
+    // console.log('isSharedLayout: ', isSharedLayout);
+  }
+  console.log('isSharedLayout: ', isSharedLayout);
+
 
   return (
-    <ScrollContainer>
+    <ScrollContainer scrollKey={post.frontmatter.title}>
       <ContentWrapper>
 
         <Header />
@@ -74,7 +86,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
             {post.frontmatter.featuredImage && (
               <motion.div
-                layoutId={post.frontmatter.title}
+                layoutId={isSharedLayout ? post.frontmatter.title : 'undefined'}
+                {...(!isSharedLayout ? animationProps : {})}
+                onLayoutAnimationComplete={removeSharedLayout}
                 css={css`
                   margin: 0 -${Constants.padding / 2}px;
                 `}
