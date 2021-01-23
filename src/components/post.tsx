@@ -1,6 +1,6 @@
 import React from "react"
 import { css } from "@emotion/react"
-import { Link } from "gatsby"
+import { LinkHistory } from "./link-history";
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
@@ -11,13 +11,15 @@ interface Props
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
   > {
-  node: any
-  ctaText?: string
+  node: any,
+  ctaText?: string,
+  isShort?: boolean,
 }
 
 export const Post: React.FunctionComponent<Props> = ({
   node,
   ctaText = "Read more",
+  isShort = false,
   ...props
 }) => {
   const title = node.frontmatter.title || node.fields.slug
@@ -27,7 +29,7 @@ export const Post: React.FunctionComponent<Props> = ({
       <header>
         {node.frontmatter.featuredImage && (
           <motion.div layoutId={title}>
-            <Link to={node.fields.slug}>
+            <LinkHistory to={node.fields.slug} from={'home-list'}>
               <GatsbyImage
                 fluid={GatsbyNetlifyLfsFluid({
                   src: node.frontmatter.featuredImage.publicURL,
@@ -39,7 +41,7 @@ export const Post: React.FunctionComponent<Props> = ({
                 })}
                 backgroundColor
               />
-            </Link>
+            </LinkHistory>
           </motion.div>
         )}
         <h3
@@ -64,7 +66,11 @@ export const Post: React.FunctionComponent<Props> = ({
           }}
         />
         <strong>
-          <Link to={node.fields.slug} children={ctaText} />
+          <LinkHistory
+            to={node.fields.slug}
+            from={isShort ? 'related-list' : 'home-list' }
+            children={ctaText}
+          />
         </strong>
       </section>
     </article>

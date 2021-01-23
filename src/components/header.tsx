@@ -1,7 +1,8 @@
 import React from "react"
 import { css } from "@emotion/react"
 import Logo from '../../content/assets/logo/hexagon.inline.svg';
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+import { LinkHistory } from "./link-history";
 import '../style/style.less'
 import Constants from "../constants";
 import { animationProps } from "../style/animations";
@@ -102,8 +103,9 @@ const HeaderSmall: React.FunctionComponent<PropsMore> = ({ title, subtitle, size
       key={'header-small'}
     >
 
-      <Link
+      <LinkHistory
         to={`/`}
+        from={`header-logo`}
         className={'subtle-link'}
         css={css`
           text-decoration: none; 
@@ -119,7 +121,7 @@ const HeaderSmall: React.FunctionComponent<PropsMore> = ({ title, subtitle, size
         <span >
           {title}
         </span>
-      </Link>
+      </LinkHistory>
 
     </motion.header>
   )

@@ -1,7 +1,7 @@
 import React from "react"
 import { css } from "@emotion/react"
 import Logo from '../../content/assets/logo/hexagon.inline.svg';
-import { Link } from "gatsby";
+import { LinkHistory } from "./link-history";
 import { animationProps } from "../style/animations";
 import { motion } from "framer-motion";
 
@@ -20,14 +20,18 @@ export const Footer: React.FunctionComponent<Props> = ({ ...props }) => {
       `}
       {...props}
     >
-      <Link to={'/'} css={css`opacity: 1;`} state={{prevLocation: location}}>
+      <LinkHistory
+        to={'/'}
+        from={'footer-logo'}
+        css={css`opacity: 1;`}
+      >
         <Logo css={css`
           width: 30px;
           .hexagon{
             opacity: 0;
           }
         `} />
-      </Link>
+      </LinkHistory>
       <p>
         <span>
           bradford.digital v4.0  ©{new Date().getFullYear()}

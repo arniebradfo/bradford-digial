@@ -1,6 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
+import { LinkHistory } from "../components/link-history"
 import Bio from "../components/bio"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -23,6 +22,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   // const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  const from = location.state.from
 
   return (
     <ScrollContainer>
@@ -130,8 +130,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               padding: 0;
             `}
           >
-            <Link to={`/`}>{"All Posts"}</Link>
-            <Link to={`#`}>{"Top ↑"}</Link>
+            <LinkHistory to={`/`} from={'bottom-nav'}>{"All Posts"}</LinkHistory>
+            <LinkHistory to={`#`} from={'bottom-nav'}>{"Top ↑"}</LinkHistory>
           </div>
           <div
             css={css`
@@ -149,6 +149,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <Post
                 node={next}
                 ctaText={"← Newer"}
+                isShort
                 css={css`
                   margin-right: 1rem;
                 `}
@@ -158,6 +159,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <Post
                 node={previous}
                 ctaText={"Older →"}
+                isShort
                 // css={css`flex: 1 1 50%;`}
               />
             )}

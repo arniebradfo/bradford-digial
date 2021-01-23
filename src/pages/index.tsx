@@ -17,6 +17,7 @@ import { useNavigate, useLocation, globalHistory } from '@reach/router'
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
+  const from = location.state.from
 
   return (
     <ScrollContainer scrollKey={'index-page-scroll'}>
