@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import { css } from "@emotion/react"
 import { LinkHistory } from "./link-history";
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { motion } from "framer-motion"
-import { animationProps } from "../style/animations";
+import { animationProps, layoutAnimationProps } from "../style/animations";
 import { usePopPush } from "../hooks/usePopPush";
+import { useLocation } from "@reach/router";
 
 interface Props
   extends React.DetailedHTMLProps<
@@ -25,8 +26,13 @@ export const Post: React.FunctionComponent<Props> = ({
   ...props
 }) => {
   const title = node.frontmatter.title || node.fields.slug
-  // const isPush = usePopPush() === 'PUSH';
-  // console.log('isPush: ', isPush);
+  const [isAnimationComplete, setAnimationComplete] = useState<boolean>(false);
+  // const slug = node.fields.slug
+  // const location = useLocation();
+  // const wasClicked = location.pathname === slug;
+  // const shouldAnimate = isAnimationComplete && !wasClicked
+  // console.log(location.pathname === slug);
+  
 
   const uniqueID = Date.now() // TODO: better, this will be cached?
   const layoutId = title + uniqueID
@@ -43,9 +49,13 @@ export const Post: React.FunctionComponent<Props> = ({
       <header>
         {node.frontmatter.featuredImage && (
           <motion.div
-            // layoutId={layoutId}
+            layoutId={(isAnimationComplete ? layoutId : undefined)}
             key={`post-img-${title}`}
+            onAnimationComplete={() => setAnimationComplete(true)}
+            {...layoutAnimationProps}
             {...animationProps}
+            // {...(!wasClicked ? animationProps : {})}
+            // exit={{}}
           >
             <LinkHistory {...linkProps}>
               <GatsbyImage
@@ -65,9 +75,9 @@ export const Post: React.FunctionComponent<Props> = ({
         <motion.div key={`post-title-${title}`} {...animationProps}>
           <h3
             css={css`
-            margin: 2rem 0 0.25rem 0;
-            font-size: 2rem;
-          `}
+              margin: 2rem 0 0.25rem 0;
+              font-size: 2rem;
+            `}
           >
             {title}
           </h3>

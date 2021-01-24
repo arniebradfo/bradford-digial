@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { LinkHistory } from "../components/link-history"
 import Bio from "../components/bio"
 import SEO from "../components/seo"
@@ -16,26 +16,22 @@ import { css } from "@emotion/react"
 import { motion } from "framer-motion"
 import { ScrollContainer } from "../components/scroll-container"
 import { ContentWrapper } from "../components/content-wrapper"
-import { animationProps } from "../style/animations"
+import { animationProps, layoutAnimationProps } from "../style/animations"
 import { usePopPush } from "../hooks/usePopPush"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
+  // const [isLayoutAnimationComplete, setLayoutAnimationComplete] = useState<boolean>(false);
+
   const post = data.mdx
   // const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const isFromHomeList = location?.state?.from === 'home-list'
   const isPush = usePopPush() === 'PUSH'
-  // console.log('isPush: ', isPush);
   const layoutId = location?.state?.layoutId
-  // console.log(location.state);
   
-  // console.log('layoutId: ', layoutId);
-
-  // generate a one-time id and pass it over with location state
-  // on pop generate a new one, or just everytime...
 
   return (
-    <ScrollContainer>
+    <ScrollContainer css={css`z-index:2;`}>
       <ContentWrapper>
 
         <Header />
@@ -84,9 +80,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
             {post.frontmatter.featuredImage && (
               <motion.div
-                // layoutId={(isPush && isFromHomeList && layoutId != null) ? layoutId : undefined}
+                layoutId={(isPush && isFromHomeList && layoutId != null) ? layoutId : undefined}
+                // onLayoutAnimationComplete={() => setLayoutAnimationComplete(true)}
+                {...layoutAnimationProps}
                 key={`header-img-${post.frontmatter.title}`}
                 {...animationProps}
+                
+                // {...{...animationProps, initial: {}}}
+                // initial={isLayoutAnimationComplete || isFromHomeList ? animationProps.initial : {}}
+                // {...(isLayoutAnimationComplete || !isFromHomeList || !isPush ? animationProps : {})}
                 css={css`
                   margin: 0 -${Constants.padding / 2}px;
                 `}

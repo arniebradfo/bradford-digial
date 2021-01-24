@@ -22,7 +22,7 @@ const BlogIndex = ({ data, location }) => {
   // const from = location?.state?.from
 
   return (
-    <ScrollContainer scrollKey={'index-page-scroll'}>
+    <ScrollContainer scrollKey={'index-page-scroll'} css={css`z-index:1;`}>
       {/* <AnimatePresence exitBeforeEnter> */}
       <ContentWrapper>
 

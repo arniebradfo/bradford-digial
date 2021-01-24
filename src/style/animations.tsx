@@ -1,5 +1,13 @@
 import { AnimationControls, Target, TargetAndTransition, Transition, VariantLabels } from "framer-motion";
 
+const duration = 0.5
+
+export const layoutAnimationProps = {
+    transition: {
+        duration
+    }
+}
+
 export const animationProps: {
     initial?: boolean | Target | VariantLabels,
     animate?: AnimationControls | TargetAndTransition | VariantLabels | boolean,
@@ -8,11 +16,11 @@ export const animationProps: {
 } = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -30 },
+    exit: { opacity: 0, y: 0 },
     transition: {
         // ease: [0,1,0,1],
         ease: [0,0,0.3,1],
         // ease: 'easeOut',
-        duration: 1,
+        duration
     }
 }

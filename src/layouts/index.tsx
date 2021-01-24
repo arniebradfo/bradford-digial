@@ -13,7 +13,9 @@ const Layout = ({ children, location }) => {
   // console.log(popPush);
 
   return (
-    <AnimateSharedLayout type="crossfade" >
+    <AnimateSharedLayout
+      type="crossfade"
+    >
       <AnimatePresence
         // exitBeforeEnter
       > 
