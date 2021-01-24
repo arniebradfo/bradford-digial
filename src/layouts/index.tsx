@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { AnimateSharedLayout } from "framer-motion"
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import { css } from "@emotion/react"
 import { usePopPush } from "../hooks/usePopPush"
 
@@ -13,8 +13,12 @@ const Layout = ({ children, location }) => {
   // console.log(popPush);
 
   return (
-  <AnimateSharedLayout type="crossfade" >
-    {children}
+    <AnimateSharedLayout type="crossfade" >
+      <AnimatePresence
+        // exitBeforeEnter
+      > 
+        {children}
+      </AnimatePresence>
   </AnimateSharedLayout>
 )}
 export default Layout

@@ -23,6 +23,9 @@ export const ScrollContainer: React.FunctionComponent<Props> = ({
       css={css`
         overflow-y: auto;
         height: 100%;
+        width: 100%;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;  
       `}
       {...(scrollKey ? scrollRestoration : {})}
     >

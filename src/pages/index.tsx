@@ -13,6 +13,8 @@ import { Post } from "../components/post"
 import { Links } from "../components/links"
 import { ScrollContainer } from "../components/scroll-container"
 import { useNavigate, useLocation, globalHistory } from '@reach/router'
+import { AnimatePresence, motion } from "framer-motion"
+import { animationProps } from "../style/animations"
 
 const BlogIndex = ({ data, location }) => {
   // const siteTitle = data.site.siteMetadata.title
@@ -21,6 +23,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <ScrollContainer scrollKey={'index-page-scroll'}>
+      {/* <AnimatePresence exitBeforeEnter> */}
       <ContentWrapper>
 
         <Header
@@ -32,7 +35,9 @@ const BlogIndex = ({ data, location }) => {
 
         <SEO title="Portfolio" />
 
-        <div
+        <motion.div
+          key={`mini-header`}
+          {...animationProps} 
           css={css`
             display: flex;
             justify-content: space-between;
@@ -42,7 +47,7 @@ const BlogIndex = ({ data, location }) => {
         >
           <h2 className={"mini-header"}>Portfolio</h2>
           <Links />
-        </div>
+        </motion.div>
 
         {posts.map(({ node }) => {
           return (
@@ -65,7 +70,8 @@ const BlogIndex = ({ data, location }) => {
 
         <Footer />
         
-      </ContentWrapper>
+        </ContentWrapper>
+      {/* </AnimatePresence> */}
     </ScrollContainer>
   )
 }

@@ -10,8 +10,8 @@ import { usePopPush } from "../hooks/usePopPush";
 
 interface Props
   extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLElement>,
-    HTMLElement
+  React.HTMLAttributes<HTMLElement>,
+  HTMLElement
   > {
   node: any,
   ctaText?: string,
@@ -28,12 +28,12 @@ export const Post: React.FunctionComponent<Props> = ({
   // const isPush = usePopPush() === 'PUSH';
   // console.log('isPush: ', isPush);
 
-  const uniqueID = Date.now() // TODO: better
+  const uniqueID = Date.now() // TODO: better, this will be cached?
   const layoutId = title + uniqueID
   const linkProps = {
     to: node.fields.slug,
     from: 'home-list',
-    state:{
+    state: {
       layoutId: layoutId
     }
   }
@@ -43,9 +43,9 @@ export const Post: React.FunctionComponent<Props> = ({
       <header>
         {node.frontmatter.featuredImage && (
           <motion.div
-            layoutId={layoutId}
-            {...(animationProps)}
-            // onAnimationComplete={createLayoutId}
+            // layoutId={layoutId}
+            key={`post-img-${title}`}
+            {...animationProps}
           >
             <LinkHistory {...linkProps}>
               <GatsbyImage
@@ -62,20 +62,22 @@ export const Post: React.FunctionComponent<Props> = ({
             </LinkHistory>
           </motion.div>
         )}
-        <motion.h3
-          {...(animationProps)}
-          css={css`
+        <motion.div key={`post-title-${title}`} {...animationProps}>
+          <h3
+            css={css`
             margin: 2rem 0 0.25rem 0;
             font-size: 2rem;
           `}
-        >
-          {title}
-        </motion.h3>
-        <time dateTime={node.frontmatter.dateTime}>
-          {node.frontmatter.dateHuman}
-        </time>
+          >
+            {title}
+          </h3>
+          <time dateTime={node.frontmatter.dateTime}>
+            {node.frontmatter.dateHuman}
+          </time>
+        </motion.div>
+
       </header>
-      <section>
+      <motion.section key={`post-description-${title}`} {...animationProps}>
         <p
           css={css`
             line-height: 1.5em;
@@ -90,7 +92,7 @@ export const Post: React.FunctionComponent<Props> = ({
             children={ctaText}
           />
         </strong>
-      </section>
+      </motion.section>
     </article>
   )
 }

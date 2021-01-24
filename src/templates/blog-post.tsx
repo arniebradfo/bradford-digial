@@ -84,7 +84,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
             {post.frontmatter.featuredImage && (
               <motion.div
-                layoutId={ (isPush && isFromHomeList && layoutId!=null) ? layoutId : undefined}
+                // layoutId={(isPush && isFromHomeList && layoutId != null) ? layoutId : undefined}
+                key={`header-img-${post.frontmatter.title}`}
+                {...animationProps}
                 css={css`
                   margin: 0 -${Constants.padding / 2}px;
                 `}
