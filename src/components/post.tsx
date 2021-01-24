@@ -5,6 +5,8 @@ import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { motion } from "framer-motion"
+import { animationProps } from "../style/animations";
+import { usePopPush } from "../hooks/usePopPush";
 
 interface Props
   extends React.DetailedHTMLProps<
@@ -23,13 +25,29 @@ export const Post: React.FunctionComponent<Props> = ({
   ...props
 }) => {
   const title = node.frontmatter.title || node.fields.slug
+  // const isPush = usePopPush() === 'PUSH';
+  // console.log('isPush: ', isPush);
+
+  const uniqueID = Date.now() // TODO: better
+  const layoutId = title + uniqueID
+  const linkProps = {
+    to: node.fields.slug,
+    from: 'home-list',
+    state:{
+      layoutId: layoutId
+    }
+  }
 
   return (
     <article {...props}>
       <header>
         {node.frontmatter.featuredImage && (
-          <motion.div layoutId={title}>
-            <LinkHistory to={node.fields.slug} from={'home-list'}>
+          <motion.div
+            layoutId={layoutId}
+            {...(animationProps)}
+            // onAnimationComplete={createLayoutId}
+          >
+            <LinkHistory {...linkProps}>
               <GatsbyImage
                 fluid={GatsbyNetlifyLfsFluid({
                   src: node.frontmatter.featuredImage.publicURL,
@@ -44,14 +62,15 @@ export const Post: React.FunctionComponent<Props> = ({
             </LinkHistory>
           </motion.div>
         )}
-        <h3
+        <motion.h3
+          {...(animationProps)}
           css={css`
             margin: 2rem 0 0.25rem 0;
             font-size: 2rem;
           `}
         >
           {title}
-        </h3>
+        </motion.h3>
         <time dateTime={node.frontmatter.dateTime}>
           {node.frontmatter.dateHuman}
         </time>
@@ -67,8 +86,7 @@ export const Post: React.FunctionComponent<Props> = ({
         />
         <strong>
           <LinkHistory
-            to={node.fields.slug}
-            from={isShort ? 'related-list' : 'home-list' }
+            {...linkProps}
             children={ctaText}
           />
         </strong>
