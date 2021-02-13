@@ -1,14 +1,15 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
-import { css } from "@emotion/react"
 import Logo from '../../content/assets/logo/hexagon.inline.svg';
 import { graphql, useStaticQuery } from "gatsby"
 import { LinkHistory } from "./link-history";
 import '../style/style.less'
 import Constants from "../constants";
 import { animationProps } from "../style/animations";
-import { motion } from "framer-motion";
+import { HTMLMotionProps, motion } from "framer-motion";
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+interface Props extends HTMLMotionProps<"header"> {
   size?: 'hero' | 'small',
 }
 

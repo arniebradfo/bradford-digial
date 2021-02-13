@@ -1,5 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby";
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby";
 
 interface MdxVideoProps extends React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement> {
   videoName: string

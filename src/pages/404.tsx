@@ -1,3 +1,5 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
 import { LinkHistory } from "../components/link-history"
 import SEO from "../components/seo"

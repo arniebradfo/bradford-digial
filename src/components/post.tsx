@@ -1,5 +1,6 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React, { useState } from "react"
-import { css } from "@emotion/react"
 import { LinkHistory } from "./link-history";
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"

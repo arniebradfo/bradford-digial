@@ -1,6 +1,6 @@
 /* @jsx jsx */
-import React from "react"
 import { css, jsx } from "@emotion/react"
+import React from "react"
 import { Link, GatsbyLinkProps } from "gatsby"
 import { useLocation, WindowLocation } from "@reach/router"
 

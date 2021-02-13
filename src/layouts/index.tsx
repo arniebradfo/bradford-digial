@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
+import React from "react"
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
-import { css } from "@emotion/react"
 import { usePopPush } from "../hooks/usePopPush"
 
 

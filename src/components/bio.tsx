@@ -1,18 +1,9 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
-import { css } from "@emotion/react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import GatsbyImage from "gatsby-image"
-import { GatsbyNetlifyLfsFixed } from "../../scripts/gatsby-image-netlify-lfs"
 import { Links } from "./links"
-import styled from "@emotion/styled"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`

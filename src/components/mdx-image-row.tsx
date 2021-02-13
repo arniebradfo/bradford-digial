@@ -1,9 +1,10 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
 import GatsbyImage, { FluidObject } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
-import { css } from "@emotion/react"
 
 type MdxImageRowProps = {
   fluidImageObjects?: FluidObject[]

@@ -1,23 +1,22 @@
-import React, { useState } from "react"
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
+import React from "react"
 import { LinkHistory } from "../components/link-history"
 import Bio from "../components/bio"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import GatsbyImage from "gatsby-image"
-import {
-  GatsbyNetlifyLfsFixed,
-  GatsbyNetlifyLfsFluid,
-} from "../../scripts/gatsby-image-netlify-lfs"
+import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { Post } from "../components/post"
-import { css } from "@emotion/react"
 import { motion } from "framer-motion"
 import { ScrollContainer } from "../components/scroll-container"
 import { ContentWrapper } from "../components/content-wrapper"
 import { animationProps } from "../style/animations"
 import { usePopPush } from "../hooks/usePopPush"
+import { graphql } from "gatsby"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   // const [isLayoutAnimationComplete, setLayoutAnimationComplete] = useState<boolean>(false);

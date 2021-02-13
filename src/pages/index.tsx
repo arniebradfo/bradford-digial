@@ -1,3 +1,5 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
@@ -7,7 +9,6 @@ import Constants from "../constants"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 import { ContentWrapper } from "../components/content-wrapper"
-import { css } from "@emotion/react"
 import Bio from "../components/bio"
 import { Post } from "../components/post"
 import { Links } from "../components/links"

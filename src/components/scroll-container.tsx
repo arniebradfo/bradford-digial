@@ -1,14 +1,11 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
-import { css } from "@emotion/react"
 import { useScrollRestoration } from "gatsby"
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
-    scrollKey?:string
-  }
+interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  scrollKey?: string
+}
 
 export const ScrollContainer: React.FunctionComponent<Props> = ({
   scrollKey,
@@ -16,10 +13,9 @@ export const ScrollContainer: React.FunctionComponent<Props> = ({
   ...props
 }) => {
   const scrollRestoration = useScrollRestoration(scrollKey)
-
+  const scrollRestorationProps = scrollKey ? scrollRestoration : {}
   return (
     <div
-      {...props}
       css={css`
         overflow-y: auto;
         height: 100%;
@@ -27,7 +23,8 @@ export const ScrollContainer: React.FunctionComponent<Props> = ({
         grid-column: 1 / 2;
         grid-row: 1 / 2;  
       `}
-      {...(scrollKey ? scrollRestoration : {})}
+      {...props}
+      {...scrollRestorationProps}
     >
       {children}
     </div>

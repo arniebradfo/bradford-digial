@@ -12,26 +12,37 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 
 
 ## TODO
-- Page transitions with Framer motion 
-  - Get up an running
-    - https://www.gatsbyjs.com/docs/routing/ - Gastby uses Reach Router https://reach.tech/router/
-    - How to animate pages using a common wrapper component on all pages with `gatsby-plugin-layout` https://www.digitalocean.com/community/tutorials/how-to-animate-page-transitions-on-a-static-gatsbyjs-site
-    - How to preform cross-route transitions with Framer-Motion https://dev.to/darthknoppix/page-transitions-in-next-js-with-framer-motion-1e4i
-    - https://www.framer.com/api/motion/animate-shared-layout/
-  - **Scroll Restoration**
-    - try multiple scroll-boxes inside a single rendered component? 
-      - so the page itself doesn't scroll and share scroll across pages? - https://www.gatsbyjs.com/docs/scroll-restoration/
-      - put this in the layout component? - using `gatsby-plugin-layout`
-    - reconstruct scroll restoration
-      - on forward, shared-animate to post
-      - on back, if at top shared-animate back to scroll positioned index
-        - else pusedo-shared-animate back to scroll positioned index
-    - copy ScrollContext https://github.com/gatsbyjs/gatsby/tree/10dfe011c368e28e8de19f0f5569748ebb9a6bc3/packages/gatsby-react-router-scroll/src
-    - on navigate, set a read a page to page delta that includes
-      - scroll position, page type
-  - fade everything else
+- cleanup 
+  - emotion jsx
+  - remove less 
+  - remove unused code
+  - refactor
+  - upgrade packages
+- pagination?
+- deploy
 
-- remove emotion, use less. It will render more consistently with global css?
+- Page transitions with Framer motion 
+  - **CURRENT**
+    - write current approach while refactoring
+  - **PAST NOTES**
+    - Get up an running
+      - https://www.gatsbyjs.com/docs/routing/ - Gastby uses Reach Router https://reach.tech/router/
+      - How to animate pages using a common wrapper component on all pages with `gatsby-plugin-layout` https://www.digitalocean.com/community/tutorials/how-to-animate-page-transitions-on-a-static-gatsbyjs-site
+      - How to preform cross-route transitions with Framer-Motion https://dev.to/darthknoppix/page-transitions-in-next-js-with-framer-motion-1e4i
+      - https://www.framer.com/api/motion/animate-shared-layout/
+    - **Scroll Restoration**
+      - try multiple scroll-boxes inside a single rendered component? 
+        - so the page itself doesn't scroll and share scroll across pages? - https://www.gatsbyjs.com/docs/scroll-restoration/
+        - put this in the layout component? - using `gatsby-plugin-layout`
+      - reconstruct scroll restoration
+        - on forward, shared-animate to post
+        - on back, if at top shared-animate back to scroll positioned index
+          - else pusedo-shared-animate back to scroll positioned index
+      - copy ScrollContext https://github.com/gatsbyjs/gatsby/tree/10dfe011c368e28e8de19f0f5569748ebb9a6bc3/packages/gatsby-react-router-scroll/src
+      - on navigate, set a read a page to page delta that includes
+        - scroll position, page type
+    - fade everything else
+
 - content
   - current
     - caffeine machine process book

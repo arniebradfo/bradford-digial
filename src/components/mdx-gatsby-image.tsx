@@ -1,22 +1,37 @@
+/* @jsx jsx */
+import { css, jsx } from "@emotion/react"
 import React from "react"
-import GatsbyImage, { FluidObject, GatsbyImageProps } from "gatsby-image"
+import GatsbyImage, { FluidObject, GatsbyImageFixedProps, GatsbyImageFluidProps, GatsbyImageProps } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
-import { css } from "@emotion/react"
 
-interface MdxGatsbyImageProps extends GatsbyImageProps {
+type MdxGatsbyImageFluidProps = GatsbyImageFluidProps & {
   fluidName?: string | number
-  fixedName?: string | number
-  height?: number
-  width?: number
 }
-// [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
+type MdxGatsbyImageFixedProps = GatsbyImageFixedProps & {
+  fixedName?: string | number
+}
+type MdxGatsbyImageProps = MdxGatsbyImageFixedProps & MdxGatsbyImageFluidProps // & {
+//   height?: number
+//   width?: number
+// }
 
-const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({ fluidName, fixedName, height, width, ...props }) => {
+// regex replaced: [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
+const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({
+  fluidName,
+  fixedName,
+  // height,
+  // width,
+  ...props
+}) => {
+
+  // this component fetches all images from graph ql and then finds the one it needs from the set,
   const { allImages } = useStaticQuery(graphql`
     query {
-      allImages: allFile(filter: {ext: {regex: "/(jpeg|jpg|png|svg|gif)/i"}}) {
+      allImages: allFile(
+        filter: {ext: {regex: "/(jpeg|jpg|png|svg|gif)/i"}}
+      ) {
         edges {
           node {
             publicURL
@@ -45,7 +60,7 @@ const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({ fluidName, fixedName, h
     props.fixed = GatsbyNetlifyLfsFixed({ src: image.node.publicURL, fileName: image.node.base })
   } else {
     console.warn('MdxGatsbyImage requires a fluidName or fixedName')
-    return (<></>)
+    return null
   }
 
   return (
