@@ -16,7 +16,7 @@ import { css } from "@emotion/react"
 import { motion } from "framer-motion"
 import { ScrollContainer } from "../components/scroll-container"
 import { ContentWrapper } from "../components/content-wrapper"
-import { animationProps, layoutAnimationProps } from "../style/animations"
+import { animationProps } from "../style/animations"
 import { usePopPush } from "../hooks/usePopPush"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -28,6 +28,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const isFromHomeList = location?.state?.from === 'home-list'
   const isPush = usePopPush() === 'PUSH'
   const layoutId = location?.state?.layoutId
+  const isSharedAnimation = (isPush && isFromHomeList && layoutId != null)
   
 
   return (
@@ -80,15 +81,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
             {post.frontmatter.featuredImage && (
               <motion.div
-                layoutId={(isPush && isFromHomeList && layoutId != null) ? layoutId : undefined}
+                // layoutId={layoutId}
+                layoutId={isSharedAnimation ? layoutId : undefined}
+                {...(!isSharedAnimation ? animationProps : {})}
                 // onLayoutAnimationComplete={() => setLayoutAnimationComplete(true)}
-                {...layoutAnimationProps}
+                // {...layoutAnimationProps}
                 key={`header-img-${post.frontmatter.title}`}
-                {...animationProps}
+                // {...animationProps}
                 
                 // {...{...animationProps, initial: {}}}
                 // initial={isLayoutAnimationComplete || isFromHomeList ? animationProps.initial : {}}
-                // {...(isLayoutAnimationComplete || !isFromHomeList || !isPush ? animationProps : {})}
                 css={css`
                   margin: 0 -${Constants.padding / 2}px;
                 `}

@@ -16,11 +16,12 @@ const Layout = ({ children, location }) => {
     <AnimateSharedLayout
       type="crossfade"
     >
-      <AnimatePresence
+      {/* <AnimatePresence
         // exitBeforeEnter
-      > 
+      >   */}
         {children}
-      </AnimatePresence>
-  </AnimateSharedLayout>
+      {/* </AnimatePresence> */}
+    </AnimateSharedLayout>
+    
 )}
 export default Layout

@@ -5,7 +5,7 @@ import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import Constants from "../constants"
 import { motion } from "framer-motion"
-import { animationProps, layoutAnimationProps } from "../style/animations";
+import { animationProps } from "../style/animations";
 import { usePopPush } from "../hooks/usePopPush";
 import { useLocation } from "@reach/router";
 
@@ -49,10 +49,10 @@ export const Post: React.FunctionComponent<Props> = ({
       <header>
         {node.frontmatter.featuredImage && (
           <motion.div
-            layoutId={(isAnimationComplete ? layoutId : undefined)}
+            layoutId={layoutId}
+            // layoutId={(isAnimationComplete ? layoutId : undefined)}
+            // onAnimationComplete={() => setAnimationComplete(true)}
             key={`post-img-${title}`}
-            onAnimationComplete={() => setAnimationComplete(true)}
-            {...layoutAnimationProps}
             {...animationProps}
             // {...(!wasClicked ? animationProps : {})}
             // exit={{}}
