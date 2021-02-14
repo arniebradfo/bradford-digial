@@ -2,12 +2,12 @@
 import { css, jsx } from "@emotion/react"
 import React from "react"
 import { LinkHistory } from "../components/link-history"
-import Bio from "../components/bio"
-import SEO from "../components/seo"
+import { Bio }  from "../components/bio"
+import { SEO } from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import GatsbyImage from "gatsby-image"
-import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
-import Constants from "../constants"
+import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
+import { Constants } from "../style/constants"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 import { Post } from "../components/post"
@@ -19,16 +19,14 @@ import { usePopPush } from "../hooks/usePopPush"
 import { graphql } from "gatsby"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  // const [isLayoutAnimationComplete, setLayoutAnimationComplete] = useState<boolean>(false);
 
   const post = data.mdx
-  // const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const isFromHomeList = location?.state?.from === 'home-list'
   const isPush = usePopPush() === 'PUSH'
   const layoutId = location?.state?.layoutId
   const isSharedAnimation = (isPush && isFromHomeList && layoutId != null)
-  
+
 
   return (
     <ScrollContainer css={css`z-index:2;`}>
@@ -55,7 +53,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               {...animationProps}
             >
               <h1
-                // layoutId={post.frontmatter.title}
                 css={css`
                   margin-bottom: 0.25em;
                   font-size: 2rem;
@@ -68,28 +65,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </time>
             </motion.div>
 
-            {/* {post.frontmatter.description &&
-              <p>{post.frontmatter.description}</p>
-            } */}
-
-            {/* {(post.frontmatter.tags?.length > 0) && ( // adding taxa: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
-              <p>
-                {post.frontmatter.tags.map((tag, i) => <a key={i}><small>{tag}</small></a>)}
-              </p>
-            )} */}
 
             {post.frontmatter.featuredImage && (
               <motion.div
-                // layoutId={layoutId}
                 layoutId={isSharedAnimation ? layoutId : undefined}
                 {...(!isSharedAnimation ? animationProps : {})}
-                // onLayoutAnimationComplete={() => setLayoutAnimationComplete(true)}
-                // {...layoutAnimationProps}
                 key={`header-img-${post.frontmatter.title}`}
-                // {...animationProps}
-                
-                // {...{...animationProps, initial: {}}}
-                // initial={isLayoutAnimationComplete || isFromHomeList ? animationProps.initial : {}}
                 css={css`
                   margin: 0 -${Constants.padding / 2}px;
                 `}
@@ -116,7 +97,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
           <motion.hr
             key={`content-hr-${post.frontmatter.title}`}
-            {...animationProps} 
+            {...animationProps}
             css={css`
               margin-top: 10rem;
             `}
@@ -175,7 +156,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 node={previous}
                 ctaText={"Older →"}
                 isShort
-                // css={css`flex: 1 1 50%;`}
               />
             )}
           </div>

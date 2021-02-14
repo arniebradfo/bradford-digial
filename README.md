@@ -1,12 +1,15 @@
 # bradford-digital
 A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-17c5e4.netlify.app/).
 
+## Netlify LFS
+Run `npm run netlify-lfs-media` to compile media object. This is necessary to bridge netlify LFS with GatsbyImage.
 
 # Links
 - [Gatsby](https://www.gatsbyjs.org/)
 - [Gatsby on GH Pages](https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/)
 - [Netlify Large Media](https://docs.netlify.com/large-media/overview/)
 - [React Flip Animations](https://github.com/aholachek/react-flip-toolkit)
+
 
 ---
 
@@ -15,9 +18,10 @@ A portfolio blog site run on Gatsby and [hosted by netlify](https://goofy-kirch-
 - cleanup 
   - emotion jsx
   - remove less 
-  - remove unused code
-  - refactor
   - upgrade packages
+  - remove unused code
+  - - - 
+  - refactor
 - pagination?
 - deploy
 

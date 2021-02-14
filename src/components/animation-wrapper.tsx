@@ -5,7 +5,7 @@ import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import { usePopPush } from "../hooks/usePopPush"
 
 
-const Layout = ({ children, location }) => {
+export const AnimationWrapper = ({ children, location }) => {
 
   // console.log(location, location.state.prevLocation);
   // const from = location?.state?.from
@@ -25,4 +25,3 @@ const Layout = ({ children, location }) => {
     </AnimateSharedLayout>
     
 )}
-export default Layout

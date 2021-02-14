@@ -3,9 +3,25 @@ import { css } from "@emotion/react";
 export const rootCss = css`
 
 :root {
-  --font-family-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir,
-    helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  --font-family-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+  --font-family-sans: 
+    -apple-system, 
+    BlinkMacSystemFont, 
+    avenir next, 
+    avenir,
+    helvetica neue, 
+    helvetica, 
+    Ubuntu, 
+    roboto, 
+    noto, 
+    segoe ui, 
+    arial, 
+    sans-serif;
+  --font-family-mono: 
+    Menlo, 
+    Consolas, 
+    Monaco, 
+    Liberation Mono, 
+    Lucida Console,
     monospace;
 }
 
@@ -30,17 +46,9 @@ body,
 // }
 
 body {
-  // overflow: hidden;
-  // margin: 0 auto;
-  // @padding: 32px;
-  // max-width: 800 + @padding;
-  // padding: @padding;
-
   color: #555;
-
   font-family: sans-serif;
   font-family: var(--font-family-sans, sans-serif);
-
   letter-spacing: 0.05ch;
 }
 
@@ -89,4 +97,5 @@ a {
     }
   }
 }
+
 `;

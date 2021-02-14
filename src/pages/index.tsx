@@ -1,30 +1,23 @@
 /* @jsx jsx */
 import { css, jsx } from "@emotion/react"
 import React from "react"
-import { Link, graphql } from "gatsby"
-import SEO from "../components/seo"
-import GatsbyImage from "gatsby-image"
-import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
-import Constants from "../constants"
+import { graphql } from "gatsby"
+import { SEO } from "../components/seo"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 import { ContentWrapper } from "../components/content-wrapper"
-import Bio from "../components/bio"
+import { Bio }  from "../components/bio"
 import { Post } from "../components/post"
 import { Links } from "../components/links"
 import { ScrollContainer } from "../components/scroll-container"
-import { useNavigate, useLocation, globalHistory } from '@reach/router'
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { animationProps } from "../style/animations"
 
 const BlogIndex = ({ data, location }) => {
-  // const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
-  // const from = location?.state?.from
 
   return (
     <ScrollContainer scrollKey={'index-page-scroll'} css={css`z-index:1;`}>
-      {/* <AnimatePresence exitBeforeEnter> */}
       <ContentWrapper>
 
         <Header
@@ -38,7 +31,7 @@ const BlogIndex = ({ data, location }) => {
 
         <motion.div
           key={`mini-header`}
-          {...animationProps} 
+          {...animationProps}
           css={css`
             display: flex;
             justify-content: space-between;
@@ -70,9 +63,8 @@ const BlogIndex = ({ data, location }) => {
         <hr />
 
         <Footer />
-        
-        </ContentWrapper>
-      {/* </AnimatePresence> */}
+
+      </ContentWrapper>
     </ScrollContainer>
   )
 }

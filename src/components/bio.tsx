@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { Links } from "./links"
 
-const Bio = () => {
+export const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       site {
@@ -36,5 +36,3 @@ const Bio = () => {
     </div>
   )
 }
-
-export default Bio

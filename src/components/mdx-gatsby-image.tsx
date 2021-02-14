@@ -4,7 +4,7 @@ import React from "react"
 import GatsbyImage, { FluidObject, GatsbyImageFixedProps, GatsbyImageFluidProps, GatsbyImageProps } from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
-import Constants from "../constants"
+import { Constants } from "../style/constants";
 
 type MdxGatsbyImageFluidProps = GatsbyImageFluidProps & {
   fluidName?: string | number
@@ -18,7 +18,7 @@ type MdxGatsbyImageProps = MdxGatsbyImageFixedProps & MdxGatsbyImageFluidProps /
 // }
 
 // regex replaced: [gallery maxwidth=1200 ids="102,101" class="alignnone" /]
-const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({
+export const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({
   fluidName,
   fixedName,
   // height,
@@ -70,5 +70,3 @@ const MdxGatsbyImage: React.FC<MdxGatsbyImageProps> = ({
     />
   )
 }
-
-export default MdxGatsbyImage

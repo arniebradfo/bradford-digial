@@ -7,7 +7,7 @@ interface MdxVideoProps extends React.DetailedHTMLProps<React.VideoHTMLAttribute
   videoName: string
 }
 
-const MdxVideo: React.FC<MdxVideoProps> = ({ videoName, children, ...props }) => {
+export const MdxVideo: React.FC<MdxVideoProps> = ({ videoName, children, ...props }) => {
 
   const { allVideos } = useStaticQuery(graphql`
     query {
@@ -37,5 +37,3 @@ const MdxVideo: React.FC<MdxVideoProps> = ({ videoName, children, ...props }) =>
     </video>
   )
 }
-
-export default MdxVideo

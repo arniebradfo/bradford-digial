@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/react"
 import React from "react"
 import { PageProps, graphql } from "gatsby"
-import SEO from "../components/seo"
+import { SEO } from "../components/seo"
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFixed, GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
 import { Header } from "../components/header"

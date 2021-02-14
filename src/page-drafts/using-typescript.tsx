@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/react"
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-import SEO from "../components/seo"
+import { SEO } from "../components/seo"
 import { Header } from "../components/header"
 
 type DataProps = {

@@ -12,7 +12,7 @@ interface Props {
   title?: string,
 }
 
-const SEO: React.FunctionComponent<Props> = ({
+export const SEO: React.FunctionComponent<Props> = ({
   description,
   lang,
   meta,
@@ -34,8 +34,12 @@ const SEO: React.FunctionComponent<Props> = ({
 
   const metaDescription = description || site.siteMetadata.description
 
+  // Helmet Doesn't work with Typescript? // https://github.com/nfl/react-helmet/issues/578
+  // we'll just circumvent they typing for(now|ever)
+  const HelmetAlias = Helmet as unknown as React.FunctionComponent<any>
+
   return (
-    <Helmet
+    <HelmetAlias
       htmlAttributes={{
         lang,
       }}
@@ -78,18 +82,3 @@ const SEO: React.FunctionComponent<Props> = ({
     />
   )
 }
-
-// SEO.defaultProps = {
-//   lang: `en`,
-//   meta: [],
-//   description: ``,
-// }
-
-// SEO.propTypes = {
-//   description: PropTypes.string,
-//   lang: PropTypes.string,
-//   meta: PropTypes.arrayOf(PropTypes.object),
-//   title: PropTypes.string.isRequired,
-// }
-
-export default SEO

@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { LinkHistory } from "./link-history";
 import GatsbyImage from "gatsby-image"
 import { GatsbyNetlifyLfsFluid } from "../../scripts/gatsby-image-netlify-lfs"
-import Constants from "../constants"
+import { Constants } from "../style/constants";
 import { motion } from "framer-motion"
 import { animationProps } from "../style/animations";
 import { usePopPush } from "../hooks/usePopPush";
