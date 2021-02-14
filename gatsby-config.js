@@ -46,6 +46,13 @@ module.exports = {
         name: `lfs-media`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/ignore-media`,
+    //     name: `ignore-media`,
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -54,17 +61,10 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/layouts/index.tsx`),
-      },
-    },
     // {
-    //   resolve: `gatsby-source-filesystem`,
+    //   resolve: `gatsby-plugin-layout`,
     //   options: {
-    //     path: `${__dirname}/content/ignore-media`,
-    //     name: `ignore-media`,
+    //     component: require.resolve(`./src/layouts/index.tsx`),
     //   },
     // },
     {
@@ -100,12 +100,12 @@ module.exports = {
     },
     // `gatsby-transformer-sharp`,
     // `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     //trackingId: `ADD YOUR TRACKING ID HERE`,
+    //   },
+    // },
     `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-plugin-manifest`,
