@@ -1,5 +1,6 @@
 module.exports = {
   pathPrefix: "/bradford-digital",
+
   siteMetadata: {
     title: `bradford.digital`,
     description: `UX Design & Frontend Development`,
@@ -24,7 +25,10 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
+
+    // FILESYSTEM RESOURCES //
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,7 +50,7 @@ module.exports = {
         name: `lfs-media`,
       },
     },
-    // {
+    // { // ignore-media is ignored by git lfs in .lfsconfig
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
     //     path: `${__dirname}/content/ignore-media`,
@@ -61,22 +65,15 @@ module.exports = {
         }
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-layout`,
-    //   options: {
-    //     component: require.resolve(`./src/layouts/index.tsx`),
-    //   },
-    // },
-    {
+
+    { // MDX combines MarkDown with JSX //
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           // {
           //   resolve: `gatsby-remark-images`,
-          //   options: {
-          //     maxWidth: 590,
-          //   },
+          //   options: { maxWidth: 590, },
           // },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -98,15 +95,26 @@ module.exports = {
         ],
       },
     },
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
+
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
     //     //trackingId: `ADD YOUR TRACKING ID HERE`,
     //   },
     // },
+
+    // // GATSBY DEFAULT IMAGE PROCESSING //
+    // `gatsby-transformer-sharp`,
+    // `gatsby-plugin-sharp`,
+
     `gatsby-plugin-feed-mdx`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-emotion`,
+
+    // This (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -119,20 +127,6 @@ module.exports = {
         icon: `content/assets/logo/logo-512.png`,
       },
     },
-    `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-less`,
-    //   options: {
-    //     lessOptions: {
-    //       plugins: [require('less-plugin-glob')],
-    //     },
-    //   },
-    // },
-    `gatsby-plugin-emotion`
-
-    // This (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
 
     // Netlify stuff? caching seems to break things?
     // `gatsby-plugin-netlify-cache`,
