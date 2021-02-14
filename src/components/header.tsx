@@ -4,7 +4,6 @@ import React from "react"
 import Logo from '../../content/assets/logo/hexagon.inline.svg';
 import { graphql, useStaticQuery } from "gatsby"
 import { LinkHistory } from "./link-history";
-import '../style/style.less'
 import Constants from "../constants";
 import { animationProps } from "../style/animations";
 import { HTMLMotionProps, motion } from "framer-motion";

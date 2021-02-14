@@ -120,14 +120,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-less`,
-      options: {
-        lessOptions: {
-          plugins: [require('less-plugin-glob')],
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-less`,
+    //   options: {
+    //     lessOptions: {
+    //       plugins: [require('less-plugin-glob')],
+    //     },
+    //   },
+    // },
     `gatsby-plugin-emotion`
 
     // This (optional) plugin enables Progressive Web App + Offline functionality

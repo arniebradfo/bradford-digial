@@ -1,6 +1,6 @@
-@import (less) "../../node_modules/sanitize.css/sanitize.css";
+import { css } from "@emotion/react";
 
-@import "./*.less";
+export const rootCss = css`
 
 :root {
   --font-family-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir,
@@ -89,3 +89,4 @@ a {
     }
   }
 }
+`;
