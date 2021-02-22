@@ -1,7 +1,7 @@
 /* @jsx jsx */
 import { css, Global, jsx } from "@emotion/react"
 import React from "react"
-import { GlobalProvider } from "../hooks/usePopPush"
+import { GlobalProvider } from "../hooks/global-context"
 import { imageCss } from "../style/images"
 import { rootCss } from "../style/style"
 import { AnimationWrapper } from "./animation-wrapper"

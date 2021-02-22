@@ -15,7 +15,7 @@ import { motion } from "framer-motion"
 import { ScrollContainer } from "../components/scroll-container"
 import { ContentWrapper } from "../components/content-wrapper"
 import { animationProps } from "../style/animations"
-import { usePopPush } from "../hooks/usePopPush"
+import { usePopPush } from "../hooks/global-context"
 import { graphql } from "gatsby"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -30,12 +30,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   // console.log(location?.state);
   
   // initial load of this page is WRONG
-  console.log(
-    `isPush: ${isPush}\n`,
-    `layoutId: ${layoutId}\n`,
-    `isFromHomeList: ${isFromHomeList}\n`,
-    `isSharedAnimation: ${isSharedAnimation}\n`,
-  );
+  // console.log(
+  //   `isPush: ${isPush}\n`,
+  //   `layoutId: ${layoutId}\n`,
+  //   `isFromHomeList: ${isFromHomeList}\n`,
+  //   `isSharedAnimation: ${isSharedAnimation}\n`,
+  // );
 
 
   return (

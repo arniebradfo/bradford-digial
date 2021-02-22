@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/react"
 import React, { Fragment } from "react"
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
-import { usePopPush } from "../hooks/usePopPush"
+import { usePopPush } from "../hooks/global-context"
 
 export const AnimationWrapper = ({ children }) => {
 
