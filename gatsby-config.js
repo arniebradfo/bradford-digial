@@ -66,6 +66,9 @@ module.exports = {
       }
     },
 
+    // Wrap the root element // ./src/layouts/index.tsx
+    `gatsby-plugin-layout`,
+
     { // MDX combines MarkDown with JSX //
       resolve: `gatsby-plugin-mdx`,
       options: {

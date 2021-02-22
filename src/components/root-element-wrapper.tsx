@@ -12,17 +12,20 @@ interface Props extends React.ComponentProps<'div'> {
 }
 
 export const RootElementWrapper: React.FunctionComponent<Props> = ({
+    children,
     element,
     isSSR = false,
     ...props
 }) => {
-    // if isSSR set a global state?
+    children = children || element;
     return (
         <GlobalProvider isSSR={isSSR}>
             <AnimationWrapper>
                 <Global styles={[rootCss, imageCss]} />
-                {element}
+                {children}
             </AnimationWrapper>
         </GlobalProvider>
     )
 }
+
+export default RootElementWrapper
