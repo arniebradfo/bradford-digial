@@ -22,6 +22,8 @@ Run `npm run netlify-lfs-media` to compile media object. This is necessary to br
   - remove unused code
   - - - 
   - refactor
+    - isSSR context
+    - popPush context
 - pagination?
 - deploy
 

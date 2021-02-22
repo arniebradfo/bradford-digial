@@ -3,13 +3,13 @@ import { css, jsx } from "@emotion/react"
 import React from "react"
 import { useScrollRestoration } from "gatsby"
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface Props extends React.ComponentPropsWithRef<'div'> {
   scrollKey?: string
 }
 
 export const ScrollContainer: React.FunctionComponent<Props> = ({
   scrollKey,
-  children,
+  // children,
   ...props
 }) => {
   const scrollRestoration = useScrollRestoration(scrollKey)
@@ -25,8 +25,6 @@ export const ScrollContainer: React.FunctionComponent<Props> = ({
       `}
       {...props}
       {...scrollRestorationProps}
-    >
-      {children}
-    </div>
+    />
   )
 }

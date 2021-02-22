@@ -23,9 +23,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   const { previous, next } = pageContext
   const isFromHomeList = location?.state?.from === 'home-list'
-  const isPush = usePopPush() === 'PUSH'
+  const isPush = usePopPush().action === 'PUSH'
   const layoutId = location?.state?.layoutId
   const isSharedAnimation = (isPush && isFromHomeList && layoutId != null)
+
+  // console.log(location?.state);
+  
+  // initial load of this page is WRONG
+  console.log(
+    `isPush: ${isPush}\n`,
+    `layoutId: ${layoutId}\n`,
+    `isFromHomeList: ${isFromHomeList}\n`,
+    `isSharedAnimation: ${isSharedAnimation}\n`,
+  );
 
 
   return (
@@ -68,9 +78,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
             {post.frontmatter.featuredImage && (
               <motion.div
-                layoutId={isSharedAnimation ? layoutId : undefined}
-                {...(!isSharedAnimation ? animationProps : {})}
                 key={`header-img-${post.frontmatter.title}`}
+                // {...animationProps} 
+                // layoutId={layoutId}
+                {...(!isSharedAnimation ? animationProps : {})}
+                layoutId={isSharedAnimation ? layoutId : undefined}
+                // onLayoutAnimationComplete={() => { console.log('onLayoutAnimationComplete')}}
                 css={css`
                   margin: 0 -${Constants.padding / 2}px;
                 `}

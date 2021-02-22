@@ -27,19 +27,19 @@ export const Post: React.FunctionComponent<Props> = ({
   ...props
 }) => {
   const title = node.frontmatter.title || node.fields.slug
-  const [isAnimationComplete, setAnimationComplete] = useState<boolean>(false);
+  // const [isAnimationComplete, setAnimationComplete] = useState<boolean>(false);
   // const slug = node.fields.slug
   // const location = useLocation();
   // const wasClicked = location.pathname === slug;
   // const shouldAnimate = isAnimationComplete && !wasClicked
   // console.log(location.pathname === slug);
-  
+
 
   const uniqueID = Date.now() // TODO: better, this will be cached?
   const layoutId = title + uniqueID
   const linkProps = {
     to: node.fields.slug,
-    from: 'home-list',
+    from: isShort ? 'short-list' : 'home-list',
     state: {
       layoutId: layoutId
     }
@@ -50,13 +50,13 @@ export const Post: React.FunctionComponent<Props> = ({
       <header>
         {node.frontmatter.featuredImage && (
           <motion.div
-            layoutId={layoutId}
-            // layoutId={(isAnimationComplete ? layoutId : undefined)}
-            // onAnimationComplete={() => setAnimationComplete(true)}
             key={`post-img-${title}`}
+            layoutId={layoutId}
             {...animationProps}
-            // {...(!wasClicked ? animationProps : {})}
-            // exit={{}}
+          // layoutId={(isAnimationComplete ? layoutId : undefined)}
+          // onAnimationComplete={() => setAnimationComplete(true)}
+          // {...(!wasClicked ? animationProps : {})}
+          // exit={{}}
           >
             <LinkHistory {...linkProps}>
               <GatsbyImage
