@@ -23,7 +23,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   const { previous, next } = pageContext
   const isFromHomeList = location?.state?.from === 'home-list'
-  const isPush = usePopPush().action === 'PUSH'
+  const isPush = usePopPush() === 'PUSH'
   const layoutId = location?.state?.layoutId
   const isSharedAnimation = (isPush && isFromHomeList && layoutId != null)
 

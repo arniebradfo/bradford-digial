@@ -9,7 +9,7 @@ export const AnimationWrapper = ({ children }) => {
   // console.log(location, location.state.prevLocation);
   // const from = location?.state?.from
   // console.log('from:', from);
-  // const popPush = usePopPush().action
+  // const popPush = usePopPush()
   // console.log(popPush);
 
   return (

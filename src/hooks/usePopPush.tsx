@@ -2,15 +2,21 @@ import { globalHistory, HistoryActionType } from "@reach/router"
 import { createContext, memo, useContext, useEffect, useState } from "react";
 
 interface ContextProps {
-    action: HistoryActionType
+    action: HistoryActionType,
+    isSSR: boolean,
 }
 const defaultValue: ContextProps = {
-    action: 'POP'
+    action: 'POP',
+    isSSR: false,
 }
 
-const PopPushContext = createContext(defaultValue);
+const GlobalContext = createContext(defaultValue);
 
-const _PopPushProvider: React.FC<React.PropsWithChildren<{}>> = (props) => {
+interface ProviderProps {
+    isSSR?: boolean
+}
+
+const _GlobalProvider: React.FC<React.PropsWithChildren<ProviderProps>> = ({ isSSR=false, ...props }) => {
 
     // https://stackoverflow.com/a/57941367/5648839
     const [action, setAction] = useState<HistoryActionType>(defaultValue.action)
@@ -21,18 +27,27 @@ const _PopPushProvider: React.FC<React.PropsWithChildren<{}>> = (props) => {
     }, [])
 
     const value = {
-        action
+        action,
+        isSSR
     }
 
-    return <PopPushContext.Provider {...{ value, ...props }} />
+    return <GlobalContext.Provider {...{ value, ...props }} />
 }
-export const PopPushProvider = memo(_PopPushProvider);
+export const GlobalProvider = memo(_GlobalProvider);
 
-export const usePopPush = () => {
-    const context = useContext(PopPushContext);
+export const useGlobalContext = () => {
+    const context = useContext(GlobalContext);
     if (!context) {
         throw new Error('usePopPush must be used within a PopPushProvider');
     }
     return context;
 };
+
+export const usePopPush = () => { 
+    return useGlobalContext().action
+}
+
+export const useIsSSR = () => {
+    return useGlobalContext().isSSR
+}
 

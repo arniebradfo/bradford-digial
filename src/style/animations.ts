@@ -3,16 +3,16 @@ import { AnimationControls, Target, TargetAndTransition, Transition, VariantLabe
 export const animationProps: {
     initial?: boolean | Target | VariantLabels,
     animate?: AnimationControls | TargetAndTransition | VariantLabels | boolean,
-    // exit?: TargetAndTransition | VariantLabels,
-    // transition: Transition,
+    exit?: TargetAndTransition | VariantLabels,
+    transition?: Transition,
 } = {
-    initial: { opacity: 0, y: 30 },
+    initial: { opacity: 0, y: 30, },
     animate: { opacity: 1, y: 0 },
     // exit: { opacity: 0, y: 30 },
-    // transition: {
+    transition: {
         // ease: [0,1,0,1],
         // ease: [0,0,0.3,1],
-        // ease: 'easeOut',
-        // duration: 0.3,
-    // }
+        ease: 'easeOut',
+        duration: 0.3,
+    }
 }

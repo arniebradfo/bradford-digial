@@ -1,7 +1,7 @@
 /* @jsx jsx */
 import { css, Global, jsx } from "@emotion/react"
 import React from "react"
-import { PopPushProvider } from "../hooks/usePopPush"
+import { GlobalProvider } from "../hooks/usePopPush"
 import { imageCss } from "../style/images"
 import { rootCss } from "../style/style"
 import { AnimationWrapper } from "./animation-wrapper"
@@ -18,11 +18,11 @@ export const RootElementWrapper: React.FunctionComponent<Props> = ({
 }) => {
     // if isSSR set a global state?
     return (
-        <PopPushProvider>
+        <GlobalProvider isSSR={isSSR}>
             <AnimationWrapper>
                 <Global styles={[rootCss, imageCss]} />
                 {element}
             </AnimationWrapper>
-        </PopPushProvider>
+        </GlobalProvider>
     )
 }
