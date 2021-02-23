@@ -3,20 +3,17 @@ import { createContext, memo, useContext, useEffect, useState } from "react";
 
 interface ContextProps {
     action: HistoryActionType,
-    isSSR: boolean,
+    // add more stuff?
 }
 const defaultValue: ContextProps = {
     action: 'POP',
-    isSSR: false,
 }
 
 const GlobalContext = createContext(defaultValue);
 
-interface ProviderProps {
-    isSSR?: boolean
-}
+interface ProviderProps {}
 
-const _GlobalProvider: React.FC<React.PropsWithChildren<ProviderProps>> = ({ isSSR=false, ...props }) => {
+const _GlobalProvider: React.FC<React.PropsWithChildren<ProviderProps>> = ({ ...props }) => {
 
     // https://stackoverflow.com/a/57941367/5648839
     const [action, setAction] = useState<HistoryActionType>(defaultValue.action)
@@ -27,8 +24,7 @@ const _GlobalProvider: React.FC<React.PropsWithChildren<ProviderProps>> = ({ isS
     }, [])
 
     const value = {
-        action,
-        isSSR
+        action
     }
 
     return <GlobalContext.Provider {...{ value, ...props }} />
@@ -46,8 +42,3 @@ export const useGlobalContext = () => {
 export const usePopPush = () => { 
     return useGlobalContext().action
 }
-
-export const useIsSSR = () => {
-    return useGlobalContext().isSSR
-}
-
