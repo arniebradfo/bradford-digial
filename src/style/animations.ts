@@ -13,6 +13,6 @@ export const animationProps: {
         // ease: [0,1,0,1],
         // ease: [0,0,0.3,1],
         ease: 'easeOut',
-        duration: 0.3,
+        // duration: 0.3,
     }
 }

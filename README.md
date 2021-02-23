@@ -25,6 +25,7 @@ Run `npm run netlify-lfs-media` to compile media object. This is necessary to br
     - popPush context
     - try `gatsby-plugin-layout` again to remove errors?
   - - - 
+    - remove isSSR
 - pagination?
 - deploy
 
@@ -67,6 +68,7 @@ Run `npm run netlify-lfs-media` to compile media object. This is necessary to br
 - gifs don't retain after being passed through the api
 - images with lfs
   - gifs?
+  - gatsby-image-netlify-lfs doesn't rehydrate correctly? YES IT DOES! Fucking Gastby devs: https://github.com/gatsbyjs/gatsby/discussions/27950#discussioncomment-129499 - spent soo long trying to fix this "error"
   - videos are absent after netlify build...
   - make a `gatsby-plugin-netlify-lfs` plugin
     - how do plugins work? https://www.gatsbyjs.com/docs/creating-plugins/
@@ -97,7 +99,9 @@ Run `npm run netlify-lfs-media` to compile media object. This is necessary to br
     - logo & favicon
 - setup Netlify
 - use Git LFS for media - setup with netlify
+- 
 - images with lfs
+  - gatsby-image-netlify-lfs doesn't rehydrate correctly? YES IT DOES! Fucking Gastby devs: https://github.com/gatsbyjs/gatsby/discussions/27950#discussioncomment-129499 - spent soo long trying to fix this "error"
   - videos are absent after netlify build...
   - gifs don't retain after being passed through the api
   - netlify gatsby build doesn't have access to image data: https://github.com/gatsbyjs/gatsby/issues/12438#issuecomment-474113335

@@ -1,6 +1,10 @@
 module.exports = {
   pathPrefix: "/bradford-digital",
 
+  flags: {
+    DEV_SSR: false, // https://stackoverflow.com/a/65980746/5648839
+  },
+
   siteMetadata: {
     title: `bradford.digital`,
     description: `UX Design & Frontend Development`,

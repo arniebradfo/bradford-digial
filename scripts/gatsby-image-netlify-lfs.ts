@@ -123,7 +123,7 @@ function GatsbyNetlifyLfsFluid(options: IFluidOptions): FluidObject {
         return `${src}${nf_resize(breakpointWidth, breakpointHeight, resize)} ${breakpointWidth}w`
     })
     srcSets.push(`${src} ${imgDimensions.width}w`) // TODO: this doesn't make sense for constrained/cropped images
-    const srcSet = srcSets.join(`,\n`)
+    const srcSet = srcSets.join(',\n')
 
     return {
         aspectRatio: aspectRatio,
@@ -201,7 +201,7 @@ function GatsbyNetlifyLfsFixed(options: IFixedOptions): FixedObject {
     let srcSets = resolutions.map(resolution => {
         return `${src}${nf_resize(width * resolution, height * resolution, resize)} ${resolution}x`
     })
-    const srcSet = srcSets.join(`,\n`)
+    const srcSet = srcSets.join(',\n')
 
     return {
         width: width || Math.round(height * aspectRatio),
